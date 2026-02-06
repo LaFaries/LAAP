@@ -15,9 +15,7 @@
       --gold-deep:#c89222;
       --ink:#0a0e1a;
     }
-
     *{box-sizing:border-box}
-
     body{
       margin:0;
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
@@ -25,7 +23,6 @@
       color:var(--ink);
       min-height:100vh;
     }
-
     header{
       padding:18px 24px;
       display:flex;
@@ -35,7 +32,6 @@
       background:rgba(255,250,240,.85);
       backdrop-filter:blur(8px);
     }
-
     .brand{
       display:flex;
       align-items:center;
@@ -43,7 +39,6 @@
       font-weight:900;
       color:var(--midnight);
     }
-
     .brandMark{
       width:40px;height:40px;
       border-radius:12px;
@@ -51,19 +46,16 @@
       display:flex;align-items:center;justify-content:center;
       font-weight:900;
     }
-
     .wrap{
       max-width:1100px;
       margin:0 auto;
       padding:32px 20px 60px;
     }
-
     h1{
       font-size:34px;
       margin:0 0 10px;
       color:var(--midnight);
     }
-
     .lead{
       max-width:720px;
       font-size:15px;
@@ -71,17 +63,14 @@
       color:rgba(11,16,32,.75);
       margin-bottom:28px;
     }
-
     .tierGrid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
       gap:18px;
     }
-
     @media (max-width:900px){
       .tierGrid{grid-template-columns:1fr;}
     }
-
     .tierCard{
       background:#fff;
       border-radius:20px;
@@ -92,40 +81,33 @@
       flex-direction:column;
       justify-content:space-between;
     }
-
     .tierCard.recommended{
       background:linear-gradient(180deg,#111,#0b1020);
       color:#fff;
       border:1px solid rgba(246,196,83,.25);
     }
-
     .tierCard h3{
       margin:0 0 6px;
       font-size:18px;
     }
-
     .tierDesc{
       font-size:13.5px;
       line-height:1.5;
       margin-bottom:14px;
       color:rgba(11,16,32,.75);
     }
-
     .tierCard.recommended .tierDesc{
       color:rgba(255,255,255,.75);
     }
-
     ul{
       list-style:none;
       padding:0;
       margin:0 0 18px;
     }
-
     li{
       font-size:13px;
       margin-bottom:8px;
     }
-
     .btn{
       border:none;
       border-radius:999px;
@@ -136,12 +118,10 @@
       color:var(--midnight);
       width:100%;
     }
-
     .btn.secondary{
       background:#eee;
       color:var(--midnight);
     }
-
     footer{
       margin-top:40px;
       padding-top:20px;
@@ -153,7 +133,6 @@
       font-size:12px;
       color:rgba(11,16,32,.65);
     }
-
     footer a{
       text-decoration:none;
       font-weight:800;
@@ -178,7 +157,7 @@
   <h1>Welcome to LAAP</h1>
   <p class="lead">
     Choose your access level below.  
-    Everyone enters the LAAP Console first.  
+    Everyone goes to the LAAP Console next.  
     The Builder is only launched from inside the Console.
   </p>
 
@@ -234,9 +213,10 @@
 </footer>
 
 <script>
-  /* ========= ROUTING (CORRECTED) ========= */
+  /* ========= ROUTING (FINAL FIX) ========= */
 
-  const CONSOLE_URL = "/console/"; // ✅ ALWAYS go here next
+  // ABSOLUTE URL to the LIVE console site
+  const CONSOLE_URL = "https://laap-console.netlify.app/";
   const KEY_TIER = "laap_tier";
 
   const tierLabel = document.getElementById("tierLabel");
@@ -245,7 +225,6 @@
     localStorage.setItem(KEY_TIER, tier);
     tierLabel.textContent =
       tier === "full" ? "Full LAAP" : (tier === "setup" ? "Setup" : "Free");
-    // EVERYONE goes to Console next
     window.location.href = CONSOLE_URL;
   }
 
@@ -255,7 +234,6 @@
     });
   });
 
-  // init
   const savedTier = localStorage.getItem(KEY_TIER) || "free";
   tierLabel.textContent =
     savedTier === "full" ? "Full LAAP" : (savedTier === "setup" ? "Setup" : "Free");
