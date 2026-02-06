@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LAAP Intake | LaFaries Mortimer LLC</title>
+
+  <meta name="description" content="LAAP Intake – Begin your structured business or organization setup." />
+
+  <style>
+    /* =====================================================
+       LAAP INTAKE – Cream · Midnight · Metallic Gold
+       ===================================================== */
+
+    :root{
+      --cream:#fffaf0;
+      --cream-soft:#f6ecd8;
+
+      --midnight:#0b1020;
+      --midnight-soft:#121a33;
+
+      --gold:#f6c453;
+      --gold-deep:#c89222;
+      --gold-glow:rgba(246,196,83,.35);
+
+      --ink:#0a0e1a;
+
+      --radius-xl:22px;
+      --radius-lg:16px;
+      --radius-md:12px;
+
+      --shadow-soft:0 20px 60px rgba(0,0,0,.18);
+      --shadow-gold:0 18px 40px rgba(246,196,83,.25);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(800px 420px at 15% 10%, rgba(246,196,83,.18), transparent 60%),
+        linear-gradient(180deg, var(--cream), var(--cream-soft));
+      min-height:100vh;
+    }
+
+    .wrap{
+      max-width:980px;
+      margin:0 auto;
+      padding:40px 18px 80px;
+    }
+
+    /* Brand */
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      margin-bottom:28px;
+    }
+    .logo{
+      width:54px;
+      height:54px;
+      border-radius:16px;
+      background:
+        radial-gradient(circle at 25% 10%, #fff0c9, transparent 60%),
+        linear-gradient(135deg, var(--gold), var(--gold-deep));
+      box-shadow:
+        0 0 0 1px rgba(200,146,34,.45),
+        var(--shadow-gold);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:900;
+      letter-spacing:.08em;
+      color:var(--midnight);
+    }
+    .brandText{
+      line-height:1.2;
+    }
+    .brandText small{
+      display:block;
+      font-weight:700;
+      letter-spacing:.12em;
+      color:rgba(11,16,32,.55);
+      text-transform:uppercase;
+    }
+    .brandText strong{
+      font-size:18px;
+      font-weight:900;
+      color:var(--midnight);
+    }
+
+    /* Card */
+    .card{
+      background:
+        radial-gradient(700px 420px at 20% 0%, rgba(246,196,83,.18), transparent 55%),
+        linear-gradient(180deg, #ffffff, #fbf2df);
+      border-radius:var(--radius-xl);
+      border:1px solid rgba(11,16,32,.12);
+      box-shadow:var(--shadow-soft);
+      padding:28px 26px 30px;
+    }
+
+    h1{
+      margin:0 0 10px;
+      font-size:34px;
+      font-weight:900;
+      letter-spacing:-.02em;
+      color:var(--midnight);
+    }
+    .sub{
+      margin:0 0 22px;
+      color:rgba(11,16,32,.72);
+      max-width:60ch;
+      line-height:1.55;
+      font-size:14.5px;
+    }
+
+    /* Form */
+    form{
+      display:grid;
+      gap:18px;
+    }
+
+    .row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+    @media(max-width:720px){
+      .row{grid-template-columns:1fr}
+    }
+
+    label{
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:rgba(11,16,32,.65);
+    }
+
+    input, select{
+      width:100%;
+      padding:14px 14px;
+      border-radius:var(--radius-md);
+      border:1px solid rgba(11,16,32,.16);
+      font-size:14px;
+      background:#fff;
+      margin-top:6px;
+    }
+
+    input:focus, select:focus{
+      outline:none;
+      border-color:var(--gold);
+      box-shadow:0 0 0 4px var(--gold-glow);
+    }
+
+    /* Footer actions */
+    .actions{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .note{
+      font-size:12px;
+      color:rgba(11,16,32,.6);
+      max-width:50ch;
+    }
+
+    .btn{
+      border:none;
+      border-radius:999px;
+      padding:14px 20px;
+      font-size:13px;
+      font-weight:900;
+      letter-spacing:.04em;
+      cursor:pointer;
+      background:
+        radial-gradient(circle at 20% 0%, #fff0c9, transparent 55%),
+        linear-gradient(135deg, var(--gold), var(--gold-deep));
+      color:var(--midnight);
+      box-shadow:
+        0 18px 42px rgba(0,0,0,.35),
+        var(--shadow-gold);
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    .btn:hover{
+      transform:translateY(-1px);
+      box-shadow:
+        0 22px 50px rgba(0,0,0,.42),
+        0 18px 46px rgba(246,196,83,.32);
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <div class="brand">
+      <div class="logo">LM</div>
+      <div class="brandText">
+        <small>LaFaries Mortimer LLC</small>
+        <strong>LAAP Intake</strong>
+      </div>
+    </div>
+
+    <section class="card">
+      <h1>Let’s set up your LAAP profile.</h1>
+      <p class="sub">
+        This intake creates your foundation inside the LAAP Console and unlocks the correct next steps.
+        You can update details later.
+      </p>
+
+      <form id="laapIntake">
+        <div class="row">
+          <div>
+            <label>Organization / Business Name</label>
+            <input required id="orgName" placeholder="LaFaries Mortimer LLC" />
+          </div>
+          <div>
+            <label>Your Role</label>
+            <input id="role" placeholder="Owner / Director / Pastor" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label>Organization Type</label>
+            <select id="orgType">
+              <option>Business</option>
+              <option>Ministry / Church</option>
+              <option>Nonprofit</option>
+              <option>Individual / Consultant</option>
+            </select>
+          </div>
+          <div>
+            <label>Email</label>
+            <input type="email" id="email" placeholder="you@email.com" />
+          </div>
+        </div>
+
+        <div class="actions">
+          <div class="note">
+            Your information is stored locally for this demo flow and used to personalize your LAAP Console.
+          </div>
+          <button class="btn" type="submit">
+            Continue to LAAP Console →
+          </button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    /* ==========================================
+       LAAP Intake Logic
+       ========================================== */
+
+    const form = document.getElementById("laapIntake");
+
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+
+      const profile = {
+        name: document.getElementById("orgName").value.trim(),
+        role: document.getElementById("role").value.trim(),
+        type: document.getElementById("orgType").value,
+        email: document.getElementById("email").value.trim()
+      };
+
+      localStorage.setItem("laap_profile", profile.name);
+      localStorage.setItem("laap_profile_full", JSON.stringify(profile));
+
+      // Default tier on intake
+      if (!localStorage.getItem("laap_tier")) {
+        localStorage.setItem("laap_tier", "free");
+      }
+
+      // Redirect to Console Welcome
+      window.location.href = "https://laap-console.netlify.app/";
+    });
+  </script>
+</body>
+</html>
