@@ -1,144 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LAAP Console Welcome | LaFaries Mortimer LLC</title>
-  <meta name="description" content="Welcome to your LAAP Console. Choose a tier and continue into the Console." />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LAAP Console | LaFaries Mortimer LLC</title>
 
-  <style>
-    :root{
-      --cream:#fffaf0;
-      --cream-soft:#f6ecd8;
-      --midnight:#0b1020;
-      --gold:#f6c453;
-      --gold-deep:#c89222;
-      --ink:#0a0e1a;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:linear-gradient(180deg,var(--cream),var(--cream-soft));
-      color:var(--ink);
-      min-height:100vh;
-    }
-    header{
-      padding:18px 24px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      border-bottom:1px solid rgba(11,16,32,.12);
-      background:rgba(255,250,240,.85);
-      backdrop-filter:blur(8px);
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      font-weight:900;
-      color:var(--midnight);
-    }
-    .brandMark{
-      width:40px;height:40px;
-      border-radius:12px;
-      background:linear-gradient(135deg,var(--gold),var(--gold-deep));
-      display:flex;align-items:center;justify-content:center;
-      font-weight:900;
-    }
-    .wrap{
-      max-width:1100px;
-      margin:0 auto;
-      padding:32px 20px 60px;
-    }
-    h1{
-      font-size:34px;
-      margin:0 0 10px;
-      color:var(--midnight);
-    }
-    .lead{
-      max-width:720px;
-      font-size:15px;
-      line-height:1.6;
-      color:rgba(11,16,32,.75);
-      margin-bottom:28px;
-    }
-    .tierGrid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-    }
-    @media (max-width:900px){
-      .tierGrid{grid-template-columns:1fr;}
-    }
-    .tierCard{
-      background:#fff;
-      border-radius:20px;
-      padding:22px;
-      box-shadow:0 18px 50px rgba(0,0,0,.12);
-      border:1px solid rgba(11,16,32,.12);
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-    }
-    .tierCard.recommended{
-      background:linear-gradient(180deg,#111,#0b1020);
-      color:#fff;
-      border:1px solid rgba(246,196,83,.25);
-    }
-    .tierCard h3{
-      margin:0 0 6px;
-      font-size:18px;
-    }
-    .tierDesc{
-      font-size:13.5px;
-      line-height:1.5;
-      margin-bottom:14px;
-      color:rgba(11,16,32,.75);
-    }
-    .tierCard.recommended .tierDesc{
-      color:rgba(255,255,255,.75);
-    }
-    ul{
-      list-style:none;
-      padding:0;
-      margin:0 0 18px;
-    }
-    li{
-      font-size:13px;
-      margin-bottom:8px;
-    }
-    .btn{
-      border:none;
-      border-radius:999px;
-      padding:12px 16px;
-      font-weight:800;
-      cursor:pointer;
-      background:linear-gradient(135deg,var(--gold),var(--gold-deep));
-      color:var(--midnight);
-      width:100%;
-    }
-    .btn.secondary{
-      background:#eee;
-      color:var(--midnight);
-    }
-    footer{
-      margin-top:40px;
-      padding-top:20px;
-      border-top:1px solid rgba(11,16,32,.12);
-      display:flex;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:12px;
-      font-size:12px;
-      color:rgba(11,16,32,.65);
-    }
-    footer a{
-      text-decoration:none;
-      font-weight:800;
-      color:rgba(11,16,32,.85);
-    }
-  </style>
+<style>
+:root{
+  --cream:#fffaf0;
+  --cream-soft:#f6ecd8;
+  --midnight:#0b1020;
+  --gold:#f6c453;
+  --gold-deep:#c89222;
+  --ink:#0a0e1a;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:linear-gradient(180deg,var(--cream),var(--cream-soft));
+  color:var(--ink);
+  min-height:100vh;
+}
+
+header{
+  padding:18px 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid rgba(11,16,32,.12);
+  background:rgba(255,250,240,.9);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:900;
+}
+
+.brandMark{
+  width:42px;height:42px;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--gold),var(--gold-deep));
+  display:flex;align-items:center;justify-content:center;
+}
+
+.wrap{
+  max-width:1100px;
+  margin:0 auto;
+  padding:36px 20px 80px;
+}
+
+.notice{
+  background:#fff;
+  border:1px solid rgba(11,16,32,.15);
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:26px;
+  font-size:14px;
+}
+
+.notice strong{color:var(--midnight)}
+
+.card{
+  background:#fff;
+  border-radius:20px;
+  padding:28px;
+  box-shadow:0 18px 50px rgba(0,0,0,.15);
+}
+
+.actions{
+  margin-top:24px;
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  border:none;
+  border-radius:999px;
+  padding:14px 20px;
+  font-weight:900;
+  cursor:pointer;
+  background:linear-gradient(135deg,var(--gold),var(--gold-deep));
+  color:var(--midnight);
+}
+
+.btn.secondary{
+  background:#eee;
+}
+
+.btn:disabled{
+  opacity:.4;
+  cursor:not-allowed;
+}
+
+/* ===== MODAL ===== */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(11,16,32,.55);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+
+.modalBox{
+  background:#fff;
+  max-width:420px;
+  width:92%;
+  border-radius:20px;
+  padding:26px;
+  text-align:center;
+  box-shadow:0 30px 80px rgba(0,0,0,.35);
+}
+
+.modalBox h3{
+  margin-top:0;
+  color:var(--midnight);
+}
+
+.modalBox p{
+  font-size:14px;
+  color:rgba(11,16,32,.75);
+}
+
+.modalActions{
+  margin-top:22px;
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+</style>
 </head>
 
 <body>
@@ -148,97 +147,103 @@
     <div class="brandMark">LM</div>
     <div>LAAP Console</div>
   </div>
-  <div>
-    Tier: <strong id="tierLabel">Free</strong>
-  </div>
+  <div>Tier: <strong id="tierLabel">Free</strong></div>
 </header>
 
 <main class="wrap">
-  <h1>Welcome to LAAP</h1>
-  <p class="lead">
-    Choose your access level below.  
-    Everyone goes to the LAAP Console next.  
-    The Builder is only launched from inside the Console.
-  </p>
 
-  <section class="tierGrid">
+  <div id="tierNotice" class="notice"></div>
 
-    <article class="tierCard">
-      <div>
-        <h3>Free</h3>
-        <p class="tierDesc">Explore the Console and understand the LAAP flow.</p>
-        <ul>
-          <li>✓ Console access</li>
-          <li>✓ Overview + next steps</li>
-          <li>✕ Builder locked</li>
-        </ul>
-      </div>
-      <button class="btn secondary" data-pick="free">Select Free</button>
-    </article>
+  <div class="card">
+    <h2>Console Dashboard</h2>
+    <p>
+      This is your command center. Review your progress, manage access,
+      and launch advanced tools when available.
+    </p>
 
-    <article class="tierCard recommended">
-      <div>
-        <h3>Setup (Recommended)</h3>
-        <p class="tierDesc">Complete your guided setup and unlock the Builder.</p>
-        <ul>
-          <li>✓ Console access</li>
-          <li>✓ Builder access</li>
-          <li>✓ Export draft blueprint</li>
-        </ul>
-      </div>
-      <button class="btn" data-pick="setup">Select Setup</button>
-    </article>
+    <div class="actions">
+      <button id="launchBuilder" class="btn">
+        Launch LAAP Builder
+      </button>
+      <a href="https://lafariesmortimerllc.com" class="btn secondary" target="_blank">
+        Visit Main Website
+      </a>
+    </div>
+  </div>
 
-    <article class="tierCard">
-      <div>
-        <h3>Full LAAP</h3>
-        <p class="tierDesc">Full operational control with automation modules.</p>
-        <ul>
-          <li>✓ Everything in Setup</li>
-          <li>✓ Templates & compliance</li>
-          <li>✓ Priority support</li>
-        </ul>
-      </div>
-      <button class="btn" data-pick="full">Select Full LAAP</button>
-    </article>
-
-  </section>
 </main>
 
-<footer class="wrap">
-  <div>© <span id="year"></span> LaFaries Mortimer LLC · LAAP Suite</div>
-  <div>
-    <a href="https://lafariesmortimerllc.com" target="_blank">Main Website</a>
+<!-- ===== PAYMENT MODAL ===== -->
+<div id="payModal" class="modal">
+  <div class="modalBox">
+    <h3>Builder Access Required</h3>
+    <p>
+      The LAAP Builder is a <strong>paid feature</strong> available with
+      the <strong>Setup</strong> or <strong>Full LAAP</strong> tier.
+    </p>
+    <p>
+      Once payment is completed, you will be able to launch the Builder
+      and export your configuration.
+    </p>
+
+    <div class="modalActions">
+      <button class="btn" id="proceedPayment">
+        Continue to Setup
+      </button>
+      <button class="btn secondary" id="closeModal">
+        Not Now
+      </button>
+    </div>
   </div>
-</footer>
+</div>
 
 <script>
-  /* ========= ROUTING (FINAL FIX) ========= */
+/* ===== CONFIG ===== */
+const KEY_TIER = "laap_tier";
+const BUILDER_URL = "https://scintillating-fairy-cd927a.netlify.app/wizard/";
+const PAYMENT_URL = "https://lafariesmortimerllc.com"; // placeholder for Stripe later
 
-  // ABSOLUTE URL to the LIVE console site
-  const CONSOLE_URL = "https://laap-console.netlify.app/";
-  const KEY_TIER = "laap_tier";
+const tier = localStorage.getItem(KEY_TIER) || "free";
 
-  const tierLabel = document.getElementById("tierLabel");
+const tierLabel = document.getElementById("tierLabel");
+const tierNotice = document.getElementById("tierNotice");
+const launchBtn = document.getElementById("launchBuilder");
 
-  function setTier(tier){
-    localStorage.setItem(KEY_TIER, tier);
-    tierLabel.textContent =
-      tier === "full" ? "Full LAAP" : (tier === "setup" ? "Setup" : "Free");
-    window.location.href = CONSOLE_URL;
-  }
+const modal = document.getElementById("payModal");
+const closeModal = document.getElementById("closeModal");
+const proceedPayment = document.getElementById("proceedPayment");
 
-  document.querySelectorAll("[data-pick]").forEach(btn=>{
-    btn.addEventListener("click",()=>{
-      setTier(btn.getAttribute("data-pick"));
-    });
-  });
+/* ===== TIER DISPLAY ===== */
+tierLabel.textContent =
+  tier === "full" ? "Full LAAP" :
+  tier === "setup" ? "Setup" : "Free";
 
-  const savedTier = localStorage.getItem(KEY_TIER) || "free";
-  tierLabel.textContent =
-    savedTier === "full" ? "Full LAAP" : (savedTier === "setup" ? "Setup" : "Free");
+/* ===== LOGIC ===== */
+if(tier === "free"){
+  tierNotice.innerHTML =
+    "<strong>Free Tier:</strong> You may explore the Console. Builder access requires a paid tier.";
+  launchBtn.onclick = () => modal.style.display = "flex";
+}
 
-  document.getElementById("year").textContent = new Date().getFullYear();
+if(tier === "setup"){
+  tierNotice.innerHTML =
+    "<strong>Setup Tier:</strong> Builder access is available after payment confirmation.";
+  launchBtn.onclick = () => modal.style.display = "flex";
+}
+
+if(tier === "full"){
+  tierNotice.innerHTML =
+    "<strong>Full LAAP Active:</strong> All modules unlocked. You may proceed to the Builder.";
+  launchBtn.onclick = () => window.location.href = BUILDER_URL;
+}
+
+/* ===== MODAL ===== */
+closeModal.onclick = () => modal.style.display = "none";
+proceedPayment.onclick = () => window.location.href = PAYMENT_URL;
+
+window.onclick = e => {
+  if(e.target === modal) modal.style.display = "none";
+};
 </script>
 
 </body>
