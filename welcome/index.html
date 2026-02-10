@@ -5,162 +5,329 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Welcome to LAAP | LaFaries Mortimer LLC</title>
 
-  <meta name="description" content="Welcome to LAAP. Choose your tier and continue into your Console or Builder." />
+  <meta name="description" content="Welcome to the LaFaries Administrative Automation Platform — a guided, people-first way to handle business administration with clarity and support." />
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --cream:#fffaf0;
-      --cream-soft:#f6ecd8;
-      --midnight:#0b1020;
-      --gold:#f6c453;
-      --gold-deep:#c89222;
-      --ink:#0a0e1a;
-      --radius-xl:22px;
-      --shadow-soft:0 18px 50px rgba(0,0,0,.18);
-      --shadow-gold:0 16px 40px rgba(246,196,83,.25);
+      --charcoal:#0f1115;
+      --charcoal-deep:#141720;
+      --gold:#d9b65c;
+      --gold-soft:#f7ebba;
+      --ivory:#f8f6f1;
+      --ink:#1d1d1d;
+
+      --heading:"Cormorant Garamond", serif;
+      --body:"Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+      --radius-xl:28px;
+      --shadow-deep:0 40px 120px rgba(0,0,0,.55);
+      --shadow-soft:0 22px 70px rgba(0,0,0,.25);
+      --shadow-gold:0 0 30px rgba(218,184,92,.45);
     }
 
     *{box-sizing:border-box}
+
     body{
       margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:
-        radial-gradient(900px 420px at 10% 0%, rgba(246,196,83,.18), transparent 55%),
-        linear-gradient(180deg, var(--cream), var(--cream-soft));
+      font-family:var(--body);
+      background:linear-gradient(180deg,var(--ivory),#ffffff);
       color:var(--ink);
-      min-height:100vh;
     }
 
-    .wrap{
-      max-width:1000px;
-      margin:0 auto;
-      padding:60px 20px 80px;
-      text-align:center;
+    /* HEADER */
+    header{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(15,17,21,.95);
+      backdrop-filter:blur(10px);
     }
 
-    .logo{
-      width:72px;
-      height:72px;
-      margin:0 auto 18px;
-      border-radius:20px;
-      background:
-        radial-gradient(circle at 25% 10%, #fff0c9, transparent 60%),
-        linear-gradient(135deg, var(--gold), var(--gold-deep));
+    .nav{
+      max-width:1180px;
+      margin:auto;
+      padding:14px 20px;
+      display:grid;
+      grid-template-columns:auto 1fr auto;
+      align-items:center;
+      gap:16px;
+    }
+
+    .brand{
       display:flex;
       align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color:#fff;
+      font-family:var(--heading);
+      font-weight:600;
+    }
+
+    .brand img{
+      width:44px;
+      height:44px;
+      border-radius:50%;
+      padding:3px;
+      background:radial-gradient(circle at top left,#fff,#d8c27a 40%,#b89b4a 70%);
+      box-shadow:0 0 0 2px rgba(218,184,92,.6),0 8px 22px rgba(218,184,92,.55);
+    }
+
+    nav{
+      display:flex;
       justify-content:center;
-      font-weight:900;
-      letter-spacing:.08em;
-      color:var(--midnight);
+      gap:14px;
+    }
+
+    nav a{
+      color:rgba(255,255,255,.85);
+      font-size:14px;
+      text-decoration:none;
+      padding:8px 14px;
+      border-radius:999px;
+    }
+
+    nav a:hover{
+      background:rgba(255,255,255,.08);
       box-shadow:var(--shadow-gold);
     }
 
-    h1{
-      font-size:36px;
-      margin:0 0 12px;
-      font-weight:900;
-      color:var(--midnight);
-    }
-
-    .sub{
-      font-size:15px;
-      color:rgba(11,16,32,.75);
-      max-width:60ch;
-      margin:0 auto 36px;
-      line-height:1.55;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:22px;
-    }
-
-    .card{
+    /* HERO */
+    .hero{
       background:
-        radial-gradient(600px 320px at 15% 0%, rgba(246,196,83,.18), transparent 55%),
-        linear-gradient(180deg,#ffffff,#fbf2df);
+        radial-gradient(900px 420px at 50% -10%, rgba(218,184,92,.45), transparent 55%),
+        linear-gradient(180deg,var(--charcoal),var(--charcoal-deep));
+      color:#fff;
+      padding:120px 20px 110px;
+      text-align:center;
+      box-shadow:var(--shadow-deep);
+    }
+
+    .hero h1{
+      font-family:var(--heading);
+      font-size:56px;
+      margin:0 0 22px;
+      text-shadow:
+        0 0 18px rgba(218,184,92,.45),
+        0 12px 40px rgba(0,0,0,.65);
+    }
+
+    .hero p{
+      max-width:72ch;
+      margin:auto;
+      font-size:18px;
+      color:rgba(255,255,255,.85);
+      line-height:1.6;
+    }
+
+    main{
+      max-width:1100px;
+      margin:auto;
+      padding:100px 20px;
+    }
+
+    .panel{
+      background:#fff;
       border-radius:var(--radius-xl);
-      border:1px solid rgba(11,16,32,.12);
+      padding:42px;
       box-shadow:var(--shadow-soft);
-      padding:26px;
+      margin-bottom:70px;
+    }
+
+    .panel h2{
+      font-family:var(--heading);
+      font-size:28px;
+      margin-top:0;
+    }
+
+    .panel p{
+      font-size:16px;
+      line-height:1.65;
+      color:#333;
+    }
+
+    /* STEPS */
+    .steps{
+      margin:80px 0;
+      text-align:center;
+    }
+
+    .steps h2{
+      font-family:var(--heading);
+      font-size:30px;
+      margin-bottom:8px;
+    }
+
+    .steps-intro{
+      font-size:15px;
+      color:#555;
+      margin-bottom:6px;
+    }
+
+    .steps-instruction{
+      font-size:14px;
+      color:#777;
+      margin-bottom:36px;
+      font-style:italic;
+    }
+
+    .steps-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:28px;
+    }
+
+    .step{
+      background:#fff;
+      border-radius:22px;
+      padding:30px 24px;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .step-num{
+      width:44px;
+      height:44px;
+      margin:0 auto 14px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--gold-soft),var(--gold));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      font-family:var(--heading);
+      box-shadow:var(--shadow-gold);
+    }
+
+    /* TIERS */
+    .tiers{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:32px;
+      margin-top:90px;
+    }
+
+    .tier{
+      background:#fff;
+      border-radius:var(--radius-xl);
+      padding:36px;
+      box-shadow:var(--shadow-soft);
       text-align:left;
     }
 
-    .card h2{
-      margin:0 0 6px;
-      font-size:18px;
-      font-weight:900;
-      color:var(--midnight);
+    .tier h3{
+      font-family:var(--heading);
+      margin-top:0;
+      font-size:24px;
     }
 
-    .card p{
-      font-size:14px;
-      color:rgba(11,16,32,.75);
-      line-height:1.5;
-      margin:0 0 14px;
+    .tier p{
+      color:#555;
+      line-height:1.6;
     }
 
-    .btn{
-      display:inline-block;
-      border:none;
+    .tier button{
+      margin-top:18px;
+      padding:14px 26px;
       border-radius:999px;
-      padding:12px 22px;
-      font-size:13px;
-      font-weight:900;
-      letter-spacing:.04em;
+      border:none;
+      background:linear-gradient(135deg,var(--gold-soft),var(--gold));
+      font-weight:600;
       cursor:pointer;
-      background:
-        radial-gradient(circle at 20% 0%, #fff0c9, transparent 55%),
-        linear-gradient(135deg, var(--gold), var(--gold-deep));
-      color:var(--midnight);
       box-shadow:var(--shadow-gold);
     }
   </style>
 </head>
 
 <body>
-  <main class="wrap">
-    <div class="logo">LM</div>
 
-    <h1>Welcome to LAAP</h1>
-    <p class="sub">
-      LAAP is your guided administrative and operational system.
-      Choose how you want to begin, then continue into your Console or Builder.
+<header>
+  <div class="nav">
+    <a href="/index.html" class="brand">
+      <img src="/assets/img/logo-2026.png" alt="LaFaries Mortimer LLC logo">
+      LaFaries Mortimer LLC
+    </a>
+
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/laap.html">LAAP</a>
+      <a href="/apps.html">Apps</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+
+    <a class="cta" href="/contact.html">Need Help?</a>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Welcome — you’re in the right place.</h1>
+  <p>
+    The <strong>LaFaries Administrative Automation Platform (LAAP)</strong> was built to guide you
+    through the administrative side of business with clarity, patience, and real support.
+    If this is your first time, you’re not behind — you’re exactly where you should be.
+  </p>
+</section>
+
+<main>
+
+  <section class="panel">
+    <h2>What LAAP does for you</h2>
+    <p>
+      LAAP helps with paperwork, filings, deadlines, and compliance — the parts of business that
+      often feel confusing or overwhelming. Think of LAAP as your digital office manager.
+    </p>
+    <p>
+      You don’t need technical experience. You can pause at any time and ask for help whenever you need it.
+    </p>
+  </section>
+
+  <section class="steps">
+    <h2>Your path is simple</h2>
+    <p class="steps-intro">Here’s what LAAP will guide you through:</p>
+    <p class="steps-instruction">
+      These steps are just an overview. To get started, choose an option below.
     </p>
 
-    <section class="grid">
-      <div class="card">
-        <h2>Free Preview</h2>
-        <p>
-          Access the Console, review your profile, and understand the LAAP workflow.
-        </p>
-        <button class="btn" onclick="setTier('free')">Continue Free</button>
-      </div>
+    <div class="steps-grid">
+      <div class="step"><div class="step-num">1</div>Tell us about your business</div>
+      <div class="step"><div class="step-num">2</div>Review your Console</div>
+      <div class="step"><div class="step-num">3</div>Complete setup with guidance</div>
+      <div class="step"><div class="step-num">4</div>Stay organized and supported</div>
+    </div>
+  </section>
 
-      <div class="card">
-        <h2>Setup Tier</h2>
-        <p>
-          Unlock the Builder to complete your guided setup and export your draft.
-        </p>
-        <button class="btn" onclick="setTier('setup')">Start Setup</button>
-      </div>
+  <section class="tiers">
+    <div class="tier">
+      <h3>Free Preview</h3>
+      <p>Explore the Console and see how LAAP works — no pressure.</p>
+      <button onclick="setTier('free')">Click here to get started</button>
+    </div>
 
-      <div class="card">
-        <h2>Full LAAP</h2>
-        <p>
-          Full access: Builder, templates, compliance tracking, and automation.
-        </p>
-        <button class="btn" onclick="setTier('full')">Go Full LAAP</button>
-      </div>
-    </section>
-  </main>
+    <div class="tier">
+      <h3>Guided Setup</h3>
+      <p>Step-by-step assistance organizing your information.</p>
+      <button onclick="setTier('setup')">Start guided setup</button>
+    </div>
 
-  <script>
-    function setTier(tier){
-      localStorage.setItem("laap_tier", tier);
-      window.location.href = "/console/";
-    }
-  </script>
+    <div class="tier">
+      <h3>Full LAAP</h3>
+      <p>Complete automation, tracking, and long-term support.</p>
+      <button onclick="setTier('full')">Enter Full LAAP</button>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  function setTier(tier){
+    localStorage.setItem("laap_tier", tier);
+    window.location.href = "/console/";
+  }
+</script>
+
 </body>
 </html>
