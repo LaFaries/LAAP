@@ -61,12 +61,13 @@ margin-bottom:14px;
 
 .options{
 display:grid;
-grid-template-columns:repeat(2,minmax(0,1fr));
+grid-template-columns:repeat(2,1fr);
 gap:42px;
 margin:60px auto 0;
+
 width:100%;
-max-width:700px;
-justify-content:center;  
+max-width:600px;   /* 👈 THIS is the real fix */
+justify-content:center;
 }
 
 .card{
