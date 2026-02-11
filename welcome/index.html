@@ -323,10 +323,15 @@
 </main>
 
 <script>
-  function setTier(tier){
-    localStorage.setItem("laap_tier", tier);
-    window.location.href = "/console/";
-  }
+function setTier(tier){
+
+  // save tier selection
+  localStorage.setItem("laap_tier", tier);
+
+  // ALWAYS go to intake first
+  window.location.href = "/intake/";
+
+}
 </script>
 
 </body>
