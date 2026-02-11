@@ -223,7 +223,7 @@ Not ready yet? You can safely return to your Console anytime.
 </p>
 
 <button class="btn secondary" id="returnConsole">
-Return to Console
+Return to Homepage
 </button>
 
 </section>
@@ -231,31 +231,29 @@ Return to Console
 
 <script>
 
-// ⭐ CHECK IF USER RETURNED FROM PRICING
+// Glow effect when returning
 const completedUser = localStorage.getItem("laapReturnPath");
 
 if(completedUser){
-    const unlockCard = document.querySelector(".card.primary");
-    if(unlockCard){
-        unlockCard.classList.add("approval-glow");
-    }
-
-    // Clear flag so it doesn't trigger again
-    localStorage.removeItem("laapReturnPath");
+const unlockCard = document.querySelector(".card.primary");
+if(unlockCard){
+unlockCard.classList.add("approval-glow");
+}
+localStorage.removeItem("laapReturnPath");
 }
 
-// ⭐ SUBSCRIBE BUTTON
+// Subscribe button
 document.getElementById("goSubscribe").onclick = ()=>{
-    localStorage.setItem("laapReturnPath",window.location.href);
-    window.location.href="https://lafariesmortimerllc.com/pricing/";
+localStorage.setItem("laapReturnPath",window.location.href);
+window.location.href="https://lafariesmortimerllc.com/pricing/";
 };
 
-// ⭐ RETURN TO CONSOLE BUTTON
+// RETURN TO HOMEPAGE (FIXED)
 document.getElementById("returnConsole").onclick = ()=>{
-    document.body.classList.add("fade-out");
-    setTimeout(()=>{
-        window.location.href="https://laaplm.netlify.app/";
-    },300);
+document.body.classList.add("fade-out");
+setTimeout(()=>{
+window.location.href="https://lafariesmortimerllc.com";
+},300);
 };
 
 </script>
