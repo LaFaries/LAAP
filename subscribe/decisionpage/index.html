@@ -147,6 +147,12 @@ cursor:pointer;
 background:linear-gradient(135deg,var(--gold),var(--gold-deep));
 color:#070b18;
 text-decoration:none;
+transition:.25s ease;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+box-shadow:0 8px 25px rgba(246,196,83,.35);
 }
 
 .btn.secondary{
@@ -167,7 +173,7 @@ opacity:.65;
 <header>
 <div class="nav">
 <a href="https://lafariesmortimerllc.com" class="brand">
-<img src="/assets/img/logo-2026.png">
+<img src="/assets/img/logo-2026.png" alt="LaFaries Mortimer LLC">
 LaFaries Mortimer LLC
 </a>
 </div>
@@ -225,30 +231,31 @@ Return to Console
 
 <script>
 
-// ⭐ APPROVAL GLOW + AUTO REDIRECT
+// ⭐ CHECK IF USER RETURNED FROM PRICING
 const completedUser = localStorage.getItem("laapReturnPath");
 
 if(completedUser){
-const unlockCard = document.querySelector(".card.primary");
-if(unlockCard){ unlockCard.classList.add("approval-glow"); }
+    const unlockCard = document.querySelector(".card.primary");
+    if(unlockCard){
+        unlockCard.classList.add("approval-glow");
+    }
 
-setTimeout(()=>{
-document.body.classList.add("fade-out");
-setTimeout(()=>{
-window.location.replace("https://laaplm.netlify.app/");
-},350);
-},700);
+    // Clear flag so it doesn't trigger again
+    localStorage.removeItem("laapReturnPath");
 }
 
 // ⭐ SUBSCRIBE BUTTON
 document.getElementById("goSubscribe").onclick = ()=>{
-localStorage.setItem("laapReturnPath",window.location.href);
-window.location.href="https://lafariesmortimerllc.com/pricing/";
+    localStorage.setItem("laapReturnPath",window.location.href);
+    window.location.href="https://lafariesmortimerllc.com/pricing/";
 };
 
-// ⭐ RETURN TO CONSOLE BUTTON (FIXED)
+// ⭐ RETURN TO CONSOLE BUTTON
 document.getElementById("returnConsole").onclick = ()=>{
-window.location.href="https://laaplm.netlify.app/";
+    document.body.classList.add("fade-out");
+    setTimeout(()=>{
+        window.location.href="https://laaplm.netlify.app/";
+    },300);
 };
 
 </script>
