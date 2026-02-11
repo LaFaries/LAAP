@@ -6,11 +6,28 @@
 <title>LAAP Access Options | LaFaries Mortimer LLC</title>
 
 <style>
+
+:root{
+--midnight:#070b18;
+--charcoal:#0f152d;
+--cream:#f3efe6;
+--gold:#f6c453;
+--gold-deep:#c89222;
+--ink:#ffffff;
+--heading:"Cormorant Garamond",serif;
+--body:"Inter",sans-serif;
+}
+
+*{box-sizing:border-box}
+
 body{
 margin:0;
-font-family:Arial;
-background:#070b18;
-color:#fff;
+font-family:var(--body);
+color:var(--ink);
+min-height:100vh;
+background:
+radial-gradient(circle at 50% -20%, rgba(246,196,83,.18), transparent 55%),
+linear-gradient(180deg,#070b18,#0f152d 65%, #0b1020);
 display:flex;
 flex-direction:column;
 }
@@ -19,29 +36,49 @@ flex-direction:column;
 max-width:860px;
 margin:auto;
 padding:90px 24px;
+width:100%;
 }
 
 .panel{
-background:#111733;
+background:linear-gradient(180deg,rgba(15,21,45,.85),rgba(11,16,32,.95));
 border-radius:26px;
 padding:70px 56px;
+border:1px solid rgba(246,196,83,.25);
 text-align:center;
-overflow:hidden;
-overflow:hidden;
+box-shadow:
+0 0 120px rgba(246,196,83,.12),
+0 60px 160px rgba(0,0,0,.85);
+}
+
+h1{
+font-family:var(--heading);
+font-size:46px;
+margin-bottom:14px;
 }
 
 .options{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+grid-template-columns:repeat(2,1fr);
 gap:42px;
 margin:60px auto 0;
 width:100%;
 }
 
 .card{
-background:#070b18;
+background:rgba(7,11,24,.7);
 border-radius:22px;
 padding:34px;
+border:1px solid rgba(246,196,83,.2);
+text-align:left;
+transition:.35s ease;
+}
+
+.card.primary{
+transform:scale(1.06);
+border:1px solid rgba(246,196,83,.45);
+box-shadow:
+0 0 60px rgba(246,196,83,.22),
+0 30px 90px rgba(0,0,0,.7);
 }
 
 .btn{
@@ -52,7 +89,7 @@ border-radius:999px;
 padding:16px 32px;
 font-weight:700;
 cursor:pointer;
-background:gold;
+background:linear-gradient(135deg,var(--gold),var(--gold-deep));
 color:#070b18;
 }
 
