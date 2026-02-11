@@ -6,6 +6,7 @@
 <title>LAAP Access Options | LaFaries Mortimer LLC</title>
 
 <style>
+
 :root{
 --midnight:#070b18;
 --charcoal:#0f152d;
@@ -57,10 +58,11 @@ margin-bottom:14px;
 
 .options{
 display:grid;
-grid-template-columns:repeat(2,1fr);
+grid-template-columns:repeat(2,minmax(0,1fr));
 gap:42px;
 margin:60px auto 0;
 width:100%;
+max-width:700px;
 }
 
 .card{
@@ -74,10 +76,12 @@ transition:.35s ease;
 color:#fff;
 text-decoration:none;
 cursor:pointer;
+width:100%;
+min-width:0;
 }
 
 .card.primary{
-transform:scale(1.06);
+transform:none;
 border:1px solid rgba(246,196,83,.45);
 box-shadow:
 0 0 60px rgba(246,196,83,.22),
@@ -95,6 +99,13 @@ cursor:pointer;
 background:linear-gradient(135deg,var(--gold),var(--gold-deep));
 color:#070b18;
 }
+
+@media(max-width:768px){
+.options{
+grid-template-columns:1fr;
+}
+}
+
 </style>
 </head>
 
