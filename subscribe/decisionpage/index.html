@@ -5,135 +5,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LAAP Access Options | LaFaries Mortimer LLC</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
 <style>
-:root{
---midnight:#070b18;
---charcoal:#0f152d;
---cream:#f3efe6;
---gold:#f6c453;
---gold-deep:#c89222;
---ink:#ffffff;
---heading:"Cormorant Garamond",serif;
---body:"Inter",sans-serif;
-}
-
-*{box-sizing:border-box}
-
 body{
 margin:0;
-font-family:var(--body);
-color:var(--ink);
-min-height:100vh;
-background:
-radial-gradient(circle at 50% -20%, rgba(246,196,83,.18), transparent 55%),
-linear-gradient(180deg,#070b18,#0f152d 65%, #0b1020);
+font-family:Arial;
+background:#070b18;
+color:#fff;
 display:flex;
 flex-direction:column;
-transition:opacity .35s ease, transform .35s ease;
-}
-
-body.fade-out{
-opacity:0;
-transform:scale(.98);
-}
-
-header{
-background:rgba(7,11,24,.85);
-border-bottom:1px solid rgba(246,196,83,.25);
-}
-
-.nav{
-max-width:1200px;
-margin:auto;
-padding:18px 24px;
-display:flex;
-align-items:center;
-}
-
-.brand{
-display:flex;
-align-items:center;
-gap:14px;
-text-decoration:none;
-color:#fff;
-font-weight:600;
-}
-
-.brand img{
-width:46px;
-height:46px;
-border-radius:50%;
 }
 
 .wrap{
 max-width:860px;
 margin:auto;
 padding:90px 24px;
-flex:1;
 }
 
 .panel{
-background:linear-gradient(180deg,rgba(15,21,45,.85),rgba(11,16,32,.95));
+background:#111733;
 border-radius:26px;
 padding:70px 56px;
-border:1px solid rgba(246,196,83,.25);
 text-align:center;
-box-shadow:
-0 0 120px rgba(246,196,83,.12),
-0 60px 160px rgba(0,0,0,.85);
-}
-
-h1{
-font-family:var(--heading);
-font-size:46px;
-margin-bottom:14px;
-}
-
-.sub{
-max-width:620px;
-margin:auto;
-opacity:.85;
-line-height:1.7;
+overflow:hidden;
 }
 
 .options{
 display:grid;
-grid-template-columns:repeat(2,1fr);
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:42px;
 margin:60px auto 0;
+max-width:100%;
+overflow:hidden;
 }
 
 .card{
-background:rgba(7,11,24,.7);
+background:#070b18;
 border-radius:22px;
 padding:34px;
-border:1px solid rgba(246,196,83,.2);
-text-align:left;
-transition:.35s ease;
-}
-
-.card.primary{
-transform:scale(1.06);
-border:1px solid rgba(246,196,83,.45);
-box-shadow:
-0 0 60px rgba(246,196,83,.22),
-0 30px 90px rgba(0,0,0,.7);
-}
-
-.card.approval-glow{
-box-shadow:
-0 0 25px rgba(246,196,83,.45),
-0 0 70px rgba(246,196,83,.35),
-0 0 120px rgba(246,196,83,.25);
-transform:scale(1.08);
-}
-
-.card h3{
-font-family:var(--heading);
-font-size:28px;
-margin-top:0;
 }
 
 .btn{
@@ -144,40 +52,14 @@ border-radius:999px;
 padding:16px 32px;
 font-weight:700;
 cursor:pointer;
-background:linear-gradient(135deg,var(--gold),var(--gold-deep));
-color:#070b18;
-text-decoration:none;
-transition:.25s ease;
-}
-
-.btn:hover{
-transform:translateY(-2px);
-box-shadow:0 8px 25px rgba(246,196,83,.35);
-}
-
-.btn.secondary{
-background:var(--cream);
+background:gold;
 color:#070b18;
 }
 
-.footer-note{
-margin-top:42px;
-font-size:14px;
-opacity:.65;
-}
 </style>
 </head>
 
 <body>
-
-<header>
-<div class="nav">
-<a href="https://lafariesmortimerllc.com" class="brand">
-<img src="/assets/img/logo-2026.png" alt="LaFaries Mortimer LLC">
-LaFaries Mortimer LLC
-</a>
-</div>
-</header>
 
 <main class="wrap">
 
@@ -185,78 +67,32 @@ LaFaries Mortimer LLC
 
 <h1>You’re Almost There</h1>
 
-<p class="sub">
+<p>
 You’ve completed your LAAP setup steps.
 Choose how you would like to activate your Builder access.
 </p>
 
 <div class="options">
 
-<div class="card primary">
+<div class="card">
 <h3>Unlock LAAP Builder</h3>
-<p>
-Activate your subscription to unlock automation, templates,
-and full LAAP platform access.
-</p>
-<button class="btn" id="goSubscribe">
-View Subscription Options
-</button>
+<p>Activate your subscription to unlock automation and templates.</p>
 </div>
 
 <div class="card">
 <h3>Speak to a Representative</h3>
-<p>
-Prefer a guided walkthrough first?
-A LAAP specialist can assist you before activation.
-</p>
-<a class="btn secondary"
-href="https://lafariesmortimerllc.com/contact"
-target="_blank">
-Request a Call
-</a>
+<p>A LAAP specialist can assist you before activation.</p>
 </div>
 
 </div>
 
-<p class="footer-note">
-Not ready yet? You can safely return to your Console anytime.
-</p>
-
-<button class="btn secondary" id="returnConsole">
+<button class="btn"
+onclick="window.location.href='https://lafariesmortimerllc.com'">
 Return to Homepage
 </button>
 
 </section>
 </main>
-
-<script>
-
-// Glow effect when returning
-const completedUser = localStorage.getItem("laapReturnPath");
-
-if(completedUser){
-const unlockCard = document.querySelector(".card.primary");
-if(unlockCard){
-unlockCard.classList.add("approval-glow");
-}
-localStorage.removeItem("laapReturnPath");
-}
-
-// Subscribe button
-document.getElementById("goSubscribe").onclick = ()=>{
-localStorage.setItem("laapReturnPath",window.location.href);
-window.location.href="https://lafariesmortimerllc.com/pricing/";
-};
-
-// RETURN TO HOMEPAGE (FIXED)
-document.getElementById("returnConsole").onclick = ()=>{
-document.body.classList.add("fade-out");
-setTimeout(()=>{
-window.location.href="https://lafariesmortimerllc.com";
-},300);
-};
-
-</script>
 
 </body>
 </html>
