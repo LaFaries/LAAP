@@ -10,7 +10,6 @@
 :root{
 --midnight:#070b18;
 --charcoal:#0f152d;
---cream:#f3efe6;
 --gold:#f6c453;
 --gold-deep:#c89222;
 --ink:#ffffff;
@@ -28,17 +27,16 @@ min-height:100vh;
 background:
 radial-gradient(circle at 50% -20%, rgba(246,196,83,.18), transparent 55%),
 linear-gradient(180deg,#070b18,#0f152d 65%, #0b1020);
+
 display:flex;
-align-self:center;
+justify-content:center;   /* ⭐ CENTER ENTIRE PAGE */
+align-items:flex-start;
 }
 
 .wrap{
-max-width:860px;
-margin:0 auto;   /* 👈 important */
-padding:90px 24px;
 width:100%;
-display:flex;
-justify-content:center;
+max-width:860px;
+padding:90px 24px;
 }
 
 .panel{
@@ -50,6 +48,7 @@ text-align:center;
 box-shadow:
 0 0 120px rgba(246,196,83,.12),
 0 60px 160px rgba(0,0,0,.85);
+
 display:flex;
 flex-direction:column;
 align-items:center;
@@ -61,15 +60,16 @@ font-size:46px;
 margin-bottom:14px;
 }
 
+/* ⭐ REAL GRID FIX */
 .options{
 display:grid;
-grid-template-columns:repeat(2,1fr);
+grid-template-columns:repeat(2, minmax(0,1fr));
 gap:42px;
-margin:60px auto 0;
-
+margin-top:60px;
 width:100%;
-max-width:600px;   /* 👈 THIS is the real fix */
-justify-content:center;
+max-width:520px;   /* ⭐ HARD CENTER WIDTH */
+margin-left:auto;
+margin-right:auto;
 }
 
 .card{
@@ -84,11 +84,14 @@ color:#fff;
 text-decoration:none;
 cursor:pointer;
 width:100%;
-min-width:0;
+}
+
+.card:hover{
+transform:translateY(-4px);
+border-color:rgba(246,196,83,.45);
 }
 
 .card.primary{
-transform:none;
 border:1px solid rgba(246,196,83,.45);
 box-shadow:
 0 0 60px rgba(246,196,83,.22),
@@ -135,15 +138,17 @@ Return to Homepage
 
 <div class="options">
 
+<!-- ⭐ CARD 1 -->
 <a href="/subscribe/" class="card primary">
 <h3>Unlock LAAP Builder</h3>
 <p>Activate your subscription to unlock automation and templates.</p>
 </a>
 
-<div class="card">
+<!-- ⭐ CARD 2 NOW WORKS -->
+<a href="/contact/" class="card">
 <h3>Speak to a Representative</h3>
 <p>A LAAP specialist can assist you before activation.</p>
-</div>
+</a>
 
 </div>
 
