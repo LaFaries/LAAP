@@ -34,16 +34,13 @@ flex-direction:column;
 transition:opacity .35s ease, transform .35s ease;
 }
 
-/* ⭐ Invisible redirect fade */
 body.fade-out{
 opacity:0;
 transform:scale(.98);
 }
 
-/* HEADER */
 header{
 background:rgba(7,11,24,.85);
-backdrop-filter:blur(10px);
 border-bottom:1px solid rgba(246,196,83,.25);
 }
 
@@ -70,7 +67,6 @@ height:46px;
 border-radius:50%;
 }
 
-/* MAIN WRAP */
 .wrap{
 max-width:860px;
 margin:auto;
@@ -78,18 +74,15 @@ padding:90px 24px;
 flex:1;
 }
 
-/* PANEL */
 .panel{
 background:linear-gradient(180deg,rgba(15,21,45,.85),rgba(11,16,32,.95));
 border-radius:26px;
 padding:70px 56px;
 border:1px solid rgba(246,196,83,.25);
 text-align:center;
-backdrop-filter:blur(18px);
 box-shadow:
 0 0 120px rgba(246,196,83,.12),
-0 60px 160px rgba(0,0,0,.85),
-inset 0 0 40px rgba(255,255,255,.03);
+0 60px 160px rgba(0,0,0,.85);
 }
 
 h1{
@@ -105,7 +98,6 @@ opacity:.85;
 line-height:1.7;
 }
 
-/* OPTIONS GRID */
 .options{
 display:grid;
 grid-template-columns:repeat(2,1fr);
@@ -113,7 +105,6 @@ gap:42px;
 margin:60px auto 0;
 }
 
-/* CARDS */
 .card{
 background:rgba(7,11,24,.7);
 border-radius:22px;
@@ -123,18 +114,14 @@ text-align:left;
 transition:.35s ease;
 }
 
-/* PRIMARY CARD */
 .card.primary{
 transform:scale(1.06);
 border:1px solid rgba(246,196,83,.45);
-background:linear-gradient(180deg,rgba(7,11,24,.85),rgba(12,18,40,.95));
 box-shadow:
 0 0 60px rgba(246,196,83,.22),
 0 30px 90px rgba(0,0,0,.7);
-z-index:2;
 }
 
-/* ⭐ Approval glow */
 .card.approval-glow{
 box-shadow:
 0 0 25px rgba(246,196,83,.45),
@@ -149,7 +136,6 @@ font-size:28px;
 margin-top:0;
 }
 
-/* BUTTONS */
 .btn{
 margin-top:24px;
 display:inline-block;
@@ -166,7 +152,6 @@ text-decoration:none;
 .btn.secondary{
 background:var(--cream);
 color:#070b18;
-box-shadow:none;
 }
 
 .footer-note{
@@ -240,44 +225,30 @@ Return to Console
 
 <script>
 
-// ⭐ APPROVAL GLOW + INVISIBLE REDIRECT
+// ⭐ APPROVAL GLOW + AUTO REDIRECT
 const completedUser = localStorage.getItem("laapReturnPath");
 
 if(completedUser){
-
 const unlockCard = document.querySelector(".card.primary");
-
-if(unlockCard){
-unlockCard.classList.add("approval-glow");
-}
+if(unlockCard){ unlockCard.classList.add("approval-glow"); }
 
 setTimeout(()=>{
 document.body.classList.add("fade-out");
-
 setTimeout(()=>{
-window.location.replace("https://laap-console.netlify.app/");
+window.location.replace("https://laaplm.netlify.app/");
 },350);
-
 },700);
 }
 
-// ⭐ FUTURE-PROOF SUBSCRIBE ROUTING
+// ⭐ SUBSCRIBE BUTTON
 document.getElementById("goSubscribe").onclick = ()=>{
-
 localStorage.setItem("laapReturnPath",window.location.href);
-
-const currentHost = window.location.hostname;
-
-if(currentHost.includes("netlify") || currentHost.includes("laap-console")){
 window.location.href="https://lafariesmortimerllc.com/pricing/";
-}else{
-window.location.href="/pricing/";
-}
-
 };
 
+// ⭐ RETURN TO CONSOLE BUTTON (FIXED)
 document.getElementById("returnConsole").onclick = ()=>{
-window.location.href="https://laap-console.netlify.app/";
+window.location.href="https://laaplm.netlify.app/";
 };
 
 </script>
