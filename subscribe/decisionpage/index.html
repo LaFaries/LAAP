@@ -27,10 +27,10 @@ font-family:var(--body);
 color:var(--ink);
 min-height:100vh;
 
-/* ⭐ Midnight Glow Background */
 background:
 radial-gradient(circle at 50% -20%, rgba(246,196,83,.18), transparent 55%),
 linear-gradient(180deg,#070b18,#0f152d 65%, #0b1020);
+
 display:flex;
 flex-direction:column;
 }
@@ -67,22 +67,25 @@ border-radius:50%;
 
 /* MAIN WRAP */
 .wrap{
-max-width:1000px;
+max-width:860px;
 margin:auto;
 padding:90px 24px;
 flex:1;
 }
 
-/* PANEL */
+/* PANEL (HIGH-END GLASS) */
 .panel{
 background:linear-gradient(180deg,rgba(15,21,45,.85),rgba(11,16,32,.95));
 border-radius:26px;
-padding:60px 48px;
+padding:70px 56px;
 border:1px solid rgba(246,196,83,.25);
 text-align:center;
+backdrop-filter:blur(18px);
+
 box-shadow:
-0 0 80px rgba(246,196,83,.08),
-0 40px 120px rgba(0,0,0,.7);
+0 0 120px rgba(246,196,83,.12),
+0 60px 160px rgba(0,0,0,.85),
+inset 0 0 40px rgba(255,255,255,.03);
 }
 
 h1{
@@ -100,35 +103,46 @@ line-height:1.7;
 font-size:16px;
 }
 
-/* OPTIONS GRID */
+/* OPTIONS GRID (SAAS STYLE) */
 .options{
 display:grid;
 grid-template-columns:repeat(2,1fr);
-gap:40px;
-max-width:900px;
-margin:50px auto 0;
+gap:42px;
+margin:60px auto 0;
 }
 
 /* CARDS */
 .card{
 background:rgba(7,11,24,.7);
 border-radius:22px;
-padding:32px;
+padding:34px;
 border:1px solid rgba(246,196,83,.2);
 text-align:left;
-transition:.3s ease;
+transition:.35s ease;
+position:relative;
 }
 
 .card:hover{
-transform:translateY(-4px);
-box-shadow:0 0 35px rgba(246,196,83,.12);
+transform:translateY(-6px);
+box-shadow:0 0 45px rgba(246,196,83,.18);
+}
+
+/* PRIMARY SAAS CARD */
+.card.primary{
+transform:scale(1.06);
+border:1px solid rgba(246,196,83,.45);
+background:linear-gradient(180deg,rgba(7,11,24,.85),rgba(12,18,40,.95));
+box-shadow:
+0 0 60px rgba(246,196,83,.22),
+0 30px 90px rgba(0,0,0,.7);
+z-index:2;
 }
 
 .card h3{
 font-family:var(--heading);
-font-size:26px;
+font-size:28px;
 margin-top:0;
-margin-bottom:12px;
+margin-bottom:14px;
 }
 
 .card p{
@@ -139,11 +153,11 @@ line-height:1.6;
 
 /* BUTTONS */
 .btn{
-margin-top:22px;
+margin-top:24px;
 display:inline-block;
 border:none;
 border-radius:999px;
-padding:15px 28px;
+padding:16px 32px;
 font-weight:700;
 cursor:pointer;
 background:linear-gradient(135deg,var(--gold),var(--gold-deep));
@@ -154,8 +168,8 @@ transition:.25s ease;
 }
 
 .btn:hover{
-transform:translateY(-1px);
-box-shadow:0 0 35px rgba(246,196,83,.45);
+transform:translateY(-2px);
+box-shadow:0 0 45px rgba(246,196,83,.45);
 }
 
 .btn.secondary{
@@ -166,27 +180,9 @@ box-shadow:none;
 
 /* FOOTER NOTE */
 .footer-note{
-margin-top:36px;
+margin-top:42px;
 font-size:14px;
 opacity:.65;
-}/* === DECISION PAGE LAYOUT FIX (FINAL) === */
-
-.decision-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: stretch; /* keeps cards equal height */
-  gap: 40px;
-  flex-wrap: wrap;
-
-  max-width: 1100px;
-  margin: clamp(40px, 6vw, 80px) auto;
-  padding: 0 20px; /* prevents edge sticking on mobile */
-}
-
-.decision-card {
-  flex: 1 1 420px; /* smoother scaling */
-  max-width: 520px;
-  width: 100%;
 }
 </style>
 </head>
@@ -215,13 +211,12 @@ Choose how you would like to activate your Builder access.
 
 <div class="options">
 
-<div class="card">
+<div class="card primary">
 <h3>Unlock LAAP Builder</h3>
 <p>
 Activate your subscription to unlock automation, templates,
 and full LAAP platform access.
 </p>
-
 <button class="btn" id="goSubscribe">
 View Subscription Options
 </button>
@@ -233,7 +228,6 @@ View Subscription Options
 Prefer a guided walkthrough first?  
 A LAAP specialist can assist you before activation.
 </p>
-
 <a class="btn secondary"
 href="https://lafariesmortimerllc.com/contact"
 target="_blank">
@@ -255,11 +249,11 @@ Return to Console
 </main>
 
 <script>
-document.getElementById("goSubscribe").onclick = ()=>{
+document.getElementById("goSubscribe").onclick = ()=> {
 window.location.href="/pricing/";
 };
 
-document.getElementById("returnConsole").onclick = ()=>{
+document.getElementById("returnConsole").onclick = ()=> {
 window.location.href="https://laap-console.netlify.app/";
 };
 </script>
