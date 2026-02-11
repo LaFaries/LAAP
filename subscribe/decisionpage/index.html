@@ -168,6 +168,24 @@ box-shadow:none;
 margin-top:36px;
 font-size:14px;
 opacity:.65;
+}/* === DECISION PAGE LAYOUT FIX (FINAL) === */
+
+.decision-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* keeps cards equal height */
+  gap: 40px;
+  flex-wrap: wrap;
+
+  max-width: 1100px;
+  margin: clamp(40px, 6vw, 80px) auto;
+  padding: 0 20px; /* prevents edge sticking on mobile */
+}
+
+.decision-card {
+  flex: 1 1 420px; /* smoother scaling */
+  max-width: 520px;
+  width: 100%;
 }
 </style>
 </head>
