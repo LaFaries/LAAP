@@ -31,6 +31,13 @@ radial-gradient(circle at 50% -20%, rgba(246,196,83,.18), transparent 55%),
 linear-gradient(180deg,#070b18,#0f152d 65%, #0b1020);
 display:flex;
 flex-direction:column;
+transition:opacity .35s ease, transform .35s ease;
+}
+
+/* ⭐ Invisible redirect fade */
+body.fade-out{
+opacity:0;
+transform:scale(.98);
 }
 
 /* HEADER */
@@ -89,7 +96,6 @@ h1{
 font-family:var(--heading);
 font-size:46px;
 margin-bottom:14px;
-letter-spacing:.4px;
 }
 
 .sub{
@@ -97,7 +103,6 @@ max-width:620px;
 margin:auto;
 opacity:.85;
 line-height:1.7;
-font-size:16px;
 }
 
 /* OPTIONS GRID */
@@ -118,11 +123,6 @@ text-align:left;
 transition:.35s ease;
 }
 
-.card:hover{
-transform:translateY(-6px);
-box-shadow:0 0 45px rgba(246,196,83,.18);
-}
-
 /* PRIMARY CARD */
 .card.primary{
 transform:scale(1.06);
@@ -134,17 +134,19 @@ box-shadow:
 z-index:2;
 }
 
+/* ⭐ Approval glow */
+.card.approval-glow{
+box-shadow:
+0 0 25px rgba(246,196,83,.45),
+0 0 70px rgba(246,196,83,.35),
+0 0 120px rgba(246,196,83,.25);
+transform:scale(1.08);
+}
+
 .card h3{
 font-family:var(--heading);
 font-size:28px;
 margin-top:0;
-margin-bottom:14px;
-}
-
-.card p{
-font-size:15px;
-opacity:.85;
-line-height:1.6;
 }
 
 /* BUTTONS */
@@ -159,13 +161,6 @@ cursor:pointer;
 background:linear-gradient(135deg,var(--gold),var(--gold-deep));
 color:#070b18;
 text-decoration:none;
-box-shadow:0 0 25px rgba(246,196,83,.25);
-transition:.25s ease;
-}
-
-.btn:hover{
-transform:translateY(-2px);
-box-shadow:0 0 45px rgba(246,196,83,.45);
 }
 
 .btn.secondary{
@@ -174,7 +169,6 @@ color:#070b18;
 box-shadow:none;
 }
 
-/* FOOTER NOTE */
 .footer-note{
 margin-top:42px;
 font-size:14px;
@@ -201,7 +195,7 @@ LaFaries Mortimer LLC
 <h1>You’re Almost There</h1>
 
 <p class="sub">
-You’ve completed your LAAP setup steps.  
+You’ve completed your LAAP setup steps.
 Choose how you would like to activate your Builder access.
 </p>
 
@@ -221,7 +215,7 @@ View Subscription Options
 <div class="card">
 <h3>Speak to a Representative</h3>
 <p>
-Prefer a guided walkthrough first?  
+Prefer a guided walkthrough first?
 A LAAP specialist can assist you before activation.
 </p>
 <a class="btn secondary"
@@ -245,13 +239,47 @@ Return to Console
 </main>
 
 <script>
-document.getElementById("goSubscribe").onclick = ()=> {
+
+// ⭐ APPROVAL GLOW + INVISIBLE REDIRECT
+const completedUser = localStorage.getItem("laapReturnPath");
+
+if(completedUser){
+
+const unlockCard = document.querySelector(".card.primary");
+
+if(unlockCard){
+unlockCard.classList.add("approval-glow");
+}
+
+setTimeout(()=>{
+document.body.classList.add("fade-out");
+
+setTimeout(()=>{
+window.location.replace("https://laap-console.netlify.app/");
+},350);
+
+},700);
+}
+
+// ⭐ FUTURE-PROOF SUBSCRIBE ROUTING
+document.getElementById("goSubscribe").onclick = ()=>{
+
+localStorage.setItem("laapReturnPath",window.location.href);
+
+const currentHost = window.location.hostname;
+
+if(currentHost.includes("netlify") || currentHost.includes("laap-console")){
+window.location.href="https://lafariesmortimerllc.com/pricing/";
+}else{
 window.location.href="/pricing/";
+}
+
 };
 
-document.getElementById("returnConsole").onclick = ()=> {
+document.getElementById("returnConsole").onclick = ()=>{
 window.location.href="https://laap-console.netlify.app/";
 };
+
 </script>
 
 </body>
