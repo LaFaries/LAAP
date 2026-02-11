@@ -6,7 +6,6 @@
 <title>LAAP Access Options | LaFaries Mortimer LLC</title>
 
 <style>
-
 :root{
 --midnight:#070b18;
 --charcoal:#0f152d;
@@ -65,12 +64,16 @@ width:100%;
 }
 
 .card{
+display:block;
 background:rgba(7,11,24,.7);
 border-radius:22px;
 padding:34px;
 border:1px solid rgba(246,196,83,.2);
 text-align:left;
 transition:.35s ease;
+color:#fff;
+text-decoration:none;
+cursor:pointer;
 }
 
 .card.primary{
@@ -92,46 +95,17 @@ cursor:pointer;
 background:linear-gradient(135deg,var(--gold),var(--gold-deep));
 color:#070b18;
 }
-
 </style>
 </head>
 
 <body>
 
 <main class="wrap">
+<section class="panel">
 
-  <section class="panel">
+<h1>You’re Almost There</h1>
 
-    <h1>You’re Almost There</h1>
-
-    <p>
-      You’ve completed your LAAP setup steps.
-      Choose how you would like to activate your Builder access.
-    </p>
-
-    <button class="btn"
-      onclick="window.location.href='https://lafariesmortimerllc.com'">
-      Return to Homepage
-    </button>
-
-    <!-- OPTIONS MUST LIVE INSIDE PANEL -->
-    <div class="options">
-
-      <div class="card">
-        <h3>Unlock LAAP Builder</h3>
-        <p>Activate your subscription to unlock automation and templates.</p>
-      </a>
-
-     
-        <h3>Speak to a Representative</h3>
-        <p>A LAAP specialist can assist you before activation.</p>
-      </div>
-
-    </div>
-
-  </section>
-
-</main>
+<p>
 You’ve completed your LAAP setup steps.
 Choose how you would like to activate your Builder access.
 </p>
@@ -140,6 +114,20 @@ Choose how you would like to activate your Builder access.
 onclick="window.location.href='https://lafariesmortimerllc.com'">
 Return to Homepage
 </button>
+
+<div class="options">
+
+<a href="/subscribe/" class="card primary">
+<h3>Unlock LAAP Builder</h3>
+<p>Activate your subscription to unlock automation and templates.</p>
+</a>
+
+<div class="card">
+<h3>Speak to a Representative</h3>
+<p>A LAAP specialist can assist you before activation.</p>
+</div>
+
+</div>
 
 </section>
 </main>
