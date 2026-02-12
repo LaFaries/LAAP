@@ -1,535 +1,223 @@
-<!doctype html>
-<html lang="en" class="h-full">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>L.A.A.P. Pricing - LaFaries Mortimer LLC</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="/_sdk/element_sdk.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
-  <style>
-    body {
-      box-sizing: border-box;
-    }
-    * {
-      font-family: 'Inter', sans-serif;
-    }
-    .font-serif {
-      font-family: 'Cormorant Garamond', serif;
-    }
-    .gradient-mesh {
-      background: linear-gradient(135deg, #0f1115 0%, #1d1d1d 50%, #0f1115 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    .mesh-blob {
-      position: absolute;
-      opacity: 0.15;
-      filter: blur(80px);
-    }
-    .blob-1 {
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, #dab85c 0%, transparent 70%);
-      top: -200px;
-      left: -100px;
-      animation: float 20s infinite ease-in-out;
-    }
-    .blob-2 {
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, #dab85c 0%, transparent 70%);
-      bottom: -250px;
-      right: -150px;
-      animation: float 25s infinite ease-in-out reverse;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0px) translateX(0px); }
-      50% { transform: translateY(-30px) translateX(20px); }
-    }
-    .glass-card {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .glass-card-premium {
-      background: linear-gradient(135deg, rgba(218, 184, 92, 0.1) 0%, rgba(248, 246, 241, 0.05) 100%);
-      backdrop-filter: blur(20px);
-      border: 2px solid;
-      border-image: linear-gradient(135deg, #dab85c 0%, #f8f6f1 100%) 1;
-    }
-    .glow-border {
-      box-shadow: 0 0 30px rgba(218, 184, 92, 0.3), inset 0 0 30px rgba(218, 184, 92, 0.1);
-    }
-    .accent-gradient {
-      background: linear-gradient(135deg, #dab85c 0%, #f8f6f1 50%, #dab85c 100%);
-    }
-    .accent-glow {
-      box-shadow: 0 0 40px rgba(218, 184, 92, 0.4);
-    }
-    .tier-card {
-      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    .tier-card:hover {
-      transform: translateY(-8px);
-    }
-    .tier-card.highlight {
-      transform: scale(1.05) translateY(-8px);
-    }
-    @media (max-width: 768px) {
-      .tier-card.highlight {
-        transform: scale(1.02) translateY(-8px);
-      }
-    }
-    .promo-badge {
-      position: relative;
-      background: linear-gradient(135deg, #dab85c 0%, #f8f6f1 100%);
-      color: #0f1115;
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      border-radius: 50px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      animation: pulse-badge 2s ease-in-out infinite;
-      font-family: 'Inter', sans-serif;
-    }
-    @keyframes pulse-badge {
-      0%, 100% { box-shadow: 0 0 20px rgba(218, 184, 92, 0.4); }
-      50% { box-shadow: 0 0 40px rgba(218, 184, 92, 0.7); }
-    }
-    .countdown-banner {
-      background: linear-gradient(90deg, rgba(218, 184, 92, 0.1) 0%, rgba(248, 246, 241, 0.05) 100%);
-      border: 1px solid rgba(218, 184, 92, 0.3);
-      border-left: 4px solid #dab85c;
-    }
-    .feature-list li {
-      padding-left: 1.5rem;
-      position: relative;
-    }
-    .feature-list li:before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: #dab85c;
-      font-weight: bold;
-    }
-    .feature-list li.disabled {
-      opacity: 0.5;
-    }
-    .feature-list li.disabled:before {
-      content: "—";
-      color: #6b7280;
-    }
-    .price-display {
-      background: linear-gradient(135deg, rgba(218, 184, 92, 0.1) 0%, rgba(248, 246, 241, 0.05) 100%);
-      border: 1px solid rgba(218, 184, 92, 0.3);
-    }
-    .shimmer {
-      position: relative;
-      overflow: hidden;
-    }
-    .shimmer::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-      animation: shimmer 3s infinite;
-    }
-    @keyframes shimmer {
-      0% { left: -100%; }
-      100% { left: 100%; }
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, #dab85c 0%, #f8f6f1 100%);
-      color: #0f1115;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(218, 184, 92, 0.3);
-    }
-    .btn-primary:active {
-      transform: translateY(0px);
-    }
-    .btn-secondary {
-      background: rgba(248, 246, 241, 0.05);
-      border: 1px solid rgba(218, 184, 92, 0.5);
-      color: #dab85c;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-    .btn-secondary:hover {
-      background: rgba(218, 184, 92, 0.1);
-      border-color: #dab85c;
-      box-shadow: 0 0 20px rgba(218, 184, 92, 0.3);
-    }
-    .timeline-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #dab85c;
-      box-shadow: 0 0 20px rgba(218, 184, 92, 0.6);
-    }
-    @media (max-width: 768px) {
-      .tier-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-  <style>@view-transition { navigation: auto; }</style>
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
- </head>
- <body class="h-full gradient-mesh text-white overflow-auto"><!-- Animated Blobs -->
-  <div class="mesh-blob blob-1"></div>
-  <div class="mesh-blob blob-2"></div>
-  <div class="min-h-full w-full px-4 py-8 md:py-12 relative z-10"><!-- Header -->
-   <header class="text-center mb-8 md:mb-12">
-    <div class="inline-flex items-center justify-center mb-6">
-     <div class="w-16 h-16 rounded-xl accent-gradient flex items-center justify-center accent-glow">
-      <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-      </svg>
-     </div>
-    </div>
-    <div>
-     <p id="system_name_display" class="text-sm md:text-base font-serif text-amber-600 mb-2 tracking-widest">L.A.A.P.</p>
-     <h1 id="business_name_display" class="text-3xl md:text-5xl font-serif font-bold mb-2" style="color: #f8f6f1;">LaFaries Mortimer LLC</h1>
-     <p id="tagline_display" class="text-gray-400 text-sm md:text-base">LaFaries Administrative Automative Platform</p>
-    </div>
-   </header><!-- Promotional Banner -->
-   <div class="max-w-5xl mx-auto mb-10">
-    <div class="countdown-banner rounded-lg p-4 md:p-6 flex items-center justify-between gap-4 flex-col md:flex-row">
-     <div class="flex items-center gap-3 flex-1">
-      <svg class="w-6 h-6 text-red-500 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
-      </svg>
-      <div>
-       <p id="promo_notice_display" class="text-sm font-semibold">⚡ Limited-Time Offer</p>
-       <p class="text-xs text-gray-300">Secure your access now before promotional rates expire. Future subscribers will face standard pricing.</p>
-      </div>
-     </div><span class="promo-badge">Act Now</span>
-    </div>
-   </div><!-- Tier Selection Toggle -->
-   <div class="max-w-5xl mx-auto mb-10 flex justify-center">
-    <div class="glass-card rounded-full p-1 inline-flex gap-1"><button id="view-toggle-monthly" class="px-6 md:px-8 py-2 rounded-full text-sm font-semibold transition-all bg-gradient-to-r from-cyan-500 to-pink-500 text-black active-tab"> Monthly </button> <button id="view-toggle-annual" class="px-6 md:px-8 py-2 rounded-full text-sm font-semibold transition-all text-gray-400 hover:text-white"> Annual (Save 15%) </button>
-    </div>
-   </div><!-- Pricing Tiers -->
-   <main class="max-w-6xl mx-auto">
-    <div class="tier-grid grid md:grid-cols-3 gap-6 md:gap-8"><!-- Tier 1: Intake (Free) -->
-     <div class="tier-card glass-card rounded-2xl p-6 md:p-8 relative overflow-hidden group">
-      <div class="absolute -top-20 -right-20 w-40 h-40 bg-cyan-500 opacity-0 group-hover:opacity-10 rounded-full blur-3xl transition-opacity duration-500"></div>
-      <div class="relative z-10">
-       <div class="flex items-start justify-between mb-4">
-        <div>
-         <h3 id="tier_1_name_display" class="text-xl font-serif font-bold mb-1" style="color: #f8f6f1;">Intake</h3>
-         <p class="text-sm text-gray-400">Getting Started</p>
-        </div>
-        <svg class="w-8 h-8 text-cyan-400" fill="currentColor" viewbox="0 0 20 20"><path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM15.657 14.243a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM11 17a1 1 0 102 0v-1a1 1 0 10-2 0v1zM5.757 15.657a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM3 10a1 1 0 01-1-1V8a1 1 0 112 0v1a1 1 0 01-1 1zM5.757 5.757a1 1 0 000-1.414L5.05 3.636a1 1 0 10-1.414 1.414l.707.707z" />
-        </svg>
-       </div><!-- Price -->
-       <div class="price-display rounded-xl p-4 mb-6 shimmer">
-        <div class="flex items-baseline gap-1"><span class="text-4xl font-bold">$0</span> <span class="text-gray-400">/forever</span>
-        </div>
-        <p class="text-xs text-gray-400 mt-2">Forever free tier</p>
-       </div><!-- Features -->
-       <ul class="feature-list space-y-3 mb-8 text-sm">
-        <li>✓ Guided setup wizard</li>
-        <li>✓ Define business DNA</li>
-        <li>✓ Profile creation</li>
-        <li class="disabled">— Template access</li>
-        <li class="disabled">— Compliance tracking</li>
-        <li class="disabled">— Export capabilities</li>
-       </ul><!-- CTA --> <button id="cta-tier-1" class="btn-secondary w-full py-3 rounded-lg text-sm font-semibold"> Get Started Free </button>
-      </div>
-     </div><!-- Tier 2: Console Module (Promo Free) -->
-     <div class="tier-card glass-card-premium rounded-2xl p-6 md:p-8 relative overflow-hidden group highlight md:scale-105">
-      <div class="absolute -top-20 -right-20 w-40 h-40 bg-pink-500 opacity-0 group-hover:opacity-10 rounded-full blur-3xl transition-opacity duration-500"></div><!-- Featured Badge -->
-      <div class="absolute top-4 left-4"><span class="promo-badge">PROMOTIONAL</span>
-      </div>
-      <div class="relative z-10 pt-6">
-       <div class="flex items-start justify-between mb-4">
-        <div>
-         <h3 id="tier_2_name_display" class="text-xl font-serif font-bold mb-1" style="color: #f8f6f1;">Console Module</h3>
-         <p class="text-sm text-cyan-400">Recommended</p>
-        </div>
-        <svg class="w-8 h-8 text-pink-400" fill="currentColor" viewbox="0 0 20 20"><path d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" />
-        </svg>
-       </div><!-- Price -->
-       <div class="price-display rounded-xl p-4 mb-6 shimmer">
-        <div class="flex items-baseline gap-1"><span class="text-4xl font-bold">$0</span> <span class="text-cyan-400 text-sm font-semibold">PROMOTIONAL</span>
-        </div>
-        <p class="text-xs text-gray-400 mt-2">Normally $49.99/month • Limited time only</p>
-       </div><!-- Features -->
-       <ul class="feature-list space-y-3 mb-8 text-sm">
-        <li>✓ Central dashboard</li>
-        <li>✓ Workflow visibility</li>
-        <li>✓ Profile review tools</li>
-        <li>✓ Performance metrics</li>
-        <li class="disabled">— Template access</li>
-        <li class="disabled">— Export capabilities</li>
-       </ul><!-- CTA --> <button id="cta-tier-2" class="btn-primary w-full py-3 rounded-lg text-sm font-semibold"> Secure Free Access </button>
-       <p class="text-xs text-gray-400 text-center mt-3">⏱️ Promotional period ending soon</p>
-      </div>
-     </div><!-- Tier 3: L.A.A.P. Builder (Paid) -->
-     <div class="tier-card glass-card rounded-2xl p-6 md:p-8 relative overflow-hidden group">
-      <div class="absolute -top-20 -right-20 w-40 h-40 bg-cyan-500 opacity-0 group-hover:opacity-10 rounded-full blur-3xl transition-opacity duration-500"></div>
-      <div class="relative z-10">
-       <div class="flex items-start justify-between mb-4">
-        <div>
-         <h3 id="tier_3_name_display" class="text-xl font-serif font-bold mb-1" style="color: #f8f6f1;">L.A.A.P. Builder</h3>
-         <p class="text-sm text-gray-400">Full Platform</p>
-        </div>
-        <svg class="w-8 h-8 text-cyan-400" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 013.976-3.976zM15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" clip-rule="evenodd" />
-        </svg>
-       </div><!-- Price -->
-       <div class="price-display rounded-xl p-4 mb-6 shimmer">
-        <div class="flex items-baseline gap-2">
-         <div id="tier_3_price_display" class="text-4xl font-bold">
-          $79.00
-         </div>
-        </div>
-        <div class="flex items-center gap-2 mt-2"><span class="text-xs text-gray-400">Promo Rate • Standard:</span> <span class="text-xs line-through text-gray-500">$99.99</span>
-        </div>
-       </div><!-- Features -->
-       <ul class="feature-list space-y-3 mb-8 text-sm">
-        <li>✓ Everything in Tier 2</li>
-        <li>✓ Comprehensive template library</li>
-        <li>✓ Compliance tracking system</li>
-        <li>✓ Export operational drafts</li>
-        <li>✓ Advanced analytics</li>
-        <li>✓ Priority support</li>
-       </ul><!-- CTA --> <div id="paypal-button-container-P-8FP51663WY2299235NGGRYOQ"></div>
-<script src="https://www.paypal.com/sdk/js?client-id=AY1zOezHkK5ArsTzgRNft_NJvfB7rFW8kDQXmOLL5A8eLRvxBtJ75rc-Z81fRIwJEqgFMmCkfqMBb2Wv&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>L.A.A.P Platform Access</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Cormorant+Garamond:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+font-family:Inter,sans-serif;
+color:white;
+background:
+radial-gradient(circle at 15% 20%, rgba(212,175,55,0.18), transparent 40%),
+radial-gradient(circle at 85% 80%, rgba(212,175,55,0.12), transparent 40%),
+linear-gradient(135deg,#050C18,#071223,#0B1F3A);
+overflow-x:hidden;
+}
+
+/* GRID */
+.tier-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+max-width:1200px;
+margin:80px auto;
+padding:20px;
+}
+
+/* GLASS CARD */
+.glass-card{
+position:relative;
+padding:40px;
+border-radius:20px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(20px);
+border:1px solid rgba(212,175,55,0.25);
+transition:.4s;
+overflow:hidden;
+}
+
+.glass-card::before{
+content:"";
+position:absolute;
+top:-120%;
+left:-50%;
+width:200%;
+height:300%;
+background:linear-gradient(120deg,transparent,rgba(255,255,255,0.06),transparent);
+transform:rotate(25deg);
+animation:crystalSweep 12s ease-in-out infinite;
+}
+
+@keyframes crystalSweep{
+0%{top:-120%}
+50%{top:20%}
+100%{top:120%}
+}
+
+/* PRICE */
+.price{
+font-size:42px;
+font-weight:700;
+font-family:"Cormorant Garamond",serif;
+margin:20px 0;
+position:relative;
+overflow:hidden;
+}
+
+.price::after{
+content:"";
+position:absolute;
+top:0;
+left:-120%;
+width:60%;
+height:100%;
+background:linear-gradient(90deg,transparent,rgba(255,215,120,0.35),transparent);
+animation:goldShine 6s ease-in-out infinite;
+}
+
+@keyframes goldShine{
+0%{left:-120%}
+60%{left:120%}
+100%{left:120%}
+}
+
+/* BUTTONS */
+.btn-primary,
+.btn-secondary{
+width:100%;
+padding:14px;
+margin-top:20px;
+border-radius:10px;
+font-weight:600;
+cursor:pointer;
+border:1px solid rgba(212,175,55,0.4);
+background:linear-gradient(135deg,rgba(255,255,255,0.15),rgba(212,175,55,0.65));
+color:#071223;
+backdrop-filter:blur(14px);
+box-shadow:0 0 20px rgba(212,175,55,0.25), inset 0 0 8px rgba(255,255,255,0.2);
+transition:.35s;
+}
+
+h1{
+text-align:center;
+font-family:"Cormorant Garamond",serif;
+font-size:44px;
+margin-top:60px;
+letter-spacing:1px;
+}
+
+ul{
+margin-top:20px;
+line-height:2;
+opacity:.9;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>L.A.A.P Platform Access</h1>
+
+<div class="tier-grid">
+
+<!-- TIER 1 -->
+<div class="glass-card">
+<h2>Intake</h2>
+<div class="price">$0</div>
+
+<ul>
+<li>Guided setup wizard</li>
+<li>Define business DNA</li>
+<li>Profile creation</li>
+</ul>
+
+<button id="cta-tier-1" class="btn-secondary">
+Get Started Free
+</button>
+</div>
+
+<!-- TIER 2 PROMO -->
+<div class="glass-card">
+<h2>Console Module</h2>
+
+<div style="color:#D4AF37;font-size:12px;letter-spacing:1px;margin-bottom:6px;">
+LIMITED PROMOTIONAL ACCESS
+</div>
+
+<div class="price">
+<span style="text-decoration:line-through;color:rgba(255,255,255,.45);font-size:28px;margin-right:10px;">
+$49.99
+</span>
+<span style="color:#D4AF37;">$0.00</span>
+</div>
+
+<ul>
+<li>Central dashboard</li>
+<li>Workflow visibility</li>
+<li>Performance metrics</li>
+</ul>
+
+<button id="cta-tier-2" class="btn-primary">
+Secure Free Access
+</button>
+</div>
+
+<!-- TIER 3 BUILDER PROMO -->
+<div class="glass-card">
+<h2>L.A.A.P Builder</h2>
+
+<div style="color:#D4AF37;font-size:12px;letter-spacing:1px;margin-bottom:6px;">
+PROMOTIONAL LAUNCH PRICING
+</div>
+
+<div class="price">
+<span style="text-decoration:line-through;color:rgba(255,255,255,.45);font-size:28px;margin-right:10px;">
+$99.99
+</span>
+<span style="color:#D4AF37;">$79.00</span>
+</div>
+
+<ul>
+<li>Everything in Tier 2</li>
+<li>Template library</li>
+<li>Compliance tracking</li>
+<li>Advanced analytics</li>
+<li>Priority support</li>
+</ul>
+
+<div id="paypal-button-container"></div>
+
+<button id="cta-tier-3" class="btn-secondary">
+Subscribe Now
+</button>
+
+</div>
+
+</div>
+
+<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&vault=true&intent=subscription"></script>
+
 <script>
-  paypal.Buttons({
-      style: {
-          shape: 'rect',
-          color: 'gold',
-          layout: 'vertical',
-          label: 'subscribe'
-      },
-      createSubscription: function(data, actions) {
-        return actions.subscription.create({
-          /* Creates the subscription */
-          plan_id: 'P-8FP51663WY2299235NGGRYOQ'
-        });
-      },
-      onApprove: function(data, actions) {
-        alert(data.subscriptionID); // You can add optional success message for the subscriber here
-      }
-  }).render('#paypal-button-container-P-8FP51663WY2299235NGGRYOQ'); // Renders the PayPal button
+paypal.Buttons({
+createSubscription:function(data,actions){
+return actions.subscription.create({
+'plan_id':'YOUR_PLAN_ID'
+});
+},
+onApprove:function(data){
+alert("Subscription Activated!");
+}
+}).render('#paypal-button-container');
 </script>
-       <p class="text-xs text-gray-400 text-center mt-3">🔒 Secure checkout • Contact for details</p>
-      </div>
-     </div>
-    </div>
-   </main><!-- Value Proposition Section -->
-   <section class="max-w-5xl mx-auto mt-16 md:mt-20">
-    <h2 class="text-2xl md:text-3xl font-serif font-bold text-center mb-12" style="color: #f8f6f1;">Why Choose L.A.A.P.?</h2>
-    <div class="grid md:grid-cols-3 gap-6">
-     <div class="glass-card rounded-xl p-6 text-center">
-      <div class="w-12 h-12 rounded-full accent-gradient mx-auto mb-4 flex items-center justify-center">
-       <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-       </svg>
-      </div>
-      <h3 class="font-bold mb-2">Lightning Fast</h3>
-      <p class="text-sm text-gray-400">Deploy operational systems in minutes, not months</p>
-     </div>
-     <div class="glass-card rounded-xl p-6 text-center">
-      <div class="w-12 h-12 rounded-full accent-gradient mx-auto mb-4 flex items-center justify-center">
-       <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-       </svg>
-      </div>
-      <h3 class="font-bold mb-2">Compliance Ready</h3>
-      <p class="text-sm text-gray-400">Built-in compliance tracking keeps you regulated</p>
-     </div>
-     <div class="glass-card rounded-xl p-6 text-center">
-      <div class="w-12 h-12 rounded-full accent-gradient mx-auto mb-4 flex items-center justify-center">
-       <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-       </svg>
-      </div>
-      <h3 class="font-bold mb-2">Fully Customizable</h3>
-      <p class="text-sm text-gray-400">Tailored to your unique business operations</p>
-     </div>
-    </div>
-   </section><!-- FAQ Teaser -->
-   <section class="max-w-3xl mx-auto mt-16 md:mt-20">
-    <h2 class="text-2xl md:text-3xl font-serif font-bold text-center mb-8" style="color: #f8f6f1;">Common Questions</h2>
-    <div class="space-y-4">
-     <details class="glass-card rounded-xl p-6 group cursor-pointer"><summary class="font-semibold flex items-center justify-between select-none"> <span>Can I upgrade from Tier 1 to Tier 2?</span>
-       <svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-       </svg></summary>
-      <p class="text-sm text-gray-400 mt-4">Yes! Simply click "Secure Free Access" to upgrade during the promotional period. After the promo ends, this tier will transition to paid.</p>
-     </details>
-     <details class="glass-card rounded-xl p-6 group cursor-pointer"><summary class="font-semibold flex items-center justify-between select-none"> <span>What happens after the promotional period?</span>
-       <svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-       </svg></summary>
-      <p class="text-sm text-gray-400 mt-4">Users who secure access during promotion maintain their current rate. New subscribers after the promo will pay standard pricing: Tier 2 at $49.99/month and Tier 3 at $99.99/month.</p>
-     </details>
-     <details class="glass-card rounded-xl p-6 group cursor-pointer"><summary class="font-semibold flex items-center justify-between select-none"> <span>What are the subscription details for Tier 3?</span>
-       <svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-       </svg></summary>
-      <p class="text-sm text-gray-400 mt-4">If you would like to purchase the subscription, you may do so at this time. If you would like to speak to a representative before you purchase, please <a href="https://lafariesmortimerllc.com/contact" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 underline">contact us</a>.</p>
-     </details>
-    </div>
-   </section><!-- CTA Footer -->
-   <section class="max-w-3xl mx-auto mt-16 md:mt-20 mb-12">
-    <div class="glass-card-premium rounded-2xl p-8 md:p-12 text-center glow-border">
-     <h2 class="text-2xl md:text-3xl font-serif font-bold mb-4" style="color: #f8f6f1;">Ready to Transform Your Operations?</h2>
-     <p class="text-gray-400 mb-8">Don't miss out on our limited-time promotional rates. Secure your access to L.A.A.P. today.</p><button id="cta-footer" class="btn-primary px-8 py-4 rounded-xl text-base font-semibold inline-block"> Get Started Now </button>
-     <p class="text-xs text-gray-500 mt-6">Secure • Trusted • Scalable</p>
-    </div>
-   </section><!-- Footer -->
-   <footer class="text-center mt-12 md:mt-16 text-gray-500 text-xs pb-8">
-    <p>© 2024 LaFaries Mortimer LLC. All rights reserved. | L.A.A.P. Platform</p>
-    <p class="mt-4"><a href="https://www.lafariesmortimerllc.com" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 transition-colors">www.lafariesmortimerllc.com</a></p>
-   </footer>
-  </div>
-  <script>
-    const defaultConfig = {
-      business_name: 'LaFaries Mortimer LLC',
-      system_name: 'L.A.A.P.',
-      tagline: 'LaFaries Administrative Automative Platform',
-      promo_notice: '⚡ Limited-Time Offer',
-      tier_1_name: 'Intake',
-      tier_2_name: 'Console Module',
-      tier_3_name: 'L.A.A.P. Builder',
-      cta_button_text: 'Get Started Now',
-      primary_color: '#dab85c',
-      secondary_color: '#f8f6f1',
-      text_color: '#ffffff',
-      bg_color: '#0f1115',
-      accent_color: '#1d1d1d'
-    };
 
-    let config = { ...defaultConfig };
-
-    // DOM Elements
-    const businessNameDisplay = document.getElementById('business_name_display');
-    const systemNameDisplay = document.getElementById('system_name_display');
-    const taglineDisplay = document.getElementById('tagline_display');
-    const promoNoticeDisplay = document.getElementById('promo_notice_display');
-    const tier1NameDisplay = document.getElementById('tier_1_name_display');
-    const tier2NameDisplay = document.getElementById('tier_2_name_display');
-    const tier3NameDisplay = document.getElementById('tier_3_name_display');
-    const ctaButtons = [
-      document.getElementById('cta-tier-1'),
-      document.getElementById('cta-tier-2'),
-      document.getElementById('cta-tier-3'),
-      document.getElementById('cta-footer')
-    ];
-
-    // Update display
-    function updateDisplay() {
-      businessNameDisplay.textContent = config.business_name || defaultConfig.business_name;
-      systemNameDisplay.textContent = config.system_name || defaultConfig.system_name;
-      taglineDisplay.textContent = config.tagline || defaultConfig.tagline;
-      promoNoticeDisplay.textContent = config.promo_notice || defaultConfig.promo_notice;
-      tier1NameDisplay.textContent = config.tier_1_name || defaultConfig.tier_1_name;
-      tier2NameDisplay.textContent = config.tier_2_name || defaultConfig.tier_2_name;
-      tier3NameDisplay.textContent = config.tier_3_name || defaultConfig.tier_3_name;
-
-      ctaButtons.forEach(btn => {
-        btn.textContent = config.cta_button_text || defaultConfig.cta_button_text;
-      });
-    }
-
-    // CTA Button Actions
-    ctaButtons.forEach((btn, idx) => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const tierNames = ['Intake (Free)', 'Console Module (Promo Free)', 'L.A.A.P. Builder ($79/mo)', 'Get Started'];
-        const messages = [
-          `Starting setup for ${config.tier_1_name}...`,
-          `Securing promotional access to ${config.tier_2_name}...`,
-          `Processing subscription to ${config.tier_3_name}...`,
-          `Initiating L.A.A.P. onboarding...`
-        ];
-        
-        const originalText = btn.textContent;
-        btn.textContent = '✓ Processing...';
-        btn.disabled = true;
-
-        setTimeout(() => {
-          btn.textContent = '✓ Ready!';
-          setTimeout(() => {
-            btn.textContent = originalText;
-            btn.disabled = false;
-          }, 2000);
-        }, 1500);
-      });
-    });
-
-    // Config Change Handler
-    async function onConfigChange(newConfig) {
-      config = { ...config, ...newConfig };
-      updateDisplay();
-    }
-
-    // Capabilities
-    function mapToCapabilities(cfg) {
-      return {
-        recolorables: [
-          {
-            get: () => cfg.primary_color || defaultConfig.primary_color,
-            set: (v) => { cfg.primary_color = v; window.elementSdk.setConfig({ primary_color: v }); }
-          },
-          {
-            get: () => cfg.secondary_color || defaultConfig.secondary_color,
-            set: (v) => { cfg.secondary_color = v; window.elementSdk.setConfig({ secondary_color: v }); }
-          },
-          {
-            get: () => cfg.text_color || defaultConfig.text_color,
-            set: (v) => { cfg.text_color = v; window.elementSdk.setConfig({ text_color: v }); }
-          },
-          {
-            get: () => cfg.bg_color || defaultConfig.bg_color,
-            set: (v) => { cfg.bg_color = v; window.elementSdk.setConfig({ bg_color: v }); }
-          },
-          {
-            get: () => cfg.accent_color || defaultConfig.accent_color,
-            set: (v) => { cfg.accent_color = v; window.elementSdk.setConfig({ accent_color: v }); }
-          }
-        ],
-        borderables: [],
-        fontEditable: undefined,
-        fontSizeable: undefined
-      };
-    }
-
-    // Edit Panel Values
-    function mapToEditPanelValues(cfg) {
-      return new Map([
-        ['business_name', cfg.business_name || defaultConfig.business_name],
-        ['system_name', cfg.system_name || defaultConfig.system_name],
-        ['tagline', cfg.tagline || defaultConfig.tagline],
-        ['promo_notice', cfg.promo_notice || defaultConfig.promo_notice],
-        ['tier_1_name', cfg.tier_1_name || defaultConfig.tier_1_name],
-        ['tier_2_name', cfg.tier_2_name || defaultConfig.tier_2_name],
-        ['tier_3_name', cfg.tier_3_name || defaultConfig.tier_3_name],
-        ['cta_button_text', cfg.cta_button_text || defaultConfig.cta_button_text]
-      ]);
-    }
-
-    // SDK Initialization
-    if (window.elementSdk) {
-      window.elementSdk.init({
-        defaultConfig,
-        onConfigChange,
-        mapToCapabilities,
-        mapToEditPanelValues
-      });
-      config = window.elementSdk.config || config;
-    }
-
-    updateDisplay();
-  </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cbf0ba2c613359d',t:'MTc3MDc2MjU2OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
