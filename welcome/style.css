@@ -1,16 +1,16 @@
 /* =========================
-   LAFARIES BRAND STYLE RESET
+   LAFARIES BLACK + CREAM + GOLD SYSTEM
 ========================= */
 
 body{
   margin:0;
   font-family:Inter, sans-serif;
-  background:#0b0e14;
-  color:#fff;
+  background:linear-gradient(180deg,#07090f 0%,#0f131c 40%,#f6f3ea 100%);
+  color:#111;
 }
 
 /* =========================
-   HEADER / NAV
+   HEADER
 ========================= */
 
 header{
@@ -39,7 +39,6 @@ header{
   color:#fff;
   font-family:"Cormorant Garamond", serif;
   font-weight:600;
-  font-size:18px;
 }
 
 .brand img{
@@ -48,7 +47,7 @@ header{
   border-radius:50%;
 }
 
-/* NAV LINKS */
+/* NAV */
 
 nav{
   display:flex;
@@ -69,18 +68,18 @@ nav a:hover{
 
 .cta{
   color:#d8c27a;
-  text-decoration:none;
   font-weight:600;
 }
 
 /* =========================
-   HERO
+   HERO (BLACK + GOLD GLOW)
 ========================= */
 
 .hero{
   background:
-    radial-gradient(900px 420px at 50% -10%, rgba(218,184,92,.35), transparent 55%),
+    radial-gradient(900px 420px at 50% -10%, rgba(218,184,92,.45), transparent 55%),
     linear-gradient(180deg,#07090f,#0f131c);
+  color:#fff;
   padding:140px 20px 130px;
   text-align:center;
 }
@@ -89,7 +88,6 @@ nav a:hover{
   font-family:"Cormorant Garamond", serif;
   font-size:64px;
   margin:0 0 24px;
-  letter-spacing:.4px;
   text-shadow:
     0 0 22px rgba(218,184,92,.45),
     0 12px 40px rgba(0,0,0,.7);
@@ -99,134 +97,146 @@ nav a:hover{
   max-width:760px;
   margin:auto;
   line-height:1.7;
-  color:#cfcfcf;
+  color:#d9d9d9;
 }
 
 /* =========================
-   MAIN WRAPPER
+   MAIN WRAP (CREAM CONTRAST)
 ========================= */
 
 main{
   max-width:1100px;
   margin:auto;
   padding:120px 20px;
+  background:#f6f3ea;
+  border-top-left-radius:60px;
+  border-top-right-radius:60px;
+  box-shadow:0 -20px 60px rgba(0,0,0,.35);
 }
 
 /* =========================
-   PANEL CARD
+   PANEL (CREAM + GOLD RING)
 ========================= */
 
 .panel{
-  background:#121621;
+  background:#fffdf7;
   border-radius:28px;
   padding:46px;
   box-shadow:
-    0 25px 80px rgba(0,0,0,.65),
-    inset 0 0 0 1px rgba(218,184,92,.18);
-  margin-bottom:80px;
-}
-
-/* =========================
-   SECTION DIVIDER (GOLD RING)
-========================= */
-
-.steps{
-  margin:120px 0 40px;
-  text-align:center;
+    0 25px 80px rgba(0,0,0,.15),
+    inset 0 0 0 1px rgba(218,184,92,.25);
+  margin-bottom:90px;
   position:relative;
 }
 
-.steps::before{
+.panel::before{
   content:"";
   position:absolute;
-  top:-70px;
+  top:-28px;
   left:50%;
   transform:translateX(-50%);
-  width:160px;
-  height:160px;
+  width:120px;
+  height:120px;
   border-radius:50%;
-  background:radial-gradient(circle,#d8c27a33 0%,transparent 70%);
-  filter:blur(6px);
+  background:radial-gradient(circle,#d8c27a55,#d8c27a00);
+  filter:blur(8px);
 }
 
 /* =========================
-   STEPS GRID
+   STEPS SECTION
 ========================= */
+
+.steps{
+  margin:100px 0 60px;
+  text-align:center;
+}
 
 .steps-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:30px;
+  gap:32px;
   margin-top:40px;
 }
 
 .step{
-  background:#121621;
+  background:#fffdf7;
   border-radius:22px;
-  padding:34px 24px;
+  padding:34px 26px;
   box-shadow:
-    0 20px 60px rgba(0,0,0,.55),
-    inset 0 0 0 1px rgba(218,184,92,.12);
+    0 20px 50px rgba(0,0,0,.12),
+    inset 0 0 0 1px rgba(218,184,92,.18);
 }
 
 .step-num{
   font-family:"Cormorant Garamond", serif;
   font-size:30px;
-  margin-bottom:8px;
-  color:#d8c27a;
+  margin-bottom:10px;
+  color:#b89b4a;
 }
 
 /* =========================
-   TIERS SECTION (ENTRY AREA)
+   GOLD RING DIVIDER BETWEEN SECTIONS
+========================= */
+
+.steps::after{
+  content:"";
+  display:block;
+  width:180px;
+  height:180px;
+  margin:80px auto 0;
+  border-radius:50%;
+  background:
+    radial-gradient(circle,rgba(218,184,92,.45) 0%, rgba(218,184,92,.08) 50%, transparent 70%);
+  filter:blur(6px);
+}
+
+/* =========================
+   TIERS (ENTRY AREA)
 ========================= */
 
 .tiers{
-  margin-top:120px;
-  padding-top:80px;
-  border-top:1px solid rgba(218,184,92,.15);
+  margin-top:100px;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:34px;
+  gap:36px;
 }
 
 .tier{
-  background:#121621;
-  border-radius:28px;
-  padding:36px;
+  background:#fffdf7;
+  border-radius:30px;
+  padding:40px;
   box-shadow:
-    0 24px 70px rgba(0,0,0,.6),
-    inset 0 0 0 1px rgba(218,184,92,.15);
-  text-align:left;
+    0 25px 60px rgba(0,0,0,.15),
+    inset 0 0 0 1px rgba(218,184,92,.25);
   position:relative;
 }
 
 .tier::before{
   content:"";
   position:absolute;
-  top:-22px;
-  left:40px;
-  width:44px;
-  height:44px;
+  top:-24px;
+  left:44px;
+  width:50px;
+  height:50px;
   border-radius:50%;
-  background:radial-gradient(circle,#d8c27a55,#d8c27a11);
+  background:radial-gradient(circle,#d8c27a66,#d8c27a11);
   filter:blur(4px);
 }
 
 .tier h3{
   margin-top:0;
   font-family:"Cormorant Garamond", serif;
-  color:#fff;
 }
 
 .tier p{
-  color:#cfcfcf;
+  color:#333;
 }
 
 .tier button{
-  margin-top:20px;
+  margin-top:22px;
   background:linear-gradient(135deg,#d8c27a,#b89b4a);
   border:none;
-  padding:14px 20px;
+  padding:14px 22px;
   border-radius:12px;
   font-weight:600;
   cursor:pointer;
