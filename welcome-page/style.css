@@ -1,207 +1,75 @@
-/* ============================
-WELCOME PAGE — LAAP LUXURY UX
-============================ */
+/* =========================
+   SITE HEADER — LUXURY GLASS
+========================= */
 
-.welcome-page{
-background:
-radial-gradient(1200px 500px at 50% -10%, rgba(216,194,122,.18), transparent 60%),
-linear-gradient(180deg,#05070c,#0b0f16 40%,#070a10);
-font-family:Inter, sans-serif;
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:999;
+  background:
+    linear-gradient(180deg, rgba(4,6,10,.95), rgba(11,15,22,.85));
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(216,194,122,.25);
+  box-shadow:0 8px 30px rgba(0,0,0,.55);
 }
 
-/* GLOBAL LIGHT LAYER */
-.welcome-page::before{
-content:"";
-position:fixed;
-inset:0;
-pointer-events:none;
-
-background:
-radial-gradient(900px 400px at 50% -10%, rgba(216,194,122,.18), transparent 70%),
-radial-gradient(700px 300px at 80% 20%, rgba(255,255,255,.08), transparent 70%);
+.site-header .nav{
+  max-width:1200px;
+  margin:0 auto;
+  padding:14px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
 
-/* ===== HEADER GLASS ===== */
-
-.welcome-page .site-header{
-position:sticky;
-top:0;
-z-index:999;
-
-background:
-linear-gradient(180deg, rgba(6,8,12,.85), rgba(6,8,12,.65));
-
-backdrop-filter:blur(18px);
--webkit-backdrop-filter:blur(18px);
-
-border-bottom:1px solid rgba(216,194,122,.25);
-
-box-shadow:
-0 8px 30px rgba(0,0,0,.5),
-0 0 25px rgba(216,194,122,.12);
+.site-header .brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:#fff;
 }
 
-
-/* HERO */
-
-.welcome-page .hero{
-background:
-radial-gradient(900px 420px at 50% -10%, rgba(216,194,122,.25), transparent 60%),
-linear-gradient(180deg,#04060a,#0b0f16);
-padding:120px 20px 100px;
-text-align:center;
-color:#fff;
+.site-header .brand img{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  background:radial-gradient(circle at top left,#fff,#d8c27a 40%,#b89b4a 70%);
+  box-shadow:0 0 0 2px rgba(216,194,122,.5),0 8px 22px rgba(216,194,122,.55);
 }
 
-.welcome-page .hero h1{
-font-family:"Cormorant Garamond", serif;
-font-size:56px;
-margin-bottom:20px;
-letter-spacing:.5px;
-text-shadow:0 0 18px rgba(216,194,122,.25);
+.site-header .brand-text strong{
+  font-size:16px;
+  display:block;
 }
 
-.welcome-page .hero p{
-max-width:720px;
-margin:auto;
-line-height:1.7;
-color:#d6d6d6;
+.site-header .brand-text span{
+  font-size:11px;
+  color:#d8c27a;
 }
 
-
-/* ===== PREMIUM GLASS CREAM PANEL ===== */
-
-.welcome-page .panel{
-position:relative;
-
-background:
-linear-gradient(140deg,
-rgba(247,242,230,.96),
-rgba(235,227,205,.92)
-);
-
-backdrop-filter:blur(12px);
--webkit-backdrop-filter:blur(12px);
-
-color:#111;
-border-radius:42px;
-margin:-70px auto 100px;
-padding:70px;
-max-width:1100px;
-overflow:hidden;
-
-border:1px solid rgba(255,255,255,.35);
-
-box-shadow:
-0 60px 140px rgba(0,0,0,.65),
-0 0 70px rgba(216,194,122,.22),
-inset 0 0 45px rgba(216,194,122,.18);
+.site-header .nav-links{
+  display:flex;
+  gap:22px;
 }
 
-.welcome-page .panel::before{
-content:"";
-position:absolute;
-inset:0;
-border-radius:42px;
-
-background:
-radial-gradient(600px 240px at 50% -30%, rgba(216,194,122,.35), transparent 70%),
-radial-gradient(500px 240px at 0% 100%, rgba(255,255,255,.2), transparent 60%);
-pointer-events:none;
+.site-header .nav-links a{
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+  transition:.3s;
 }
 
-
-/* STEPS */
-
-.welcome-page .steps{
-text-align:center;
-padding:40px 20px;
-color:#fff;
+.site-header .nav-links a:hover{
+  color:#d8c27a;
 }
 
-.welcome-page .steps-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:30px;
-max-width:1100px;
-margin:40px auto;
-}
-
-.welcome-page .step{
-background:linear-gradient(160deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-backdrop-filter:blur(14px);
-border:1px solid rgba(216,194,122,.25);
-border-radius:20px;
-padding:40px 20px;
-box-shadow:
-0 20px 60px rgba(0,0,0,.6),
-inset 0 0 18px rgba(216,194,122,.1);
-transition:.35s;
-}
-
-.welcome-page .step:hover{
-transform:translateY(-6px);
-}
-
-.welcome-page .step-num{
-width:42px;
-height:42px;
-border-radius:50%;
-margin:0 auto 12px;
-background:linear-gradient(135deg,#f2e6b3,#d8c27a,#b89b4a);
-display:flex;
-align-items:center;
-justify-content:center;
-font-weight:600;
-color:#111;
-}
-
-
-/* TIERS */
-
-.welcome-page .tiers{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:40px;
-max-width:1100px;
-margin:60px auto 120px;
-padding:0 20px;
-}
-
-.welcome-page .tier{
-background:linear-gradient(180deg,#f3efe6,#ece7dc);
-border-radius:30px;
-padding:40px;
-box-shadow:
-0 30px 60px rgba(0,0,0,.35),
-inset 0 0 0 1px rgba(216,194,122,.25);
-text-align:center;
-}
-
-.welcome-page .tier-primary{
-transform:scale(1.05);
-box-shadow:
-0 0 40px rgba(216,194,122,.4),
-0 30px 60px rgba(0,0,0,.4);
-}
-
-.welcome-page .tier-primary button{
-background:linear-gradient(135deg,#f6e8b8,#e0c878,#b89b4a);
-box-shadow:
-0 0 26px rgba(216,194,122,.6),
-0 10px 30px rgba(0,0,0,.35);
-}
-
-.welcome-page .tier:not(.tier-primary) button{
-background:linear-gradient(135deg,#efe9d6,#d8cdb0);
-box-shadow:0 0 10px rgba(216,194,122,.25);
-}
-
-.welcome-page .tier button{
-margin-top:18px;
-border:none;
-padding:14px 22px;
-border-radius:14px;
-font-weight:600;
-cursor:pointer;
+.site-header .cta{
+  background:linear-gradient(135deg,#f2e6b3,#d8c27a,#b89b4a);
+  padding:10px 16px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:600;
+  color:#111;
+  box-shadow:0 0 14px rgba(216,194,122,.4);
 }
