@@ -1,4 +1,4 @@
-/            /welcome-page/   200
-/intake      /intake/         200
-/welcome     /welcome-page/   200
-/console     /console/        200
+/        /welcome-page/      200
+/intake  /intake/index.html  200
+/welcome /welcome-page/      200
+/console /console/           200
