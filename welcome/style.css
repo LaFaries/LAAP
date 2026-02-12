@@ -1,222 +1,119 @@
 /* =========================
-   GLOBAL RESET + BODY
-========================= */
-
-body{
-  margin:0;
-  font-family:Inter, sans-serif;
-  background:#0b0d12;
-  color:#111;
-}
-
-/* =========================
-   HEADER / NAV  (FIXED)
-========================= */
-
-header{
-  position:sticky;
-  top:0;
-  z-index:999;
-  background:#0b0d12;
-  border-bottom:1px solid rgba(216,194,122,.25);
-}
-
-.nav{
-  max-width:1180px;
-  margin:auto;
-  padding:10px 20px;
-  display:grid;
-  grid-template-columns:auto 1fr auto;
-  align-items:center;
-  gap:16px;
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  text-decoration:none;
-  color:#fff;
-  font-family:"Cormorant Garamond", serif;
-  font-weight:600;
-}
-
-.brand img{
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  object-fit:cover;
-  background:#000;
-  box-shadow:
-    0 0 0 2px #d8c27a,
-    0 0 18px rgba(216,194,122,.6);
-}
-
-/* NAV */
-
-nav{
-  display:flex;
-  justify-content:center;
-  gap:30px;
-}
-
-nav a{
-  color:#d0d0d0;
-  text-decoration:none;
-  font-weight:500;
-}
-
-nav a:hover{
-  color:#d8c27a;
-}
-
-.cta{
-  color:#d8c27a;
-  text-decoration:none;
-  font-weight:600;
-}
-
-/* =========================
-   HERO
+   LUXURY HERO — BLACK + GOLD DEPTH
 ========================= */
 
 .hero{
   background:
-    radial-gradient(700px 260px at 50% -10%, rgba(216,194,122,.35), transparent 60%),
-    linear-gradient(180deg,#0b0d12,#12151d);
-  color:#fff;
-  padding:90px 20px 70px;
+    radial-gradient(800px 380px at 50% -10%, rgba(216,194,122,.35), transparent 60%),
+    radial-gradient(600px 280px at 50% 0%, rgba(216,194,122,.18), transparent 70%),
+    linear-gradient(180deg,#07090f 0%, #0f131c 100%);
+  padding:140px 20px 120px;
   text-align:center;
+  position:relative;
 }
 
 .hero h1{
   font-family:"Cormorant Garamond", serif;
-  font-size:56px;
-  margin:0 0 18px;
+  font-size:64px;
+  letter-spacing:.3px;
+  color:#f3f1ea;
   text-shadow:
-    0 0 12px rgba(216,194,122,.35),
-    0 10px 30px rgba(0,0,0,.7);
+    0 0 25px rgba(216,194,122,.35),
+    0 18px 45px rgba(0,0,0,.75);
 }
 
 .hero p{
   max-width:720px;
   margin:auto;
-  color:#d9d9d9;
-  line-height:1.6;
+  color:#cfcfcf;
+  line-height:1.7;
 }
 
 /* =========================
-   MAIN WRAPPER
-========================= */
-
-main{
-  max-width:1100px;
-  margin:-50px auto 0;
-  padding:0 20px 60px;
-  background:#f3efe7;
-  border-radius:38px;
-  box-shadow:
-    0 0 0 1px rgba(216,194,122,.3),
-    0 40px 120px rgba(0,0,0,.55);
-  position:relative;
-}
-
-/* GOLD RING ACCENTS */
-
-main::before,
-main::after{
-  content:"";
-  position:absolute;
-  left:50%;
-  transform:translateX(-50%);
-  width:70px;
-  height:70px;
-  border-radius:50%;
-  background:radial-gradient(circle,#e6d8a0,#b89b4a);
-  filter:blur(18px);
-  opacity:.35;
-}
-
-main::before{
-  top:-35px;
-}
-
-main::after{
-  bottom:-35px;
-}
-
-/* =========================
-   PANEL CARD
+   MAIN LUX PANEL (CREAM GLASS)
 ========================= */
 
 .panel{
-  background:#fff;
-  border-radius:28px;
-  padding:36px;
-  box-shadow:0 14px 50px rgba(0,0,0,.25);
-  margin:60px auto;
+  background:linear-gradient(180deg,#f4f1ea,#eae6dd);
+  border-radius:38px;
+  padding:70px 60px;
+  margin-top:-90px;
+  box-shadow:
+    0 60px 120px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.35);
+  position:relative;
+}
+
+/* GOLD HALO BLOOM */
+.panel::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:180px;
+  height:120px;
+  background:radial-gradient(circle,#d8c27a66,transparent 70%);
+  filter:blur(35px);
 }
 
 /* =========================
-   STEPS
+   STEPS — FLOATING CARDS
 ========================= */
 
-.steps{
-  margin:50px 0;
-  text-align:center;
-}
-
-.steps-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:22px;
-  margin-top:22px;
-}
-
 .step{
-  background:#fff;
-  border-radius:20px;
-  padding:22px;
-  box-shadow:0 10px 40px rgba(0,0,0,.18);
+  background:#fbfaf6;
+  border-radius:24px;
+  padding:32px 26px;
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.22),
+    inset 0 1px 0 rgba(255,255,255,.4);
+  transition:.35s ease;
+}
+
+.step:hover{
+  transform:translateY(-6px);
+  box-shadow:
+    0 40px 100px rgba(0,0,0,.35),
+    0 0 35px rgba(216,194,122,.35);
 }
 
 .step-num{
   font-family:"Cormorant Garamond", serif;
-  font-size:22px;
-  margin-bottom:6px;
+  font-size:30px;
   color:#b89b4a;
 }
 
 /* =========================
-   TIERS
+   TIERS — PREMIUM BLOCKS
 ========================= */
 
-.tiers{
-  margin:60px 0 40px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:28px;
-}
-
 .tier{
-  background:#fff;
-  border-radius:26px;
-  padding:30px;
-  box-shadow:0 12px 45px rgba(0,0,0,.2);
+  background:linear-gradient(180deg,#ffffff,#f4f1ea);
+  border-radius:32px;
+  padding:40px;
+  box-shadow:
+    0 30px 90px rgba(0,0,0,.25);
+  transition:.3s;
 }
 
-.tier h3{
-  margin-top:0;
-  font-family:"Cormorant Garamond", serif;
+.tier:hover{
+  transform:translateY(-8px);
+  box-shadow:
+    0 50px 120px rgba(0,0,0,.45),
+    0 0 45px rgba(216,194,122,.25);
 }
 
 .tier button{
-  margin-top:16px;
+  margin-top:20px;
   background:linear-gradient(135deg,#d8c27a,#b89b4a);
   border:none;
-  padding:11px 16px;
-  border-radius:10px;
+  padding:14px 22px;
+  border-radius:14px;
   font-weight:600;
+  letter-spacing:.4px;
+  box-shadow:
+    0 8px 20px rgba(216,194,122,.35);
   cursor:pointer;
 }
 
