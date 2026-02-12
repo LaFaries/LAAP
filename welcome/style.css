@@ -1,13 +1,24 @@
+/* =========================
+   GLOBAL RESET + BODY
+========================= */
+
 body{
   margin:0;
   font-family:Inter, sans-serif;
   background:linear-gradient(180deg,#f8f6f1,#ffffff);
+  color:#111;
 }
+
+/* =========================
+   HEADER / NAV
+========================= */
 
 header{
   position:sticky;
   top:0;
+  z-index:999;
   background:#0f1115;
+  box-shadow:0 8px 28px rgba(0,0,0,.35);
 }
 
 .nav{
@@ -28,6 +39,7 @@ header{
   color:#fff;
   font-family:"Cormorant Garamond", serif;
   font-weight:600;
+  font-size:18px;
 }
 
 .brand img{
@@ -36,21 +48,39 @@ header{
   border-radius:50%;
   padding:3px;
   background:radial-gradient(circle at top left,#fff,#d8c27a 40%,#b89b4a 70%);
-  box-shadow:0 0 0 2px rgba(218,184,92,.6),0 8px 22px rgba(218,184,92,.55);
+  box-shadow:
+    0 0 0 2px rgba(218,184,92,.6),
+    0 8px 22px rgba(218,184,92,.55);
 }
 
-.hero{
-  background:linear-gradient(180deg,#0f1115,#141720);
-  color:#fff;
-  padding:120px 20px;
-  text-align:center;
+/* NAV LINKS */
+
+nav{
+  display:flex;
+  justify-content:center;
+  gap:34px;
 }
 
-.hero h1{
-  font-family:"Cormorant Garamond", serif;
-  font-size:56px;
+nav a{
+  color:#d0d0d0;
+  text-decoration:none;
+  font-weight:500;
+  transition:.25s;
 }
-/* ===== FIX LAYOUT + ALIGNMENT ===== */
+
+nav a:hover{
+  color:#d8c27a;
+}
+
+.cta{
+  color:#d8c27a;
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
 
 .hero{
   background:
@@ -70,11 +100,26 @@ header{
     0 12px 40px rgba(0,0,0,.65);
 }
 
+.hero p{
+  max-width:720px;
+  margin:auto;
+  line-height:1.7;
+  color:#d9d9d9;
+}
+
+/* =========================
+   MAIN WRAPPER
+========================= */
+
 main{
   max-width:1100px;
   margin:auto;
   padding:100px 20px;
 }
+
+/* =========================
+   PANEL CARD
+========================= */
 
 .panel{
   background:#fff;
@@ -83,6 +128,10 @@ main{
   box-shadow:0 22px 70px rgba(0,0,0,.25);
   margin-bottom:70px;
 }
+
+/* =========================
+   STEPS SECTION
+========================= */
 
 .steps{
   margin:80px 0;
@@ -93,6 +142,7 @@ main{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
   gap:28px;
+  margin-top:30px;
 }
 
 .step{
@@ -100,4 +150,68 @@ main{
   border-radius:22px;
   padding:30px 24px;
   box-shadow:0 22px 70px rgba(0,0,0,.25);
+  font-weight:500;
+}
+
+.step-num{
+  font-family:"Cormorant Garamond", serif;
+  font-size:26px;
+  margin-bottom:8px;
+  color:#b89b4a;
+}
+
+/* =========================
+   TIERS / BUTTON AREA
+========================= */
+
+.tiers{
+  margin-top:80px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:32px;
+}
+
+.tier{
+  background:#fff;
+  border-radius:28px;
+  padding:34px;
+  box-shadow:0 22px 70px rgba(0,0,0,.25);
+  text-align:left;
+}
+
+.tier h3{
+  margin-top:0;
+  font-family:"Cormorant Garamond", serif;
+}
+
+.tier button{
+  margin-top:18px;
+  background:linear-gradient(135deg,#d8c27a,#b89b4a);
+  border:none;
+  padding:12px 18px;
+  border-radius:10px;
+  font-weight:600;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.tier button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 24px rgba(184,155,74,.35);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:820px){
+
+  .hero h1{
+    font-size:42px;
+  }
+
+  nav{
+    display:none;
+  }
+
 }
