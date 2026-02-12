@@ -305,7 +305,27 @@
         <li>✓ Export operational drafts</li>
         <li>✓ Advanced analytics</li>
         <li>✓ Priority support</li>
-       </ul><!-- CTA --> <button id="cta-tier-3" class="btn-secondary w-full py-3 rounded-lg text-sm font-semibold"> Subscribe Now </button>
+       </ul><!-- CTA --> <div id="paypal-button-container-P-8FP51663WY2299235NGGRYOQ"></div>
+<script src="https://www.paypal.com/sdk/js?client-id=AY1zOezHkK5ArsTzgRNft_NJvfB7rFW8kDQXmOLL5A8eLRvxBtJ75rc-Z81fRIwJEqgFMmCkfqMBb2Wv&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'rect',
+          color: 'gold',
+          layout: 'vertical',
+          label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          /* Creates the subscription */
+          plan_id: 'P-8FP51663WY2299235NGGRYOQ'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+      }
+  }).render('#paypal-button-container-P-8FP51663WY2299235NGGRYOQ'); // Renders the PayPal button
+</script>
        <p class="text-xs text-gray-400 text-center mt-3">🔒 Secure checkout • Contact for details</p>
       </div>
      </div>
