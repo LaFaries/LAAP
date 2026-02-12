@@ -206,18 +206,37 @@ Subscribe Now
 
 <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&vault=true&intent=subscription"></script>
 
+<!-- PAYPAL BUTTON CONTAINER -->
+<div id="paypal-button-container-P-8FP51663WY2299235NGGRYOQ"></div>
+
+<!-- LOAD PAYPAL SDK LAST -->
+<script src="https://www.paypal.com/sdk/js?client-id=AY1zOezHkK5ArsTzgRNft_NJvfB7rFW8kDQXmOLL5A8eLRvxBtJ75rc-Z81fRIwJEqgFMmCkfqMBb2Wv&vault=true&intent=subscription"></script>
+
 <script>
+window.addEventListener("load", function(){
+
 paypal.Buttons({
+
+style:{
+shape:'rect',
+color:'gold',
+layout:'vertical',
+label:'subscribe'
+},
+
 createSubscription:function(data,actions){
 return actions.subscription.create({
-'plan_id':'YOUR_PLAN_ID'
+plan_id:'P-8FP51663WY2299235NGGRYOQ'
 });
 },
-onApprove:function(data){
-alert("Subscription Activated!");
-}
-}).render('#paypal-button-container');
-</script>
 
-</body>
+onApprove:function(data){
+console.log('Subscription Active:',data.subscriptionID);
+window.location.href="/subscribe/decisionpage/";
+}
+
+}).render('#paypal-button-container-P-8FP51663WY2299235NGGRYOQ');
+
+});
+</script>
 </html>
