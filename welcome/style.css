@@ -1,105 +1,25 @@
-/* =========================
-   CRYSTAL GLASS AESTHETIC
-========================= */
+/* =====================================================
+   LAAP CRYSTAL LUXURY SYSTEM — CLEAN MASTER CSS
+   (Subscribe Page Aesthetic — Unified & Corrected)
+===================================================== */
+
+/* ===============================
+   GLOBAL BACKGROUND
+=============================== */
 
 body{
+  margin:0;
+  font-family:Inter, sans-serif;
   background:
-    radial-gradient(900px 420px at 50% -10%, rgba(216,194,122,.15), transparent 55%),
+    radial-gradient(1200px 500px at 50% -10%, rgba(216,194,122,.18), transparent 60%),
     linear-gradient(180deg,#020611,#050b18 40%,#081426);
   color:#eaeaea;
 }
 
 
-/* MAIN PANEL SECTION */
-.panel{
-  background:rgba(255,255,255,.04);
-  backdrop-filter:blur(20px);
-  border-radius:40px;
-  border:1px solid rgba(216,194,122,.25);
-  box-shadow:
-    inset 0 0 40px rgba(216,194,122,.08),
-    0 40px 120px rgba(0,0,0,.7);
-}
-
-
-/* STEPS */
-.step{
-  background:rgba(255,255,255,.03);
-  border:1px solid rgba(216,194,122,.25);
-  border-radius:22px;
-  backdrop-filter:blur(18px);
-  box-shadow:
-    inset 0 0 18px rgba(216,194,122,.06);
-}
-
-.step-num{
-  color:#d8c27a;
-}
-
-
-/* TIER CARDS — SUBSCRIBE STYLE */
-.tier{
-  background:linear-gradient(
-    160deg,
-    rgba(18,28,46,.7),
-    rgba(9,15,28,.9)
-  );
-
-  border-radius:28px;
-  border:1px solid rgba(216,194,122,.35);
-
-  box-shadow:
-    inset 0 0 45px rgba(216,194,122,.06),
-    0 30px 80px rgba(0,0,0,.65);
-
-  backdrop-filter:blur(22px);
-  transition:.35s ease;
-}
-
-
-/* FLOAT GLOW */
-.tier:hover{
-  transform:translateY(-8px);
-  box-shadow:
-    inset 0 0 60px rgba(216,194,122,.15),
-    0 40px 110px rgba(0,0,0,.85),
-    0 0 40px rgba(216,194,122,.25);
-}
-
-
-/* GOLD BUTTON CRYSTAL */
-.tier button{
-  background:linear-gradient(135deg,#d8c27a,#b89b4a);
-  color:#000;
-  border:none;
-  border-radius:14px;
-  padding:14px 20px;
-  font-weight:600;
-
-  box-shadow:
-    0 0 18px rgba(216,194,122,.5),
-    inset 0 0 14px rgba(255,255,255,.35);
-
-  transition:.3s ease;
-}
-
-.tier button:hover{
-  box-shadow:
-    0 0 28px rgba(216,194,122,.8),
-    inset 0 0 20px rgba(255,255,255,.4);
-}/* ====================================
-   LAAP LUXURY MASTER STYLE
-   (Crystal + Gold System)
-==================================== */
-
-body{
-  background:
-    radial-gradient(1200px 500px at 50% -10%, rgba(216,194,122,.18), transparent 60%),
-    linear-gradient(180deg,#05070c,#0b0f16 40%,#070a10);
-  color:#fff;
-}
-
-/* ---------- HERO POLISH ---------- */
+/* ===============================
+   HERO SECTION — GOLD PULSE
+=============================== */
 
 .hero{
   position:relative;
@@ -128,17 +48,21 @@ body{
   50%{opacity:.85;transform:translateX(-50%) scale(1.15);}
 }
 
-/* ---------- CREAM GLASS SECTION ---------- */
+
+/* ===============================
+   MAIN PANEL — CRYSTAL GLASS
+=============================== */
 
 .panel{
-  background:linear-gradient(180deg,#f3efe6,#ece7dc);
-  color:#111;
-  border-radius:38px;
-  margin-top:-40px;
-  padding:60px;
+  background:rgba(255,255,255,.04);
+  backdrop-filter:blur(22px);
+  border-radius:40px;
+  border:1px solid rgba(216,194,122,.28);
   box-shadow:
-    0 40px 80px rgba(0,0,0,.45),
-    inset 0 0 0 1px rgba(216,194,122,.35);
+    inset 0 0 40px rgba(216,194,122,.08),
+    0 40px 120px rgba(0,0,0,.7);
+  padding:60px;
+  margin-top:-40px;
   position:relative;
 }
 
@@ -154,55 +78,85 @@ body{
   filter:blur(18px);
 }
 
-/* ---------- STEP CARDS (Crystal Style) ---------- */
+
+/* ===============================
+   STEP CARDS — CRYSTAL STYLE
+=============================== */
 
 .step{
-  background:linear-gradient(160deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-  backdrop-filter:blur(14px);
+  background:rgba(255,255,255,.03);
   border:1px solid rgba(216,194,122,.25);
-  color:#fff;
-  border-radius:20px;
+  border-radius:22px;
+  backdrop-filter:blur(18px);
   box-shadow:
-    0 20px 60px rgba(0,0,0,.6),
-    inset 0 0 18px rgba(216,194,122,.1);
-  transition:.35s;
+    inset 0 0 18px rgba(216,194,122,.06);
+  color:#fff;
+  transition:.35s ease;
 }
 
 .step:hover{
   transform:translateY(-6px);
   box-shadow:
-    0 30px 80px rgba(0,0,0,.7),
+    inset 0 0 30px rgba(216,194,122,.12),
+    0 20px 60px rgba(0,0,0,.7),
     0 0 20px rgba(216,194,122,.35);
 }
 
-/* ---------- LAAP ACCESS CARDS ---------- */
+.step-num{
+  color:#d8c27a;
+}
+
+
+/* ===============================
+   LAAP ACCESS CARDS — SUBSCRIBE STYLE
+=============================== */
 
 .tier{
-  background:
-    linear-gradient(160deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
-  border:1px solid rgba(216,194,122,.25);
-  backdrop-filter:blur(18px);
-  color:#fff;
+  background:linear-gradient(
+    160deg,
+    rgba(18,28,46,.7),
+    rgba(9,15,28,.92)
+  );
+  border-radius:28px;
+  border:1px solid rgba(216,194,122,.35);
   box-shadow:
-    0 35px 80px rgba(0,0,0,.6),
-    inset 0 0 18px rgba(216,194,122,.12);
+    inset 0 0 45px rgba(216,194,122,.06),
+    0 30px 80px rgba(0,0,0,.65);
+  backdrop-filter:blur(22px);
+  transition:.35s ease;
+}
+
+.tier:hover{
+  transform:translateY(-8px);
+  box-shadow:
+    inset 0 0 60px rgba(216,194,122,.15),
+    0 40px 110px rgba(0,0,0,.85),
+    0 0 40px rgba(216,194,122,.25);
 }
 
 .tier h3{
   color:#fff;
 }
 
-/* GOLD CRYSTAL BUTTON */
+
+/* ===============================
+   GOLD CRYSTAL BUTTONS
+=============================== */
 
 .tier button{
-  background:
-    linear-gradient(135deg,#f2e6b3,#d8c27a 40%,#b89b4a);
-  color:#111;
+  background:linear-gradient(135deg,#f2e6b3,#d8c27a 40%,#b89b4a);
+  color:#000;
+  border:none;
+  border-radius:14px;
+  padding:14px 20px;
+  font-weight:600;
   box-shadow:
-    0 0 18px rgba(216,194,122,.45);
+    0 0 18px rgba(216,194,122,.5),
+    inset 0 0 14px rgba(255,255,255,.35);
+  transition:.3s ease;
 }
 
 .tier button:hover{
   box-shadow:
-    0 0 35px rgba(216,194,122,.7);
-}
+    0 0 28px rgba(216,194,122,.8),
+    inset 0 0 20px rgba(255,255,255,.4
