@@ -9,7 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Cormorant+Garamond:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
-
 *{box-sizing:border-box;margin:0;padding:0}
 
 body{
@@ -22,7 +21,6 @@ linear-gradient(135deg,#050C18,#071223,#0B1F3A);
 overflow-x:hidden;
 }
 
-/* GRID */
 .tier-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
@@ -32,7 +30,6 @@ margin:80px auto;
 padding:20px;
 }
 
-/* GLASS CARD */
 .glass-card{
 position:relative;
 padding:40px;
@@ -44,54 +41,14 @@ transition:.4s;
 overflow:hidden;
 }
 
-.glass-card::before{
-content:"";
-position:absolute;
-top:-120%;
-left:-50%;
-width:200%;
-height:300%;
-background:linear-gradient(120deg,transparent,rgba(255,255,255,0.06),transparent);
-transform:rotate(25deg);
-animation:crystalSweep 12s ease-in-out infinite;
-}
-
-@keyframes crystalSweep{
-0%{top:-120%}
-50%{top:20%}
-100%{top:120%}
-}
-
-/* PRICE */
 .price{
 font-size:42px;
 font-weight:700;
 font-family:"Cormorant Garamond",serif;
 margin:20px 0;
-position:relative;
-overflow:hidden;
 }
 
-.price::after{
-content:"";
-position:absolute;
-top:0;
-left:-120%;
-width:60%;
-height:100%;
-background:linear-gradient(90deg,transparent,rgba(255,215,120,0.35),transparent);
-animation:goldShine 6s ease-in-out infinite;
-}
-
-@keyframes goldShine{
-0%{left:-120%}
-60%{left:120%}
-100%{left:120%}
-}
-
-/* BUTTONS */
-.btn-primary,
-.btn-secondary{
+.btn-primary,.btn-secondary{
 width:100%;
 padding:14px;
 margin-top:20px;
@@ -101,31 +58,13 @@ cursor:pointer;
 border:1px solid rgba(212,175,55,0.4);
 background:linear-gradient(135deg,rgba(255,255,255,0.15),rgba(212,175,55,0.65));
 color:#071223;
-backdrop-filter:blur(14px);
-box-shadow:0 0 20px rgba(212,175,55,0.25), inset 0 0 8px rgba(255,255,255,0.2);
-transition:.35s;
 }
-
-h1{
-text-align:center;
-font-family:"Cormorant Garamond",serif;
-font-size:44px;
-margin-top:60px;
-letter-spacing:1px;
-}
-
-ul{
-margin-top:20px;
-line-height:2;
-opacity:.9;
-}
-
 </style>
 </head>
 
 <body>
 
-<h1>L.A.A.P Platform Access</h1>
+<h1 style="text-align:center;margin-top:60px;">L.A.A.P Platform Access</h1>
 
 <div class="tier-grid">
 
@@ -133,87 +72,40 @@ opacity:.9;
 <div class="glass-card">
 <h2>Intake</h2>
 <div class="price">$0</div>
-
-<ul>
-<li>Guided setup wizard</li>
-<li>Define business DNA</li>
-<li>Profile creation</li>
-</ul>
-
-<button id="cta-tier-1" class="btn-secondary">
-Get Started Free
-</button>
+<button class="btn-secondary">Get Started Free</button>
 </div>
 
-<!-- TIER 2 PROMO -->
+<!-- TIER 2 -->
 <div class="glass-card">
 <h2>Console Module</h2>
-
-<div style="color:#D4AF37;font-size:12px;letter-spacing:1px;margin-bottom:6px;">
-LIMITED PROMOTIONAL ACCESS
-</div>
-
 <div class="price">
-<span style="text-decoration:line-through;color:rgba(255,255,255,.45);font-size:28px;margin-right:10px;">
-$49.99
-</span>
+<span style="text-decoration:line-through;color:rgba(255,255,255,.45);font-size:28px;margin-right:10px;">$49.99</span>
 <span style="color:#D4AF37;">$0.00</span>
 </div>
-
-<ul>
-<li>Central dashboard</li>
-<li>Workflow visibility</li>
-<li>Performance metrics</li>
-</ul>
-
-<button id="cta-tier-2" class="btn-primary">
-Secure Free Access
-</button>
+<button class="btn-primary">Secure Free Access</button>
 </div>
 
-<!-- TIER 3 BUILDER PROMO -->
+<!-- TIER 3 BUILDER -->
 <div class="glass-card">
 <h2>L.A.A.P Builder</h2>
 
-<div style="color:#D4AF37;font-size:12px;letter-spacing:1px;margin-bottom:6px;">
-PROMOTIONAL LAUNCH PRICING
-</div>
-
 <div class="price">
-<span style="text-decoration:line-through;color:rgba(255,255,255,.45);font-size:28px;margin-right:10px;">
-$99.99
-</span>
+<span style="text-decoration:line-through;color:rgba(255,255,255,.45);font-size:28px;margin-right:10px;">$99.99</span>
 <span style="color:#D4AF37;">$79.00</span>
 </div>
 
-<ul>
-<li>Everything in Tier 2</li>
-<li>Template library</li>
-<li>Compliance tracking</li>
-<li>Advanced analytics</li>
-<li>Priority support</li>
-</ul>
-
+<!-- ✅ PAYPAL BUTTON SHOWS HERE -->
 <div id="paypal-button-container"></div>
 
-<button id="cta-tier-3" class="btn-secondary">
-Subscribe Now
-</button>
-
 </div>
 
 </div>
 
-<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&vault=true&intent=subscription"></script>
-
-<!-- PAYPAL BUTTON CONTAINER -->
-<div id="paypal-button-container-P-8FP51663WY2299235NGGRYOQ"></div>
-
-<!-- LOAD PAYPAL SDK LAST -->
+<!-- LOAD PAYPAL ONCE ONLY -->
 <script src="https://www.paypal.com/sdk/js?client-id=AY1zOezHkK5ArsTzgRNft_NJvfB7rFW8kDQXmOLL5A8eLRvxBtJ75rc-Z81fRIwJEqgFMmCkfqMBb2Wv&vault=true&intent=subscription"></script>
 
 <script>
-window.addEventListener("load", function(){
+window.addEventListener("load",function(){
 
 paypal.Buttons({
 
@@ -235,8 +127,10 @@ console.log('Subscription Active:',data.subscriptionID);
 window.location.href="/subscribe/decisionpage/";
 }
 
-}).render('#paypal-button-container-P-8FP51663WY2299235NGGRYOQ');
+}).render('#paypal-button-container');
 
 });
 </script>
+
+</body>
 </html>
