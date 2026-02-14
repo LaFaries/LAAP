@@ -312,27 +312,23 @@ form.addEventListener("submit", async e => {
   localStorage.setItem("laap_profile_full", JSON.stringify(profile));
 
   if (!localStorage.getItem("laap_tier")) {
-    localStorage.setItem("laap_tier","free");
+    localStorage.setItem("laap_tier", "free");
   }
 
-  /* =========================
-     SEND DATA TO NETLIFY FUNCTION
-  ========================== */
-
   try {
+
+    // 👇 THIS is what sends data to Notion through Netlify
     await fetch("/.netlify/functions/contactHandler", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(profile)
     });
+
   } catch(err){
-    console.log("Function call failed:", err);
+    console.error("Notion write failed:", err);
   }
 
-  /* =========================
-     THEN CONTINUE TO CONSOLE
-  ========================== */
-
+  // 👇 redirect ONLY after function completes
   window.location.href = "/console/";
 });
 </script>
