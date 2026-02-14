@@ -296,27 +296,40 @@
 </main>
 
 <script>
-  const form = document.getElementById("laapIntake");
+const form = document.getElementById("laapIntake");
 
-  form.addEventListener("submit", e => {
-    e.preventDefault();
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-    const profile = {
-      name: document.getElementById("orgName").value.trim(),
-      role: document.getElementById("role").value.trim(),
-      type: document.getElementById("orgType").value,
-      email: document.getElementById("email").value.trim()
-    };
+  const profile = {
+    name: document.getElementById("orgName").value.trim(),
+    role: document.getElementById("role").value.trim(),
+    type: document.getElementById("orgType").value,
+    email: document.getElementById("email").value.trim()
+  };
 
-    localStorage.setItem("laap_profile", profile.name);
-    localStorage.setItem("laap_profile_full", JSON.stringify(profile));
+  /* keep LAAP storage exactly as you had it */
+  localStorage.setItem("laap_profile", profile.name);
+  localStorage.setItem("laap_profile_full", JSON.stringify(profile));
 
-    if (!localStorage.getItem("laap_tier")) {
-      localStorage.setItem("laap_tier", "free");
-    }
+  if (!localStorage.getItem("laap_tier")) {
+    localStorage.setItem("laap_tier", "free");
+  }
 
-    window.location.href = "/console/";
-  });
+  /* 🔥 THIS is what sends data to Notion through Netlify */
+  try{
+    await fetch("/.netlify/functions/contactHandler",{
+      method:"POST",
+      headers:{ "Content-Type":"application/json" },
+      body: JSON.stringify(profile)
+    });
+  }catch(err){
+    console.error("Notion send failed:", err);
+  }
+
+  /* keep your routing EXACT */
+  window.location.href = "/console/";
+});
 </script>
 
 </body>
