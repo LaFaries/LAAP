@@ -114,13 +114,11 @@ You don’t need technical experience. You can pause anytime and get help when n
 <script>
 function enterLAAP(tier){
 
-localStorage.setItem("laap_tier", tier);
+  /* keep storing the tier — console still needs it later */
+  localStorage.setItem("laap_tier", tier);
 
-if(tier === "free"){
-window.location.href="/console/";
-}else{
-window.location.href="/intake/";
-}
+  /* ALWAYS go to intake first */
+  window.location.href = "/intake/";
 
 }
 </script>
