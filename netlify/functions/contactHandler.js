@@ -14,39 +14,43 @@ exports.handler = async (event) => {
     const NOTION_KEY = process.env.NOTION_API_KEY;
     const DATABASE_ID = process.env.NOTION_DATABASE_ID;
 
-    await fetch("https://api.notion.com/v1/pages", {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${NOTION_KEY}`,
-        "Content-Type": "application/json",
-        "Notion-Version": "2022-06-28"
-      },
-      body: JSON.stringify({
-        parent: { database_id: DATABASE_ID },
-        properties: {
-          Name: {
-            title: [
-              {
-                text: { content: name }
-              }
-            ]
-          },
-          Email: {
-            rich_text: [
-              {
-                text: { content: email }
-              }
-            ]
-          },
-          Message: {
-            rich_text: [
-              {
-                text: { content: message }
-              }
-            ]
+  const response = await fetch("https://api.notion.com/v1/pages", {
+  method: "POST",
+  headers: {
+    "Authorization": `Bearer ${process.env.NOTION_TOKEN}`,
+    "Notion-Version": "2022-06-28",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    parent: {
+      database_id: process.env.NOTION_DATABASE_ID
+    },
+    properties: {
+      Name: {
+        title: [
+          {
+            text: { content: data.name || "New Intake" }
           }
+        ]
+      },
+      Email: {
+        email: data.email || null
+      },
+      Role: {
+        rich_text: [
+          {
+            text: { content: data.role || "" }
+          }
+        ]
+      },
+      Type: {
+        select: {
+          name: data.type || "General"
         }
-      })
+      }
+    }
+  })
+});
     });
 
     return {
