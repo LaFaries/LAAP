@@ -298,7 +298,7 @@
 <script>
 const form = document.getElementById("laapIntake");
 
-form.addEventListener("submit", async (e) => {
+form.addEventListener("submit", async e => {
   e.preventDefault();
 
   const profile = {
@@ -308,26 +308,31 @@ form.addEventListener("submit", async (e) => {
     email: document.getElementById("email").value.trim()
   };
 
-  /* keep LAAP storage exactly as you had it */
   localStorage.setItem("laap_profile", profile.name);
   localStorage.setItem("laap_profile_full", JSON.stringify(profile));
 
   if (!localStorage.getItem("laap_tier")) {
-    localStorage.setItem("laap_tier", "free");
+    localStorage.setItem("laap_tier","free");
   }
 
-  /* 🔥 THIS is what sends data to Notion through Netlify */
-  try{
-    await fetch("/.netlify/functions/contactHandler",{
-      method:"POST",
-      headers:{ "Content-Type":"application/json" },
+  /* =========================
+     SEND DATA TO NETLIFY FUNCTION
+  ========================== */
+
+  try {
+    await fetch("/.netlify/functions/contactHandler", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(profile)
     });
-  }catch(err){
-    console.error("Notion send failed:", err);
+  } catch(err){
+    console.log("Function call failed:", err);
   }
 
-  /* keep your routing EXACT */
+  /* =========================
+     THEN CONTINUE TO CONSOLE
+  ========================== */
+
   window.location.href = "/console/";
 });
 </script>
