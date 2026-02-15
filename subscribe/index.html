@@ -123,8 +123,10 @@ plan_id:'P-8FP51663WY2299235NGGRYOQ'
 },
 
 onApprove:function(data){
-console.log('Subscription Active:',data.subscriptionID);
-window.location.href="/subscribe/decisionpage/";
+  console.log('Subscription Active:',data.subscriptionID);
+  localStorage.setItem("laapUnlocked","true");
+  localStorage.setItem("laapSubscriptionID", data.subscriptionID);
+  window.location.href="/subscribe/decisionpage/";
 }
 
 }).render('#paypal-button-container');
