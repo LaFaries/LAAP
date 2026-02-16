@@ -154,4 +154,326 @@
       top: -13px;
       left: 50%;
       transform: translateX(-50%);
-      backgro
+      background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+      color: #070b18;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 5px 18px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .plan-name {
+      font-family: var(--heading);
+      font-size: 28px;
+      color: #fff;
+      margin: 12px 0 6px;
+    }
+
+    .plan-price {
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin: 10px 0 4px;
+    }
+
+    .plan-price .was {
+      text-decoration: line-through;
+      color: var(--muted);
+      font-size: 26px;
+      margin-right: 8px;
+    }
+
+    .plan-price .period {
+      font-size: 16px;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .plan-features {
+      list-style: none;
+      margin: 20px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .plan-features li {
+      font-size: 14px;
+      color: rgba(255,255,255,.8);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .plan-features li::before {
+      content: "✓";
+      color: var(--gold);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ── PAYPAL ── */
+    #paypal-button-container {
+      margin: 28px 0 16px;
+      min-height: 50px;
+    }
+
+    /* ── STATUS ── */
+    .status {
+      font-size: 14px;
+      padding: 14px 20px;
+      border-radius: 12px;
+      margin-top: 16px;
+      display: none;
+      line-height: 1.5;
+    }
+
+    .status.loading {
+      background: rgba(246,196,83,.1);
+      border: 1px solid rgba(246,196,83,.25);
+      color: rgba(246,196,83,.9);
+    }
+
+    .status.success {
+      background: rgba(34,197,94,.12);
+      border: 1px solid rgba(34,197,94,.3);
+      color: #86efac;
+    }
+
+    .status.error {
+      background: rgba(239,68,68,.1);
+      border: 1px solid rgba(239,68,68,.25);
+      color: #fca5a5;
+    }
+
+    .security-note {
+      font-size: 12px;
+      color: rgba(255,255,255,.35);
+      margin-top: 20px;
+      line-height: 1.6;
+    }
+
+    .security-note a {
+      color: rgba(246,196,83,.6);
+      text-decoration: none;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+      font-size: 13px;
+      color: rgba(255,255,255,.4);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .back-link:hover { color: rgba(255,255,255,.7); }
+
+    @media (max-width: 600px) {
+      .panel { padding: 36px 22px; }
+      .panel h1 { font-size: 34px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <a class="brand" href="https://lafariesmortimerllc.com">
+      <img src="/assets/img/logo-2026.png" alt="LaFaries Mortimer LLC">
+      <div>
+        <strong>LaFaries Mortimer LLC</strong>
+        <span>Administrative & IT Services</span>
+      </div>
+    </a>
+    <nav class="header-nav">
+      <a href="https://lafariesmortimerllc.com">Home</a>
+      <a href="https://lafariesmortimerllc.com/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <span class="step-label">LAAP Console · Step 4 of 4 — Activate</span>
+
+  <section class="panel">
+
+    <h1>Activate LAAP Builder</h1>
+    <p>
+      One step away from full automation, templates, and ongoing
+      administrative support — built around your business.
+    </p>
+
+    <div class="plan-card">
+      <span class="plan-badge">Full LAAP Access</span>
+      <div class="plan-name">LAAP Builder</div>
+      <div class="plan-price">
+        <span class="was">$99.99</span>
+        $79 <span class="period">/ month</span>
+      </div>
+      <ul class="plan-features">
+        <li>Full LAAP Console access</li>
+        <li>Automated business filings & compliance tracking</li>
+        <li>All DIY templates unlocked</li>
+        <li>Priority administrative support</li>
+        <li>Annual maintenance included</li>
+        <li>Cancel anytime</li>
+      </ul>
+    </div>
+
+    <div id="paypal-button-container"></div>
+
+    <div class="status loading" id="statusLoading">
+      Processing your payment — please wait…
+    </div>
+    <div class="status success" id="statusSuccess">
+      ✓ Payment confirmed! Setting up your account…
+    </div>
+    <div class="status error" id="statusError">
+      Something went wrong. Please try again or
+      <a href="https://lafariesmortimerllc.com/contact">contact support</a>.
+    </div>
+
+    <p class="security-note">
+      Payments processed securely by PayPal. Your card details are
+      never stored on our servers. By subscribing you agree to the
+      <a href="https://lafariesmortimerllc.com/services">Terms of Service</a>.
+    </p>
+
+  </section>
+
+  <a class="back-link" href="/console/">← Back to Console</a>
+
+</main>
+
+<script>
+  /* ── Catch console draft passed via URL ── */
+  (function catchConsoleDraft() {
+    const params = new URLSearchParams(window.location.search);
+    const draft  = params.get("draft");
+    if (draft) {
+      try {
+        sessionStorage.setItem("laap_console_draft", draft);
+        window.history.replaceState({}, "", "/subscribe/");
+        console.log("Console draft received");
+      } catch (err) {
+        console.warn("Could not store draft:", err.message);
+      }
+    }
+  })();
+
+  /* ── Pull subscriber profile from intake ── */
+  const profile = JSON.parse(
+    localStorage.getItem("laap_profile_full") || "{}"
+  );
+
+  /* ── Status helpers ── */
+  function showStatus(id) {
+    ["statusLoading","statusSuccess","statusError"].forEach(s => {
+      document.getElementById(s).style.display = "none";
+    });
+    if (id) document.getElementById(id).style.display = "block";
+  }
+
+  /* ── Save subscriber to Notion ── */
+  async function saveToNotion(subscriptionID) {
+    try {
+      const res = await fetch("/.netlify/functions/contactHandler", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name:          profile.name  || "LAAP Subscriber",
+          fullName:      profile.name  || "LAAP Subscriber",
+          orgName:       profile.orgName || profile.name || "",
+          email:         profile.email  || "",
+          phone:         profile.phone  || "",
+          role:          profile.role   || "",
+          type:          profile.type   || "",
+          plan:          "LAAP Builder",
+          tier:          "full",
+          paypalOrderId: subscriptionID || ""
+        })
+      });
+
+      const result = await res.json();
+
+      if (result.success) {
+        console.log("Notion saved:", result.notionPageId);
+        return true;
+      } else {
+        console.error("Notion error:", result.error);
+        return false;
+      }
+
+    } catch (err) {
+      console.error("contactHandler failed:", err.message);
+      return false;
+    }
+  }
+
+  /* ── Render PayPal button ── */
+  window.addEventListener("load", function() {
+    paypal.Buttons({
+
+      style: {
+        shape:  "pill",
+        color:  "gold",
+        layout: "vertical",
+        label:  "subscribe"
+      },
+
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          plan_id: "P-8FP51663WY2299235NGGRYOQ"
+        });
+      },
+
+      onApprove: async function(data) {
+        showStatus("statusLoading");
+
+        localStorage.setItem("laap_tier", "full");
+        localStorage.setItem("laapUnlocked", "true");
+        localStorage.setItem("laapSubscriptionID", data.subscriptionID);
+
+        /* Get console draft — sessionStorage first, then localStorage */
+        const consoleDraft =
+          sessionStorage.getItem("laap_console_draft") ||
+          localStorage.getItem("laap_console_draft")   ||
+          "{}";
+
+        /* Save to Notion */
+        await saveToNotion(data.subscriptionID);
+
+        showStatus("statusSuccess");
+
+        /* Pass data to wizard via URL */
+        setTimeout(() => {
+          window.location.href =
+            `https://scintillating-fairy-cd927a.netlify.app/wizard/` +
+            `?sub=${data.subscriptionID}` +
+            `&draft=${consoleDraft}`;
+        }, 2500);
+      },
+
+      onError: function(err) {
+        console.error("PayPal error:", err);
+        showStatus("statusError");
+      },
+
+      onCancel: function() {
+        showStatus(null);
+      }
+
+    }).render("#paypal-button-container");
+  });
+</script>
+
+</body>
+</html>
