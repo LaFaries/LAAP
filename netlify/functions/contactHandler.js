@@ -17,7 +17,7 @@ exports.handler = async (event) => {
     };
   }
 
-  const token = process.env.NOTION_TOKEN;
+ const token = process.env.NOTION_SECRET;
   const dbId  = process.env.NOTION_DATABASE_ID;
 
   if (!token) {
