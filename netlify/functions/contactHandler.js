@@ -26,7 +26,7 @@ exports.handler = async (event) => {
       statusCode: 500,
       body: JSON.stringify({
         error: "Server configuration error",
-        detail: "NOTION_TOKEN is missing from Netlify environment variables"
+        detail: "NOTION_SECRET is missing from Netlify environment variables"
       })
     };
   }
