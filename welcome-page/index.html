@@ -266,6 +266,183 @@
     footer p { font-size: 12px; color: rgba(255,255,255,.3); line-height: 1.8; }
     footer a { color: rgba(201,168,76,.6); text-decoration: none; }
 
+    /* ── SHOWCASE ── */
+    .showcase-section {
+      padding: 80px 32px;
+      background: linear-gradient(180deg, #070b18, #0a0e1a);
+      display: flex; flex-direction: column; gap: 80px;
+    }
+    .showcase-block { max-width: 1000px; margin: 0 auto; width: 100%; }
+    .showcase-label {
+      font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
+      font-weight: 600; margin-bottom: 20px; display: flex; align-items: center; gap: 12px;
+    }
+    .tier1-label { color: rgba(201,168,76,.7); }
+    .tier2-label { color: var(--gold-light); }
+    .tier3-label { color: #fff; }
+    .popular-chip {
+      background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+      color: #070b18; font-size: 10px; font-weight: 700;
+      padding: 3px 12px; border-radius: 999px; letter-spacing: .1em;
+    }
+    .showcase-mockup {
+      border-radius: 16px; overflow: hidden;
+      border: 1px solid rgba(201,168,76,.2);
+      box-shadow: 0 30px 80px rgba(0,0,0,.6);
+    }
+    .featured-mockup {
+      border-color: rgba(201,168,76,.45);
+      box-shadow: 0 30px 80px rgba(0,0,0,.6), 0 0 60px rgba(201,168,76,.1);
+    }
+    .elite-mockup {
+      border-color: rgba(255,255,255,.2);
+      box-shadow: 0 30px 80px rgba(0,0,0,.7), 0 0 80px rgba(201,168,76,.08);
+    }
+    .mockup-bar {
+      background: #1a1d26; padding: 10px 16px;
+      display: flex; align-items: center; gap: 8px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .elite-bar { background: #12141e; }
+    .mockup-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: rgba(255,255,255,.15); display: inline-block;
+    }
+    .mockup-url {
+      font-size: 11px; color: rgba(255,255,255,.35);
+      margin-left: 8px; flex: 1;
+    }
+    .elite-chip {
+      font-size: 9px; font-weight: 700; letter-spacing: .15em;
+      background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+      color: #070b18; padding: 2px 10px; border-radius: 999px;
+    }
+    .mockup-body {
+      display: flex; min-height: 320px;
+    }
+    .tier1-body { background: #0e1018; }
+    .tier2-body { background: #0b0e18; }
+    .tier3-body { background: #080a14; }
+    .mockup-sidebar {
+      width: 180px; flex-shrink: 0;
+      background: rgba(0,0,0,.3);
+      border-right: 1px solid rgba(255,255,255,.06);
+      padding: 20px 0;
+    }
+    .elite-sidebar { background: rgba(201,168,76,.04); border-right-color: rgba(201,168,76,.1); }
+    .sidebar-item {
+      padding: 10px 20px; font-size: 12px; color: rgba(255,255,255,.5);
+      cursor: pointer; transition: all .2s;
+    }
+    .sidebar-item.active { color: var(--gold-light); background: rgba(201,168,76,.08); border-left: 2px solid var(--gold); }
+    .elite-active { color: #fff !important; background: rgba(201,168,76,.12) !important; }
+    .locked-item { color: rgba(255,255,255,.25) !important; font-size: 11px; }
+    .mockup-content { flex: 1; padding: 24px; overflow: hidden; }
+    .mockup-heading {
+      font-family: var(--heading); font-size: 18px; font-weight: 600;
+      color: #fff; margin-bottom: 16px;
+    }
+    .mockup-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .mockup-card {
+      flex: 1; min-width: 120px; padding: 14px 16px;
+      border-radius: 10px; border: 1px solid rgba(255,255,255,.08);
+    }
+    .green-card { background: rgba(34,197,94,.08); border-color: rgba(34,197,94,.2); }
+    .yellow-card { background: rgba(246,196,83,.08); border-color: rgba(246,196,83,.2); }
+    .grey-card { background: rgba(255,255,255,.04); }
+    .mcard-title { font-size: 12px; font-weight: 600; margin-bottom: 6px; }
+    .mcard-status { font-size: 11px; color: var(--muted); }
+    .mockup-doc-row { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+    .mockup-doc {
+      font-size: 12px; color: rgba(255,255,255,.6);
+      background: rgba(255,255,255,.04); padding: 8px 12px;
+      border-radius: 8px; border: 1px solid rgba(255,255,255,.06);
+    }
+    .mockup-cta-bar { display: flex; gap: 10px; margin-top: 8px; }
+    .mockup-btn {
+      font-size: 11px; font-weight: 600; padding: 8px 16px;
+      border-radius: 999px; cursor: pointer;
+    }
+    .primary-btn {
+      background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+      color: #070b18;
+    }
+    .ghost-btn {
+      border: 1px solid rgba(201,168,76,.3);
+      color: rgba(201,168,76,.8); background: transparent;
+    }
+    /* AI Chat */
+    .ai-chat-window {
+      background: rgba(0,0,0,.3); border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.07);
+      padding: 16px; display: flex; flex-direction: column; gap: 12px;
+      margin-bottom: 16px;
+    }
+    .chat-msg { display: flex; align-items: flex-start; gap: 10px; }
+    .user-msg { flex-direction: row-reverse; }
+    .chat-avatar {
+      width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+      color: #070b18; font-size: 9px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .user-avatar { background: rgba(255,255,255,.15); color: #fff; }
+    .chat-bubble {
+      font-size: 12px; line-height: 1.5; color: rgba(255,255,255,.8);
+      background: rgba(255,255,255,.06); border-radius: 10px;
+      padding: 10px 14px; max-width: 80%;
+    }
+    .user-bubble { background: rgba(201,168,76,.12); color: rgba(255,255,255,.9); }
+    .deadline-strip { display: flex; gap: 12px; flex-wrap: wrap; }
+    .deadline-item {
+      flex: 1; min-width: 120px;
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.04); border-radius: 8px; padding: 10px 12px;
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    .dl-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .green-dot { background: #4caf7d; }
+    .yellow-dot { background: var(--gold); }
+    .grey-dot { background: rgba(255,255,255,.3); }
+    .dl-text { font-size: 11px; color: rgba(255,255,255,.7); flex: 1; }
+    .dl-date { font-size: 10px; color: var(--muted); }
+    /* Elite */
+    .elite-stats-row { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+    .elite-stat {
+      flex: 1; min-width: 80px;
+      background: rgba(201,168,76,.06); border: 1px solid rgba(201,168,76,.15);
+      border-radius: 10px; padding: 14px; text-align: center;
+    }
+    .estat-num { font-family: var(--heading); font-size: 26px; color: var(--gold-light); font-weight: 700; }
+    .estat-label { font-size: 10px; color: var(--muted); margin-top: 4px; }
+    .elite-entity-row { display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+    .entity-card {
+      flex: 1; min-width: 120px;
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+      border-radius: 10px; padding: 12px 14px;
+    }
+    .entity-name { font-size: 12px; font-weight: 600; margin-bottom: 4px; }
+    .entity-status { font-size: 11px; }
+    .all-green { color: #4caf7d; }
+    .manager-strip {
+      display: flex; align-items: center; gap: 14px;
+      background: rgba(201,168,76,.06); border: 1px solid rgba(201,168,76,.15);
+      border-radius: 12px; padding: 14px 16px;
+    }
+    .manager-avatar {
+      width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+      color: #070b18; font-size: 12px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .manager-name { font-size: 13px; font-weight: 600; }
+    .manager-sub { font-size: 11px; color: var(--muted); }
+    .showcase-caption {
+      margin-top: 16px; font-size: 13px; color: var(--muted);
+      display: flex; align-items: center; gap: 8px; line-height: 1.6;
+    }
+    .caption-icon { color: var(--gold); font-size: 10px; }
+
     @media (max-width: 900px) {
       .pricing-grid { grid-template-columns: 1fr; max-width: 480px; }
       .plan-card.featured { transform: none; }
@@ -393,6 +570,188 @@
       <h3>Stay organized and supported</h3>
     </div>
   </div>
+</section>
+
+<!-- TIER SHOWCASE -->
+<section class="showcase-section">
+  <p class="section-label">What You Get</p>
+  <h2 class="section-title" style="margin-bottom:12px;">See inside each tier</h2>
+  <p class="section-sub" style="margin-bottom:56px;">Every tier builds on the last. See exactly what you unlock before you choose.</p>
+
+  <!-- TIER I PREVIEW -->
+  <div class="showcase-block">
+    <div class="showcase-label tier1-label">Tier I — LAAP Builder</div>
+    <div class="showcase-mockup">
+      <div class="mockup-bar">
+        <span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span>
+        <span class="mockup-url">laap-console.netlify.app</span>
+      </div>
+      <div class="mockup-body tier1-body">
+        <div class="mockup-sidebar">
+          <div class="sidebar-item active">📋 My Business</div>
+          <div class="sidebar-item">📁 Documents</div>
+          <div class="sidebar-item locked-item">🔒 AI Agents</div>
+          <div class="sidebar-item locked-item">🔒 Auto-Filing</div>
+        </div>
+        <div class="mockup-content">
+          <div class="mockup-heading">Business Formation Hub</div>
+          <div class="mockup-row">
+            <div class="mockup-card green-card">
+              <div class="mcard-title">LLC Formation</div>
+              <div class="mcard-status">✓ Complete</div>
+            </div>
+            <div class="mockup-card yellow-card">
+              <div class="mcard-title">EIN Registration</div>
+              <div class="mcard-status">⏳ In Progress</div>
+            </div>
+            <div class="mockup-card grey-card">
+              <div class="mcard-title">Operating Agreement</div>
+              <div class="mcard-status">— Pending</div>
+            </div>
+          </div>
+          <div class="mockup-heading" style="margin-top:20px;">Document Vault</div>
+          <div class="mockup-doc-row">
+            <div class="mockup-doc">📄 Articles of Organization.pdf</div>
+            <div class="mockup-doc">📄 EIN Confirmation Letter.pdf</div>
+            <div class="mockup-doc">📄 Business License Template.docx</div>
+          </div>
+          <div class="mockup-cta-bar">
+            <div class="mockup-btn primary-btn">+ Add Document</div>
+            <div class="mockup-btn ghost-btn">View Templates</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="showcase-caption">
+      <span class="caption-icon">✦</span> Formation tracking, document vault, compliance checklist, and DIY templates — all in one place.
+    </div>
+  </div>
+
+  <!-- TIER II PREVIEW -->
+  <div class="showcase-block">
+    <div class="showcase-label tier2-label">Tier II — LAAP Growth <span class="popular-chip">Most Popular</span></div>
+    <div class="showcase-mockup featured-mockup">
+      <div class="mockup-bar">
+        <span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span>
+        <span class="mockup-url">laap-console.netlify.app</span>
+      </div>
+      <div class="mockup-body tier2-body">
+        <div class="mockup-sidebar">
+          <div class="sidebar-item active">🤖 AI Agents</div>
+          <div class="sidebar-item">📋 My Business</div>
+          <div class="sidebar-item">📁 Documents</div>
+          <div class="sidebar-item">🔔 Deadlines</div>
+          <div class="sidebar-item locked-item">🔒 Multi-Entity</div>
+        </div>
+        <div class="mockup-content">
+          <div class="mockup-heading">AI Business Agents — Live</div>
+          <div class="ai-chat-window">
+            <div class="chat-msg bot-msg">
+              <div class="chat-avatar">AI</div>
+              <div class="chat-bubble">Your annual report for <strong>LaFaries LLC</strong> is due in <strong>14 days</strong>. Want me to file it automatically?</div>
+            </div>
+            <div class="chat-msg user-msg">
+              <div class="chat-bubble user-bubble">Yes, go ahead and file it.</div>
+              <div class="chat-avatar user-avatar">You</div>
+            </div>
+            <div class="chat-msg bot-msg">
+              <div class="chat-avatar">AI</div>
+              <div class="chat-bubble">Done. Annual report filed ✓. Next deadline: <strong>Registered Agent Renewal</strong> — March 2027.</div>
+            </div>
+          </div>
+          <div class="deadline-strip">
+            <div class="deadline-item">
+              <span class="dl-dot green-dot"></span>
+              <span class="dl-text">Annual Report</span>
+              <span class="dl-date">Filed ✓</span>
+            </div>
+            <div class="deadline-item">
+              <span class="dl-dot yellow-dot"></span>
+              <span class="dl-text">Reg. Agent Renewal</span>
+              <span class="dl-date">Mar 2027</span>
+            </div>
+            <div class="deadline-item">
+              <span class="dl-dot grey-dot"></span>
+              <span class="dl-text">Tax Filing</span>
+              <span class="dl-date">Apr 2027</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="showcase-caption">
+      <span class="caption-icon">✦</span> AI agents handle filings, track deadlines, follow up on leads, and alert you before anything is missed.
+    </div>
+  </div>
+
+  <!-- TIER III PREVIEW -->
+  <div class="showcase-block">
+    <div class="showcase-label tier3-label">Tier III — LAAP Elite</div>
+    <div class="showcase-mockup elite-mockup">
+      <div class="mockup-bar elite-bar">
+        <span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span>
+        <span class="mockup-url">laap-console.netlify.app</span>
+        <span class="elite-chip">ELITE</span>
+      </div>
+      <div class="mockup-body tier3-body">
+        <div class="mockup-sidebar elite-sidebar">
+          <div class="sidebar-item active elite-active">⚡ Command Center</div>
+          <div class="sidebar-item">🤖 AI Agents</div>
+          <div class="sidebar-item">🏢 Multi-Entity</div>
+          <div class="sidebar-item">📊 Analytics</div>
+          <div class="sidebar-item">👤 Account Manager</div>
+          <div class="sidebar-item">📞 Strategy Calls</div>
+        </div>
+        <div class="mockup-content">
+          <div class="mockup-heading">Elite Command Center</div>
+          <div class="elite-stats-row">
+            <div class="elite-stat">
+              <div class="estat-num">3</div>
+              <div class="estat-label">Active Entities</div>
+            </div>
+            <div class="elite-stat">
+              <div class="estat-num">100%</div>
+              <div class="estat-label">Compliance Score</div>
+            </div>
+            <div class="elite-stat">
+              <div class="estat-num">0</div>
+              <div class="estat-label">Missed Deadlines</div>
+            </div>
+            <div class="elite-stat">
+              <div class="estat-num">24/7</div>
+              <div class="estat-label">AI Coverage</div>
+            </div>
+          </div>
+          <div class="elite-entity-row">
+            <div class="entity-card">
+              <div class="entity-name">LaFaries LLC</div>
+              <div class="entity-status all-green">All Systems ✓</div>
+            </div>
+            <div class="entity-card">
+              <div class="entity-name">Holding Corp</div>
+              <div class="entity-status all-green">All Systems ✓</div>
+            </div>
+            <div class="entity-card">
+              <div class="entity-name">Ministry Org</div>
+              <div class="entity-status all-green">All Systems ✓</div>
+            </div>
+          </div>
+          <div class="manager-strip">
+            <div class="manager-avatar">DM</div>
+            <div class="manager-info">
+              <div class="manager-name">Your Account Manager</div>
+              <div class="manager-sub">Next strategy call: Friday 2:00 PM</div>
+            </div>
+            <div class="mockup-btn primary-btn" style="margin-left:auto;">Schedule Call</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="showcase-caption">
+      <span class="caption-icon">✦</span> Manage multiple entities, dedicated account manager, monthly strategy calls, and full automation — completely handled.
+    </div>
+  </div>
+
 </section>
 
 <!-- PRICING -->
