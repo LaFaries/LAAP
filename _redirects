@@ -24,5 +24,9 @@
 /subscribe     /subscribe/index.html      200
 /subscribe/    /subscribe/index.html      200
 
+# --- RESTORE ACCESS ---
+/restore       /restore/index.html        200
+/restore/      /restore/index.html        200
+
 # --- CATCH-ALL ---
 /*             /welcome-page/index.html   404
