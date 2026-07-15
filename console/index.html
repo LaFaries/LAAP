@@ -263,37 +263,100 @@ footer{
 </div>
 
 <script>
-const tier = localStorage.getItem("laap_tier") || "free";
+/* ============================================================
+   LAAP Console Gate — SERVER-VERIFIED
+   localStorage is treated as a HINT only. Full-tier access is
+   confirmed with PayPal via /.netlify/functions/verify-subscription
+   on every load. Forged localStorage values fail verification
+   and are cleared.
+   ============================================================ */
+const tier  = localStorage.getItem("laap_tier") || "free";
 const subId = localStorage.getItem("laapSubscriptionID") || "";
 
-const tierBadge = document.getElementById("tierBadge");
-const notice    = document.getElementById("tierNotice");
+const tierBadge  = document.getElementById("tierBadge");
+const notice     = document.getElementById("tierNotice");
 const builderBtn = document.getElementById("launchBuilder");
-const modal     = document.getElementById("payModal");
+const modal      = document.getElementById("payModal");
 
-if (tier === "full" && subId) {
+const RESTORE_LINK =
+  ' <a href="/restore/" style="color:var(--gold);text-decoration:underline">Already subscribed? Restore access</a>';
+
+function showFree(message) {
+  tierBadge.textContent = "Free Tier";
+  tierBadge.style.color = "";
+  tierBadge.style.borderColor = "";
+  tierBadge.style.background  = "";
+  notice.innerHTML =
+    (message ||
+      "<strong>Free Tier:</strong> You may explore the Console. Builder access requires a paid subscription.") +
+    RESTORE_LINK;
+  builderBtn.onclick = () => modal.classList.add("open");
+}
+
+function showFull(verifiedSubId) {
   tierBadge.textContent = "Full LAAP Active";
   tierBadge.style.color = "#4caf7d";
   tierBadge.style.borderColor = "rgba(76,175,125,.3)";
   tierBadge.style.background  = "rgba(76,175,125,.08)";
-  notice.innerHTML = "<strong>✓ Full LAAP Active:</strong> All modules unlocked. Welcome back!";
+  notice.innerHTML =
+    "<strong>✓ Full LAAP Active:</strong> All modules unlocked. Welcome back!";
   builderBtn.onclick = () => {
     const draft = localStorage.getItem("laap_console_draft") || "";
-    let url = `https://scintillating-fairy.netlify.app/wizard/?sub=${subId}`;
+    let url = `https://scintillating-fairy.netlify.app/wizard/?sub=${verifiedSubId}`;
     if (draft) {
       try {
         url += `&draft=${btoa(encodeURIComponent(draft))}`;
-      } catch(e) {}
+      } catch (e) {}
     }
     window.location.href = url;
   };
+}
+
+async function verifyAndActivate() {
+  /* Verifying state while we check with PayPal */
+  tierBadge.textContent = "Verifying…";
+  notice.innerHTML =
+    "<strong>Checking your subscription…</strong> One moment.";
+
+  try {
+    const res = await fetch("/.netlify/functions/verify-subscription", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ subscriptionId: subId })
+    });
+    const data = await res.json();
+
+    if (data.verified) {
+      showFull(subId);
+    } else {
+      /* Verification failed → clear stale/forged unlock and downgrade */
+      localStorage.removeItem("laap_tier");
+      localStorage.removeItem("laapUnlocked");
+      localStorage.removeItem("laapSubscriptionID");
+      showFree(
+        "<strong>Subscription check failed:</strong> " +
+        (data.reason || "We couldn't verify an active subscription on this device.") + "."
+      );
+    }
+  } catch (err) {
+    /* Network/server error: do NOT unlock, but don't wipe keys either —
+       the customer may simply be offline. They keep free access and can retry. */
+    console.error("Verification error:", err);
+    showFree(
+      "<strong>Connection issue:</strong> We couldn't reach the verification service. Please refresh to try again."
+    );
+  }
+}
+
+if (tier === "full" && subId) {
+  verifyAndActivate();
 } else if (tier === "setup") {
   tierBadge.textContent = "Setup Tier";
-  notice.innerHTML = "<strong>Setup Tier:</strong> Builder available after payment confirmation.";
+  notice.innerHTML =
+    "<strong>Setup Tier:</strong> Builder available after payment confirmation." + RESTORE_LINK;
   builderBtn.onclick = () => modal.classList.add("open");
 } else {
-  notice.innerHTML = "<strong>Free Tier:</strong> You may explore the Console. Builder access requires a paid subscription.";
-  builderBtn.onclick = () => modal.classList.add("open");
+  showFree();
 }
 
 document.getElementById("closeModal").onclick = () => modal.classList.remove("open");
