@@ -878,9 +878,8 @@
       const pricingTitle = pricingSection.querySelector('.section-title');
       const pricingDescription = pricingSection.querySelector('.section-sub');
       recommendedCard.classList.add('recommended-plan');
-      pricingGrid.prepend(recommendedCard);
       pricingTitle.textContent = 'Your recommended LAAP plan';
-      pricingDescription.textContent = 'Based on your assessment, this plan matches your current support needs. It has been placed first so there is no confusion.';
+      pricingDescription.textContent = 'Based on your assessment, this plan matches your current support needs and is highlighted below.';
       const flag = document.createElement('div');
       flag.className = 'recommendation-flag';
       flag.textContent = 'Your assessment recommendation';
