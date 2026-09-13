@@ -108,20 +108,20 @@
     .journey-btn.primary { color: #05070D; background: linear-gradient(135deg,var(--gold),var(--gold-light)); }
     .journey-btn.secondary { color: var(--gold-light); border: 1px solid rgba(201,168,76,.45); background: rgba(201,168,76,.06); }
     .hero-guidance { color: rgba(255,255,255,.55); font-size: 12px; }
-    .quick-start {
-      max-width: 900px; margin: -24px auto 48px; padding: 0 24px; position: relative; z-index: 3;
+    .hero-secondary-links {
+      display:flex; justify-content:center; gap:10px; flex-wrap:wrap;
+      margin-top:18px; color:var(--muted); font-size:12px;
     }
-    .quick-start-title { text-align: center; font-family: var(--heading); font-size: 25px; margin-bottom: 18px; }
-    .quick-start-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
-    .quick-choice {
-      display: block; min-height: 142px; padding: 24px 20px; border-radius: 18px;
-      background: rgba(23,28,40,.98); border: 1px solid rgba(255,255,255,.09);
-      color: #fff; text-decoration: none; text-align: center; transition: .2s;
+    .hero-secondary-links a { color:var(--gold-light); text-underline-offset:3px; }
+    .path-step p { margin-top:10px; color:var(--muted); font-size:12px; line-height:1.55; }
+    .start-callout {
+      max-width:720px; margin:42px auto 0; padding:22px;
+      display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+      background:#171C28; border:1px solid rgba(201,168,76,.32); border-radius:18px;
     }
-    .quick-choice:hover { transform: translateY(-3px); border-color: rgba(201,168,76,.5); }
-    .quick-choice strong { display:block; color: var(--gold-light); font-family:var(--heading); font-size:19px; margin:8px 0; }
-    .quick-choice span { display:block; color:var(--muted); font-size:12px; line-height:1.5; }
-    .quick-icon { font-size: 24px; }
+    .start-callout strong { color:var(--gold-light); font-family:var(--heading); font-size:20px; }
+    .start-callout span { color:var(--muted); font-size:13px; flex:1; min-width:220px; }
+    .start-callout .journey-btn { min-height:42px; padding:0 19px; }
     .plan-card.recommended-plan {
       border-color: #F0D98A; box-shadow: 0 0 0 3px rgba(201,168,76,.18), 0 20px 60px rgba(201,168,76,.18);
     }
@@ -599,302 +599,85 @@
 
 <!-- HERO -->
 <section class="hero">
-  <span class="hero-eyebrow">LaFaries Administrative Automation Platform</span>
-  <h1>Stop running your business<br>from scattered systems.</h1>
-  <p>LAAP Suite™ gives small businesses, ministries, nonprofits, and entrepreneurs the structure of an administrative department—without leaving you to figure out what comes next.</p>
+  <span class="hero-eyebrow">Your Guided Business Support System</span>
+  <h1>Start here.<br>We will guide you.</h1>
+  <p>If you are unsure what your business, ministry, or nonprofit needs, begin with the free two-minute assessment. LAAP will give you one clear plan recommendation and show you exactly what to do next.</p>
   <div class="hero-divider"></div>
   <div class="hero-actions">
-    <a class="journey-btn primary" href="/assessment/">Take the Free Business Systems Assessment</a>
-    <a class="journey-btn secondary" href="#agent-introductions">Watch LAAP Work</a>
+    <a class="journey-btn primary" href="/assessment/">Start My 2-Minute Assessment</a>
   </div>
-  <div class="hero-guidance">About 2 minutes · Immediate result · No technical experience required</div>
+  <div class="hero-guidance">No personal information required · Immediate recommendation</div>
+  <div class="hero-secondary-links">
+    <a href="#agent-introductions">I want to see the specialists</a>
+    <span aria-hidden="true">·</span>
+    <a href="#pricing">I already know my plan</a>
+  </div>
 </section>
 
-<section class="quick-start" aria-labelledby="quick-start-heading">
-  <h2 class="quick-start-title" id="quick-start-heading">What would you like to do?</h2>
-  <div class="quick-start-grid">
-    <a class="quick-choice" href="/assessment/">
-      <span class="quick-icon" aria-hidden="true">✓</span>
-      <strong>Help me choose</strong>
-      <span>Answer a few simple questions and receive one clear recommendation.</span>
-    </a>
-    <a class="quick-choice" href="#agent-introductions">
-      <span class="quick-icon" aria-hidden="true">▶</span>
-      <strong>Show me LAAP</strong>
-      <span>Meet the specialists and see how they can help.</span>
-    </a>
-    <a class="quick-choice" href="#pricing">
-      <span class="quick-icon" aria-hidden="true">→</span>
-      <strong>I know my plan</strong>
-      <span>Go directly to Builder, Growth, and Elite.</span>
-    </a>
+<!-- PATH -->
+<section class="path-section" id="next-steps">
+  <p class="section-label">Your Next Steps</p>
+  <h2 class="section-title" style="margin-bottom:12px;">Here is exactly what happens next</h2>
+  <p class="section-sub" style="margin-bottom:42px;">Most customers should begin with Step 1. You will not have to choose a plan until LAAP recommends one.</p>
+  <div class="path-steps">
+    <div class="path-step">
+      <div class="step-num">1</div>
+      <h3>Take the assessment</h3>
+      <p>Answer eight simple questions, one at a time.</p>
+    </div>
+    <div class="path-step">
+      <div class="step-num">2</div>
+      <h3>Receive one recommendation</h3>
+      <p>LAAP identifies Builder, Growth, or Elite for you.</p>
+    </div>
+    <div class="path-step">
+      <div class="step-num">3</div>
+      <h3>Select your plan</h3>
+      <p>Review the recommended plan and subscribe securely.</p>
+    </div>
+    <div class="path-step">
+      <div class="step-num">4</div>
+      <h3>Begin guided setup</h3>
+      <p>Enter your Console and receive step-by-step support.</p>
+    </div>
+  </div>
+  <div class="start-callout">
+    <strong>Not sure what to do?</strong>
+    <span>Start with the assessment. That is the correct first step.</span>
+    <a class="journey-btn primary" href="/assessment/">Begin Step 1</a>
   </div>
 </section>
 
 <!-- WHAT LAAP DOES -->
 <section class="features-section">
-  <p class="section-label">What LAAP Does For You</p>
-  <h2 class="section-title">One system. Every business need.<br>Fully guided.</h2>
-  <p class="section-sub">LAAP handles paperwork, filings, deadlines, and compliance — acting as your digital office manager. No technical experience required.</p>
-
+  <p class="section-label">What LAAP Helps You Do</p>
+  <h2 class="section-title">The help you need—in one organized system</h2>
+  <p class="section-sub">LAAP brings your essential administrative work together so you know what needs attention and where to get help.</p>
   <div class="features-grid">
     <div class="feature-item">
-      <div class="feature-icon">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M9 21V7l3-4 3 4v14M9 12h6"/></svg>
-      </div>
-      <div>
-        <h3>Business Formation</h3>
-        <p>LLC, Corp, EIN — done right the first time with full guidance.</p>
-      </div>
+      <div class="feature-icon">01</div>
+      <div><h3>Start and protect your organization</h3><p>Receive guidance for formation, filings, compliance requirements, and important deadlines.</p></div>
     </div>
     <div class="feature-item">
-      <div class="feature-icon">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-      </div>
-      <div>
-        <h3>Compliance Autopilot</h3>
-        <p>Annual reports, renewals, and registered agent coverage handled automatically.</p>
-      </div>
+      <div class="feature-icon">02</div>
+      <div><h3>Organize your work and records</h3><p>Keep documents, administrative tasks, follow-ups, and repeatable workflows in one place.</p></div>
     </div>
     <div class="feature-item">
-      <div class="feature-icon">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
-      </div>
-      <div>
-        <h3>Document Vault</h3>
-        <p>All your business records organized, secured, and accessible anytime.</p>
-      </div>
+      <div class="feature-icon">03</div>
+      <div><h3>Get help from the right specialist</h3><p>Use focused LAAP specialists for formation, administration, ministry support, research, documentation, and succession.</p></div>
     </div>
     <div class="feature-item">
-      <div class="feature-icon">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M4.22 4.22l2.12 2.12m11.32 11.32l2.12 2.12M2 12h3m14 0h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
-      </div>
-      <div>
-        <h3>AI Business Agents</h3>
-        <p>24/7 automated responses, lead follow-up, and intelligent business support.</p>
-      </div>
-    </div>
-    <div class="feature-item">
-      <div class="feature-icon">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-      </div>
-      <div>
-        <h3>Deadline Reminders</h3>
-        <p>Never miss a filing, renewal, or tax deadline again — we track it for you.</p>
-      </div>
-    </div>
-    <div class="feature-item">
-      <div class="feature-icon">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"/></svg>
-      </div>
-      <div>
-        <h3>Expert Access</h3>
-        <p>Real humans available when you need guidance — not just automated responses.</p>
-      </div>
+      <div class="feature-icon">04</div>
+      <div><h3>Know what to do next</h3><p>Follow clear recommendations and guided setup without having to build the system by yourself.</p></div>
     </div>
   </div>
-</section>
-
-<!-- PATH -->
-<section class="path-section">
-  <p class="section-label">Your Guided LAAP Path</p>
-  <h2 class="section-title" style="margin-bottom:12px;">You never have to figure out what comes next</h2>
-  <p class="section-sub" style="margin-bottom:48px;">Begin with your needs—not a price chart. LAAP identifies the right level of support and guides you from assessment through implementation.</p>
-  <div class="path-steps">
-    <div class="path-step"><div class="step-num">1</div><h3>Take the free assessment</h3></div>
-    <div class="path-step"><div class="step-num">2</div><h3>Receive your personalized result</h3></div>
-    <div class="path-step"><div class="step-num">3</div><h3>See your recommended LAAP plan</h3></div>
-    <div class="path-step"><div class="step-num">4</div><h3>Complete guided setup</h3></div>
-  </div>
-  <div class="hero-actions" style="margin-top:42px;margin-bottom:0;">
-    <a class="journey-btn primary" href="/assessment/">Start My Assessment</a>
-    <a class="journey-btn secondary" href="https://lafariesmortimerllc.com/contact">Request a Consultation</a>
-  </div>
-</section>
-
-<!-- TIER SHOWCASE -->
-<section class="showcase-section">
-  <p class="section-label">What You Get</p>
-  <h2 class="section-title" style="margin-bottom:12px;">See inside each tier</h2>
-  <p class="section-sub" style="margin-bottom:56px;">Every tier builds on the last. See exactly what you unlock before you choose.</p>
-
-  <!-- TIER I PREVIEW -->
-  <div class="showcase-block">
-    <div class="showcase-label tier1-label">Tier I — LAAP Builder</div>
-    <div class="showcase-mockup">
-      <div class="mockup-bar">
-        <span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span>
-        <span class="mockup-url">laap-console.netlify.app</span>
-      </div>
-      <div class="mockup-body tier1-body">
-        <div class="mockup-sidebar">
-          <div class="sidebar-item active">📋 My Business</div>
-          <div class="sidebar-item">📁 Documents</div>
-          <div class="sidebar-item locked-item">🔒 AI Agents</div>
-          <div class="sidebar-item locked-item">🔒 Auto-Filing</div>
-        </div>
-        <div class="mockup-content">
-          <div class="mockup-heading">Business Formation Hub</div>
-          <div class="mockup-row">
-            <div class="mockup-card green-card">
-              <div class="mcard-title">LLC Formation</div>
-              <div class="mcard-status">✓ Complete</div>
-            </div>
-            <div class="mockup-card yellow-card">
-              <div class="mcard-title">EIN Registration</div>
-              <div class="mcard-status">⏳ In Progress</div>
-            </div>
-            <div class="mockup-card grey-card">
-              <div class="mcard-title">Operating Agreement</div>
-              <div class="mcard-status">— Pending</div>
-            </div>
-          </div>
-          <div class="mockup-heading" style="margin-top:20px;">Document Vault</div>
-          <div class="mockup-doc-row">
-            <div class="mockup-doc">📄 Articles of Organization.pdf</div>
-            <div class="mockup-doc">📄 EIN Confirmation Letter.pdf</div>
-            <div class="mockup-doc">📄 Business License Template.docx</div>
-          </div>
-          <div class="mockup-cta-bar">
-            <div class="mockup-btn primary-btn">+ Add Document</div>
-            <div class="mockup-btn ghost-btn">View Templates</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="showcase-caption">
-      <span class="caption-icon">✦</span> Formation tracking, document vault, compliance checklist, and DIY templates — all in one place.
-    </div>
-  </div>
-
-  <!-- TIER II PREVIEW -->
-  <div class="showcase-block">
-    <div class="showcase-label tier2-label">Tier II — LAAP Growth <span class="popular-chip">Most Popular</span></div>
-    <div class="showcase-mockup featured-mockup">
-      <div class="mockup-bar">
-        <span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span>
-        <span class="mockup-url">laap-console.netlify.app</span>
-      </div>
-      <div class="mockup-body tier2-body">
-        <div class="mockup-sidebar">
-          <div class="sidebar-item active">🤖 AI Agents</div>
-          <div class="sidebar-item">📋 My Business</div>
-          <div class="sidebar-item">📁 Documents</div>
-          <div class="sidebar-item">🔔 Deadlines</div>
-          <div class="sidebar-item locked-item">🔒 Multi-Entity</div>
-        </div>
-        <div class="mockup-content">
-          <div class="mockup-heading">Your AI Agents — 4 Included</div>
-          <div class="agent-grid-2">
-            <a href="https://lafariesai-7jesmycn.manus.space/agent/1" target="_blank" class="agent-card">
-              <div class="agent-avatar" style="background:linear-gradient(135deg,#4a90d9,#2c5f9e)">F</div>
-              <div class="agent-info"><div class="agent-name">Francis</div><div class="agent-role">Formation &amp; Compliance</div></div>
-              <div class="agent-status-dot green-dot"></div>
-            </a>
-            <a href="https://lafariesai-7jesmycn.manus.space/agent/2" target="_blank" class="agent-card">
-              <div class="agent-avatar" style="background:linear-gradient(135deg,#d4854a,#9e4f2c)">A</div>
-              <div class="agent-info"><div class="agent-name">Aria</div><div class="agent-role">Administration &amp; Workflows</div></div>
-              <div class="agent-status-dot green-dot"></div>
-            </a>
-            <a href="https://lafariesai-7jesmycn.manus.space/agent/3" target="_blank" class="agent-card">
-              <div class="agent-avatar" style="background:linear-gradient(135deg,#5a9e6f,#2c7a45)">G</div>
-              <div class="agent-info"><div class="agent-name">Grace</div><div class="agent-role">Ministry &amp; Nonprofit Support</div></div>
-              <div class="agent-status-dot green-dot"></div>
-            </a>
-            <a href="https://lafariesai-7jesmycn.manus.space/agent/4" target="_blank" class="agent-card">
-              <div class="agent-avatar" style="background:linear-gradient(135deg,#9e6fd4,#5c2c9e)">R</div>
-              <div class="agent-info"><div class="agent-name">Rex</div><div class="agent-role">Research &amp; Strategic Intelligence</div></div>
-              <div class="agent-status-dot green-dot"></div>
-            </a>
-          </div>
-          <div class="agent-locked-row">
-            <span class="locked-agent">🔒 Lex — Legal Documentation &amp; Business Structure</span>
-            <span class="locked-agent">🔒 Nova — Legacy &amp; Succession Planning</span>
-            <span class="unlock-hint">Unlock with Elite ↑</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="showcase-caption">
-      <span class="caption-icon">✦</span> AI agents handle filings, track deadlines, follow up on leads, and alert you before anything is missed.
-    </div>
-  </div>
-
-  <!-- TIER III PREVIEW -->
-  <div class="showcase-block">
-    <div class="showcase-label tier3-label">Tier III — LAAP Elite</div>
-    <div class="showcase-mockup elite-mockup">
-      <div class="mockup-bar elite-bar">
-        <span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span>
-        <span class="mockup-url">laap-console.netlify.app</span>
-        <span class="elite-chip">ELITE</span>
-      </div>
-      <div class="mockup-body tier3-body">
-        <div class="mockup-sidebar elite-sidebar">
-          <div class="sidebar-item active elite-active">⚡ Command Center</div>
-          <div class="sidebar-item">🤖 AI Agents</div>
-          <div class="sidebar-item">🏢 Multi-Entity</div>
-          <div class="sidebar-item">📊 Analytics</div>
-          <div class="sidebar-item">👤 Account Manager</div>
-          <div class="sidebar-item">📞 Strategy Calls</div>
-        </div>
-        <div class="mockup-content">
-          <div class="mockup-heading">All 6 AI Agents — Full Access</div>
-          <div class="agent-grid-3">
-            <a href="https://lafariesai-7jesmycn.manus.space/agent/1" target="_blank" class="agent-card elite-agent">
-              <div class="agent-avatar" style="background:linear-gradient(135deg,#4a90d9,#2c5f9e)">F</div>
-              <div class="agent-info"><div class="agent-name">Francis</div><div class="agent-role">Formation &amp; Compliance</div></div>
-              <div class="agent-status-dot green-dot"></div>
-            </a>
-            <a href="https://lafariesai-7jesmycn.manus.space/agent/2" target="_blank" class="agent-card elite-agent">
-              <div class="agent-avatar" style="background:linear-gradient(135deg,#d4854a,#9e4f2c)">A</div>
-              <div class="agent-info"><div class="agent-name">Aria</div><div class="agent-role">Administration &amp; Workflows</div></div>
-              <div class="agent-status-dot green-dot"></div>
-            </a>
-            <a href="https://lafariesai-7jesmycn.manus.space/agent/3" target="_blank" class="agent-card elite-agent">
-              <div class="agent-avatar" style="background:linear-gradient(135deg,#5a9e6f,#2c7a45)">G</div>
-              <div class="agent-info"><div class="agent-name">Grace</div><div class="agent-role">Ministry &amp; Nonprofit Support</div></div>
-              <div class="agent-status-dot green-dot"></div>
-            </a>
-            <a href="https://lafariesai-7jesmycn.manus.space/agent/4" target="_blank" class="agent-card elite-agent">
-              <div class="agent-avatar" style="background:linear-gradient(135deg,#9e6fd4,#5c2c9e)">R</div>
-              <div class="agent-info"><div class="agent-name">Rex</div><div class="agent-role">Research &amp; Strategic Intelligence</div></div>
-              <div class="agent-status-dot green-dot"></div>
-            </a>
-            <a href="https://lafariesai-7jesmycn.manus.space/agent/5" target="_blank" class="agent-card elite-agent gold-agent">
-              <div class="agent-avatar" style="background:linear-gradient(135deg,#C9A84C,#9a7230)">L</div>
-              <div class="agent-info"><div class="agent-name">Lex</div><div class="agent-role">Legal Documentation &amp; Business Structure</div></div>
-              <div class="agent-status-dot green-dot"></div>
-            </a>
-            <a href="https://lafariesai-7jesmycn.manus.space/agent/6" target="_blank" class="agent-card elite-agent gold-agent">
-              <div class="agent-avatar" style="background:linear-gradient(135deg,#d44a8a,#9e2c5c)">N</div>
-              <div class="agent-info"><div class="agent-name">Nova</div><div class="agent-role">Legacy &amp; Succession Planning</div></div>
-              <div class="agent-status-dot green-dot"></div>
-            </a>
-          </div>
-          <div class="manager-strip" style="margin-top:14px;">
-            <div class="manager-avatar">DM</div>
-            <div class="manager-info">
-              <div class="manager-name">Your Dedicated Account Manager</div>
-              <div class="manager-sub">Next strategy call: Friday 2:00 PM</div>
-            </div>
-            <div class="mockup-btn primary-btn" style="margin-left:auto;white-space:nowrap;">Schedule Call</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="showcase-caption">
-      <span class="caption-icon">✦</span> Manage multiple entities, dedicated account manager, monthly strategy calls, and full automation — completely handled.
-    </div>
-  </div>
-
 </section>
 
 <!-- MEET YOUR AGENTS -->
 <section class="agents-section" id="agent-introductions">
   <p class="section-label">Your AI Team</p>
   <h2 class="section-title" style="margin-bottom:12px;">Meet your LAAP specialists</h2>
-  <p class="section-sub" style="margin-bottom:56px;">Six focused specialists provide guided administrative support across formation, workflows, ministry and nonprofit operations, research, documentation, and succession planning.</p>
+  <p class="section-sub" style="margin-bottom:56px;">This section is optional. Watch any introduction that matches your needs, or continue directly to the plans below.</p>
 
   <div class="agents-grid">
     <article class="agent-full-card">
@@ -960,7 +743,7 @@
 <section class="pricing-section" id="pricing">
   <p class="section-label">Choose Your Plan</p>
   <h2 class="section-title" style="margin-bottom:12px;">Simple, transparent pricing</h2>
-  <p class="section-sub" style="margin-bottom:32px;">Your assessment recommends the plan that matches your present needs. Growth is the best fit for many organizations that need active, guided support.</p>
+  <p class="section-sub" style="margin-bottom:32px;">If you completed the assessment, your recommended plan will be highlighted. If you have not completed it, start there before choosing.</p>
   <div class="hero-actions" style="margin-bottom:64px;">
     <a class="journey-btn secondary" href="/assessment/">Not sure? Take the free assessment</a>
   </div>
