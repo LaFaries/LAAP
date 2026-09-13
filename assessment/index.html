@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Take the free LAAP Business Systems Assessment and receive a clear plan recommendation.">
+  <title>Free Business Systems Assessment | LAAP Suite™</title>
+  <style>
+    :root{--navy:#070b18;--panel:#0f152d;--gold:#c9a84c;--gold2:#f3cf6e;--text:#f7f5ee;--muted:#aeb5c8;--line:rgba(255,255,255,.11);--green:#49c987;--red:#ff867d}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{min-height:100vh;background:radial-gradient(circle at 50% 0,rgba(201,168,76,.14),transparent 38%),var(--navy);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+    a{color:inherit}
+    .shell{width:min(720px,calc(100% - 32px));margin:0 auto;padding:24px 0 48px}
+    .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:42px}
+    .brand{font-weight:900;letter-spacing:.04em;text-decoration:none}.brand span{color:var(--gold2)}
+    .exit{color:var(--muted);font-size:13px;text-decoration:none}.exit:hover{color:#fff}
+    .intro{text-align:center;margin:0 auto 28px}
+    .eyebrow{color:var(--gold2);text-transform:uppercase;letter-spacing:.16em;font-size:11px;font-weight:800;margin-bottom:12px}
+    h1{font-family:Georgia,serif;font-size:clamp(34px,7vw,52px);line-height:1.08;margin-bottom:14px}
+    .intro p{color:var(--muted);max-width:54ch;margin:auto}
+    .card{background:linear-gradient(180deg,rgba(18,25,52,.98),rgba(10,15,32,.98));border:1px solid var(--line);border-radius:24px;padding:clamp(24px,6vw,46px);box-shadow:0 28px 80px rgba(0,0,0,.35)}
+    .progress-row{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin-bottom:10px}
+    .progress-track{height:7px;background:rgba(255,255,255,.07);border-radius:999px;overflow:hidden;margin-bottom:34px}
+    .progress-bar{height:100%;width:12.5%;background:linear-gradient(90deg,var(--gold),var(--gold2));transition:width .3s}
+    .question h2{font-family:Georgia,serif;font-size:clamp(25px,5vw,34px);line-height:1.25;text-align:center;margin-bottom:10px}
+    .question p{text-align:center;color:var(--muted);font-size:14px;margin-bottom:28px}
+    .answers{display:grid;gap:12px}
+    .answer{width:100%;min-height:62px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.035);color:#fff;padding:14px 18px;font:inherit;font-weight:750;text-align:left;cursor:pointer;transition:.18s}
+    .answer:hover,.answer:focus-visible{outline:none;border-color:var(--gold);background:rgba(201,168,76,.09);transform:translateY(-1px)}
+    .answer small{display:block;color:var(--muted);font-weight:400;margin-top:3px}
+    .controls{display:flex;justify-content:space-between;align-items:center;margin-top:24px}
+    .back{border:0;background:none;color:var(--muted);padding:8px;cursor:pointer}.back:hover{color:#fff}.back[hidden]{display:none}
+    .privacy{font-size:11px;color:rgba(255,255,255,.42)}
+    .result{display:none;text-align:center}
+    .result.show{display:block}
+    .status{display:inline-flex;padding:6px 13px;border-radius:999px;font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px}
+    .status.green{color:#07170f;background:var(--green)}.status.gold{color:#171205;background:var(--gold2)}.status.red{color:#1d0807;background:var(--red)}
+    .result h2{font-family:Georgia,serif;font-size:clamp(30px,6vw,44px);line-height:1.1;margin-bottom:14px}
+    .result-copy{color:var(--muted);max-width:54ch;margin:0 auto 22px}
+    .why{list-style:none;text-align:left;max-width:500px;margin:0 auto 28px;display:grid;gap:10px}
+    .why li{padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.04);color:#dfe3ed;font-size:13px}
+    .why li:before{content:"✓";color:var(--gold2);font-weight:900;margin-right:10px}
+    .actions{display:grid;gap:12px;max-width:420px;margin:0 auto}
+    .btn{display:flex;align-items:center;justify-content:center;min-height:54px;padding:0 20px;border-radius:999px;text-decoration:none;font-weight:900;font-size:14px}
+    .btn.primary{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#080b14}.btn.secondary{border:1px solid rgba(201,168,76,.45);color:var(--gold2)}
+    .restart{margin-top:22px;border:0;background:none;color:var(--muted);text-decoration:underline;cursor:pointer}
+    .help{margin-top:26px;text-align:center;color:var(--muted);font-size:12px}.help a{color:var(--gold2)}
+    @media(max-width:520px){.shell{width:min(100% - 20px,720px)}.top{margin-bottom:28px}.card{border-radius:18px}.privacy{display:none}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="top">
+      <a class="brand" href="/"><span>LAAP</span> Suite™</a>
+      <a class="exit" href="/">Return to LAAP</a>
+    </div>
+
+    <section class="intro" id="intro">
+      <div class="eyebrow">Free Business Systems Assessment</div>
+      <h1>Let us guide you.</h1>
+      <p>One question at a time. No complicated forms. In about two minutes, you will receive one clear LAAP recommendation.</p>
+    </section>
+
+    <section class="card" aria-live="polite">
+      <div id="quiz">
+        <div class="progress-row"><span id="stepText">Question 1 of 8</span><span>About 2 minutes</span></div>
+        <div class="progress-track"><div class="progress-bar" id="progress"></div></div>
+        <div class="question">
+          <h2 id="questionTitle"></h2>
+          <p id="questionHelp"></p>
+          <div class="answers" id="answers"></div>
+        </div>
+        <div class="controls">
+          <button class="back" id="backButton" type="button" hidden>← Back</button>
+          <span class="privacy">No personal information required</span>
+        </div>
+      </div>
+
+      <div class="result" id="result">
+        <div class="status" id="status"></div>
+        <h2 id="resultTitle"></h2>
+        <p class="result-copy" id="resultCopy"></p>
+        <ul class="why" id="resultWhy"></ul>
+        <div class="actions">
+          <a class="btn primary" id="planButton" href="/">See My Recommended Plan</a>
+          <a class="btn secondary" href="https://lafariesmortimerllc.com/contact">Request Personal Guidance</a>
+        </div>
+        <button class="restart" id="restartButton" type="button">Retake the assessment</button>
+      </div>
+    </section>
+    <p class="help">Need help now? <a href="https://lafariesmortimerllc.com/contact">Contact LaFaries Mortimer LLC</a>.</p>
+  </main>
+
+  <script>
+    const questions=[
+      {title:"Are important business documents scattered in different places?",help:"Think about formation records, EIN letters, agreements, licenses, and reports."},
+      {title:"Do deadlines, renewals, or compliance filings feel difficult to track?",help:"Choose the answer that best reflects your current situation."},
+      {title:"Do your daily administrative tasks need a clearer, repeatable workflow?",help:"Examples include follow-ups, records, intake, and recurring office tasks."},
+      {title:"Do you operate a ministry or nonprofit that needs organized governance support?",help:"This includes organizational records, structure, and administrative processes."},
+      {title:"Do you regularly need research before making business decisions?",help:"Examples include requirements, opportunities, vendors, or strategic information."},
+      {title:"Do you need help organizing business-structure information or document frameworks?",help:"LAAP provides administrative guidance; it does not replace legal counsel."},
+      {title:"Is legacy, succession, or continuity planning important to you now?",help:"Think about how your organization continues when leadership or ownership changes."},
+      {title:"Would you benefit from several specialists helping across your organization?",help:"Consider the amount of active, guided support you want each month."}
+    ];
+    const options=[
+      {label:"Not right now",detail:"This area is currently under control.",value:0},
+      {label:"Sometimes",detail:"I need help in this area occasionally.",value:1},
+      {label:"Yes, definitely",detail:"This is an active need for me.",value:2}
+    ];
+    let index=0,answers=[];
+    const title=document.getElementById("questionTitle"),help=document.getElementById("questionHelp"),answerBox=document.getElementById("answers"),step=document.getElementById("stepText"),progress=document.getElementById("progress"),back=document.getElementById("backButton");
+    function render(){
+      const q=questions[index]; title.textContent=q.title; help.textContent=q.help;
+      step.textContent="Question "+(index+1)+" of "+questions.length;
+      progress.style.width=((index+1)/questions.length*100)+"%";
+      back.hidden=index===0;
+      answerBox.innerHTML="";
+      options.forEach(o=>{const b=document.createElement("button");b.type="button";b.className="answer";b.innerHTML=o.label+"<small>"+o.detail+"</small>";b.onclick=()=>choose(o.value);answerBox.appendChild(b)});
+      title.focus?.();
+    }
+    function choose(value){answers[index]=value;if(index<questions.length-1){index++;render()}else showResult()}
+    function showResult(){
+      const score=answers.reduce((a,b)=>a+b,0);
+      let plan,color,heading,copy,reasons;
+      if(score<=4){
+        plan="builder";color="green";heading="LAAP Builder is your best starting point.";
+        copy="Your foundation is fairly manageable. Builder gives you one organized place for formation guidance, compliance tracking, and business records.";
+        reasons=["A simple foundation without unnecessary complexity","Full LAAP Console access","Formation guidance, compliance tracking, and Document Vault"];
+      }else if(score<=10){
+        plan="growth";color="gold";heading="LAAP Growth is your recommended plan.";
+        copy="You need more than a filing tool. Growth adds active guidance from Francis, Aria, Grace, and Rex to help organize the areas requiring regular attention.";
+        reasons=["Four core LAAP specialists","Deadline reminders and annual report support","The strongest fit for ongoing guided administration"];
+      }else{
+        plan="elite";color="red";heading="LAAP Elite is your recommended plan.";
+        copy="Your organization has several active or advanced needs. Elite provides all six LAAP specialists, including Lex and Nova, plus dedicated support.";
+        reasons=["All six LAAP specialists","Documentation, business structure, legacy, and succession support","Dedicated account management and premium priority support"];
+      }
+      document.getElementById("quiz").style.display="none";
+      const result=document.getElementById("result");result.classList.add("show");
+      const status=document.getElementById("status");status.className="status "+color;status.textContent=color==="green"?"Foundation Ready":color==="gold"?"Guided Growth":"Priority Support";
+      document.getElementById("resultTitle").textContent=heading;
+      document.getElementById("resultCopy").textContent=copy;
+      document.getElementById("resultWhy").innerHTML=reasons.map(x=>"<li>"+x+"</li>").join("");
+      document.getElementById("planButton").href="/welcome-page/index.html?recommend="+plan+"#pricing";
+      result.scrollIntoView({behavior:"smooth",block:"center"});
+    }
+    back.onclick=()=>{if(index>0){index--;render()}};
+    document.getElementById("restartButton").onclick=()=>{answers=[];index=0;document.getElementById("result").classList.remove("show");document.getElementById("quiz").style.display="block";render()};
+    render();
+  </script>
+</body>
+</html>
