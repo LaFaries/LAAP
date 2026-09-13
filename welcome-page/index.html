@@ -503,6 +503,24 @@
     .afc-role { font-size: 12px; color: var(--gold); font-weight: 500; margin-bottom: 4px; }
     .afc-desc { font-size: 13px; color: var(--muted); line-height: 1.6; flex: 1; }
     .afc-cta { font-size: 12px; color: var(--gold-light); margin-top: 8px; font-weight: 600; }
+    .agent-intro-video {
+      width: 100%; aspect-ratio: 3 / 4; object-fit: cover;
+      border-radius: 12px; background: #05070d; margin-bottom: 12px;
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .afc-chat-link {
+      display: inline-flex; align-items: center; width: fit-content;
+      color: var(--gold-light); font-size: 12px; font-weight: 700;
+      text-decoration: none; margin-top: 8px;
+    }
+    .afc-chat-link:hover { color: #fff0b5; }
+    .agent-addon-note {
+      max-width: 1000px; margin: 28px auto 0; padding: 18px 20px;
+      border: 1px solid rgba(201,168,76,.25); border-radius: 14px;
+      background: rgba(201,168,76,.07); color: var(--muted);
+      font-size: 13px; line-height: 1.65; text-align: center;
+    }
+    .agent-addon-note strong { color: var(--gold-light); }
 
     @media (max-width: 900px) {
       .pricing-grid { grid-template-columns: 1fr; max-width: 480px; }
@@ -713,28 +731,28 @@
           <div class="agent-grid-2">
             <a href="https://lafariesai-7jesmycn.manus.space/agent/1" target="_blank" class="agent-card">
               <div class="agent-avatar" style="background:linear-gradient(135deg,#4a90d9,#2c5f9e)">F</div>
-              <div class="agent-info"><div class="agent-name">Francis</div><div class="agent-role">Support Specialist</div></div>
+              <div class="agent-info"><div class="agent-name">Francis</div><div class="agent-role">Formation &amp; Compliance</div></div>
               <div class="agent-status-dot green-dot"></div>
             </a>
             <a href="https://lafariesai-7jesmycn.manus.space/agent/2" target="_blank" class="agent-card">
               <div class="agent-avatar" style="background:linear-gradient(135deg,#d4854a,#9e4f2c)">A</div>
-              <div class="agent-info"><div class="agent-name">Aria</div><div class="agent-role">Sales Specialist</div></div>
+              <div class="agent-info"><div class="agent-name">Aria</div><div class="agent-role">Administration &amp; Workflows</div></div>
               <div class="agent-status-dot green-dot"></div>
             </a>
             <a href="https://lafariesai-7jesmycn.manus.space/agent/3" target="_blank" class="agent-card">
               <div class="agent-avatar" style="background:linear-gradient(135deg,#5a9e6f,#2c7a45)">G</div>
-              <div class="agent-info"><div class="agent-name">Grace</div><div class="agent-role">Scheduling Coordinator</div></div>
+              <div class="agent-info"><div class="agent-name">Grace</div><div class="agent-role">Ministry &amp; Nonprofit Support</div></div>
               <div class="agent-status-dot green-dot"></div>
             </a>
             <a href="https://lafariesai-7jesmycn.manus.space/agent/4" target="_blank" class="agent-card">
               <div class="agent-avatar" style="background:linear-gradient(135deg,#9e6fd4,#5c2c9e)">R</div>
-              <div class="agent-info"><div class="agent-name">Rex</div><div class="agent-role">Operations Manager</div></div>
+              <div class="agent-info"><div class="agent-name">Rex</div><div class="agent-role">Research &amp; Strategic Intelligence</div></div>
               <div class="agent-status-dot green-dot"></div>
             </a>
           </div>
           <div class="agent-locked-row">
-            <span class="locked-agent">🔒 Lex — Legal Advisor</span>
-            <span class="locked-agent">🔒 Nova — Marketing Strategist</span>
+            <span class="locked-agent">🔒 Lex — Legal Documentation &amp; Business Structure</span>
+            <span class="locked-agent">🔒 Nova — Legacy &amp; Succession Planning</span>
             <span class="unlock-hint">Unlock with Elite ↑</span>
           </div>
         </div>
@@ -788,12 +806,12 @@
             </a>
             <a href="https://lafariesai-7jesmycn.manus.space/agent/5" target="_blank" class="agent-card elite-agent gold-agent">
               <div class="agent-avatar" style="background:linear-gradient(135deg,#C9A84C,#9a7230)">L</div>
-              <div class="agent-info"><div class="agent-name">Lex</div><div class="agent-role">Legal & Compliance</div></div>
+              <div class="agent-info"><div class="agent-name">Lex</div><div class="agent-role">Legal Documentation &amp; Business Structure</div></div>
               <div class="agent-status-dot green-dot"></div>
             </a>
             <a href="https://lafariesai-7jesmycn.manus.space/agent/6" target="_blank" class="agent-card elite-agent gold-agent">
               <div class="agent-avatar" style="background:linear-gradient(135deg,#d44a8a,#9e2c5c)">N</div>
-              <div class="agent-info"><div class="agent-name">Nova</div><div class="agent-role">Marketing Strategist</div></div>
+              <div class="agent-info"><div class="agent-name">Nova</div><div class="agent-role">Legacy &amp; Succession Planning</div></div>
               <div class="agent-status-dot green-dot"></div>
             </a>
           </div>
@@ -818,59 +836,67 @@
 <!-- MEET YOUR AGENTS -->
 <section class="agents-section">
   <p class="section-label">Your AI Team</p>
-  <h2 class="section-title" style="margin-bottom:12px;">Meet your AI agents</h2>
-  <p class="section-sub" style="margin-bottom:56px;">Powered by Manus. Available 24/7. Each agent is a specialist — working together to run your business behind the scenes.</p>
+  <h2 class="section-title" style="margin-bottom:12px;">Meet your LAAP specialists</h2>
+  <p class="section-sub" style="margin-bottom:56px;">Six focused specialists provide guided administrative support across formation, workflows, ministry and nonprofit operations, research, documentation, and succession planning.</p>
 
   <div class="agents-grid">
-    <a href="https://lafariesai-7jesmycn.manus.space/agent/1" target="_blank" class="agent-full-card">
+    <article class="agent-full-card">
+      <video class="agent-intro-video" controls playsinline preload="metadata" poster="/assets/video/agents/francis.jpg"><source src="/assets/video/agents/francis.mp4" type="video/mp4"></video>
       <div class="afc-avatar" style="background:linear-gradient(135deg,#4a90d9,#2c5f9e)">F</div>
-      <div class="afc-tier-tag tier2-tag">Tier II+</div>
+      <div class="afc-tier-tag tier2-tag">Growth+</div>
       <div class="afc-name">Francis</div>
-      <div class="afc-role">Support Specialist</div>
-      <div class="afc-desc">Handles customer inquiries, troubleshooting, and follow-ups so nothing falls through the cracks.</div>
-      <div class="afc-cta">Chat with Francis →</div>
-    </a>
-    <a href="https://lafariesai-7jesmycn.manus.space/agent/2" target="_blank" class="agent-full-card">
+      <div class="afc-role">Formation &amp; Compliance</div>
+      <div class="afc-desc">Guides business formation, state filings, compliance requirements, and the records needed to help keep your business in good standing.</div>
+      <a href="https://lafariesai-7jesmycn.manus.space/agent/1" target="_blank" rel="noopener" class="afc-chat-link">Chat with Francis →</a>
+    </article>
+    <article class="agent-full-card">
+      <video class="agent-intro-video" controls playsinline preload="metadata" poster="/assets/video/agents/aria.jpg"><source src="/assets/video/agents/aria.mp4" type="video/mp4"></video>
       <div class="afc-avatar" style="background:linear-gradient(135deg,#d4854a,#9e4f2c)">A</div>
-      <div class="afc-tier-tag tier2-tag">Tier II+</div>
+      <div class="afc-tier-tag tier2-tag">Growth+</div>
       <div class="afc-name">Aria</div>
-      <div class="afc-role">Sales Specialist</div>
-      <div class="afc-desc">Qualifies leads, answers sales questions, and nurtures prospects into paying clients automatically.</div>
-      <div class="afc-cta">Chat with Aria →</div>
-    </a>
-    <a href="https://lafariesai-7jesmycn.manus.space/agent/3" target="_blank" class="agent-full-card">
+      <div class="afc-role">Administration &amp; Workflows</div>
+      <div class="afc-desc">Organizes administrative workflows, documents, follow-ups, and repeatable processes so everyday operations stay structured.</div>
+      <a href="https://lafariesai-7jesmycn.manus.space/agent/2" target="_blank" rel="noopener" class="afc-chat-link">Chat with Aria →</a>
+    </article>
+    <article class="agent-full-card">
+      <video class="agent-intro-video" controls playsinline preload="metadata" poster="/assets/video/agents/grace.jpg"><source src="/assets/video/agents/grace.mp4" type="video/mp4"></video>
       <div class="afc-avatar" style="background:linear-gradient(135deg,#5a9e6f,#2c7a45)">G</div>
-      <div class="afc-tier-tag tier2-tag">Tier II+</div>
+      <div class="afc-tier-tag tier2-tag">Growth+</div>
       <div class="afc-name">Grace</div>
-      <div class="afc-role">Scheduling Coordinator</div>
-      <div class="afc-desc">Books appointments, manages your calendar, and sends reminders — zero back-and-forth needed.</div>
-      <div class="afc-cta">Chat with Grace →</div>
-    </a>
-    <a href="https://lafariesai-7jesmycn.manus.space/agent/4" target="_blank" class="agent-full-card">
+      <div class="afc-role">Ministry &amp; Nonprofit Support</div>
+      <div class="afc-desc">Supports ministry and nonprofit administration, governance workflows, organizational records, and faith-based structure.</div>
+      <a href="https://lafariesai-7jesmycn.manus.space/agent/3" target="_blank" rel="noopener" class="afc-chat-link">Chat with Grace →</a>
+    </article>
+    <article class="agent-full-card">
+      <video class="agent-intro-video" controls playsinline preload="metadata" poster="/assets/video/agents/rex.jpg"><source src="/assets/video/agents/rex.mp4" type="video/mp4"></video>
       <div class="afc-avatar" style="background:linear-gradient(135deg,#9e6fd4,#5c2c9e)">R</div>
-      <div class="afc-tier-tag tier2-tag">Tier II+</div>
+      <div class="afc-tier-tag tier2-tag">Growth+</div>
       <div class="afc-name">Rex</div>
-      <div class="afc-role">Operations Manager</div>
-      <div class="afc-desc">Tracks tasks, monitors workflows, and keeps your operations running smoothly day to day.</div>
-      <div class="afc-cta">Chat with Rex →</div>
-    </a>
-    <a href="https://lafariesai-7jesmycn.manus.space/agent/5" target="_blank" class="agent-full-card gold-full-card">
+      <div class="afc-role">Research &amp; Strategic Intelligence</div>
+      <div class="afc-desc">Researches requirements, opportunities, and business information to support clearer, better-informed decisions.</div>
+      <a href="https://lafariesai-7jesmycn.manus.space/agent/4" target="_blank" rel="noopener" class="afc-chat-link">Chat with Rex →</a>
+    </article>
+    <article class="agent-full-card gold-full-card">
+      <video class="agent-intro-video" controls playsinline preload="metadata" poster="/assets/video/agents/lex.jpg"><source src="/assets/video/agents/lex.mp4" type="video/mp4"></video>
       <div class="afc-avatar" style="background:linear-gradient(135deg,#C9A84C,#9a7230)">L</div>
       <div class="afc-tier-tag tier3-tag">Elite Only</div>
       <div class="afc-name">Lex</div>
-      <div class="afc-role">Legal & Compliance Advisor</div>
-      <div class="afc-desc">Guides you through compliance requirements, filing obligations, and legal questions for your business.</div>
-      <div class="afc-cta">Chat with Lex →</div>
-    </a>
-    <a href="https://lafariesai-7jesmycn.manus.space/agent/6" target="_blank" class="agent-full-card gold-full-card">
+      <div class="afc-role">Legal Documentation &amp; Business Structure</div>
+      <div class="afc-desc">Organizes business-structure information and document frameworks. Lex provides operational guidance, not legal advice.</div>
+      <a href="https://lafariesai-7jesmycn.manus.space/agent/5" target="_blank" rel="noopener" class="afc-chat-link">Chat with Lex →</a>
+    </article>
+    <article class="agent-full-card gold-full-card">
+      <video class="agent-intro-video" controls playsinline preload="metadata" poster="/assets/video/agents/nova.jpg"><source src="/assets/video/agents/nova.mp4" type="video/mp4"></video>
       <div class="afc-avatar" style="background:linear-gradient(135deg,#d44a8a,#9e2c5c)">N</div>
       <div class="afc-tier-tag tier3-tag">Elite Only</div>
       <div class="afc-name">Nova</div>
-      <div class="afc-role">Marketing Strategist</div>
-      <div class="afc-desc">Builds your marketing strategy, content plans, and growth campaigns — tailored to your business.</div>
-      <div class="afc-cta">Chat with Nova →</div>
-    </a>
+      <div class="afc-role">Legacy &amp; Succession Planning</div>
+      <div class="afc-desc">Helps organize succession plans, continuity records, and legacy documentation so your work can continue beyond you.</div>
+      <a href="https://lafariesai-7jesmycn.manus.space/agent/6" target="_blank" rel="noopener" class="afc-chat-link">Chat with Nova →</a>
+    </article>
   </div>
+
+  <p class="agent-addon-note"><strong>Samantha — YouTube Strategy &amp; Growth</strong> is an optional add-on. She is separate from the six LAAP specialists and is not included in Builder, Growth, or Elite.</p>
 </section>
 
 <!-- PRICING -->
@@ -887,17 +913,13 @@
       <h3 class="plan-name">LAAP Builder</h3>
       <p class="plan-tagline">Essential formation and compliance tools for new businesses getting started right.</p>
       <div class="plan-price">
-        <span class="was">Was $99/mo</span>
         <span class="amount">$79</span><span class="period"> / month</span>
       </div>
       <ul class="plan-features">
         <li>Full LAAP Console access</li>
         <li>Business formation guidance</li>
         <li>Compliance tracking</li>
-        <li>All DIY templates unlocked</li>
         <li>Document Vault</li>
-        <li>Priority admin support</li>
-        <li>Annual maintenance included</li>
       </ul>
       <div class="paypal-wrap" id="paypal-builder"></div>
       <div class="status" id="status-builder"></div>
@@ -911,17 +933,14 @@
       <h3 class="plan-name">LAAP Growth</h3>
       <p class="plan-tagline">Guided compliance, document management, and AI support for growing businesses.</p>
       <div class="plan-price">
-        <span class="was">Was $199/mo</span>
         <span class="amount">$149</span><span class="period"> / month</span>
       </div>
       <ul class="plan-features">
         <li>Everything in Builder</li>
-        <li>AI Business Agents (24/7)</li>
+        <li>Francis, Aria, Grace, and Rex</li>
         <li>Deadline reminder system</li>
         <li>Registered agent coverage</li>
         <li>Annual report filings</li>
-        <li>Lead follow-up automation</li>
-        <li>Expert access (priority)</li>
       </ul>
       <div class="paypal-wrap" id="paypal-growth"></div>
       <div class="status" id="status-growth"></div>
@@ -934,17 +953,13 @@
       <h3 class="plan-name">LAAP Elite</h3>
       <p class="plan-tagline">Full-service automation and dedicated expert support for established businesses.</p>
       <div class="plan-price">
-        <span class="was">Was $349/mo</span>
         <span class="amount">$199</span><span class="period"> / month</span>
       </div>
       <ul class="plan-features">
         <li>Everything in Growth</li>
+        <li>All six LAAP specialists, including Lex and Nova</li>
         <li>Dedicated account manager</li>
-        <li>Full compliance automation</li>
-        <li>Multi-entity support</li>
-        <li>Custom AI agent setup</li>
-        <li>White-glove onboarding</li>
-        <li>Monthly strategy calls</li>
+        <li>Premium priority support</li>
       </ul>
       <div class="paypal-wrap" id="paypal-elite"></div>
       <div class="status" id="status-elite"></div>
