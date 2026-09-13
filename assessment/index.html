@@ -142,7 +142,7 @@
       document.getElementById("resultTitle").textContent=heading;
       document.getElementById("resultCopy").textContent=copy;
       document.getElementById("resultWhy").innerHTML=reasons.map(x=>"<li>"+x+"</li>").join("");
-      document.getElementById("planButton").href="/welcome-page/index.html?recommend="+plan+"#pricing";
+      document.getElementById("planButton").href="/welcome-page/index.html?recommend="+plan+"#plan-"+plan;
       result.scrollIntoView({behavior:"smooth",block:"center"});
     }
     back.onclick=()=>{if(index>0){index--;render()}};
