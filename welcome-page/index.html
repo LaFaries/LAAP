@@ -92,7 +92,44 @@
     .hero-divider {
       width: 60px; height: 1px;
       background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      margin: 0 auto 48px;
+      margin: 0 auto 30px;
+    }
+    .hero-actions {
+      display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .journey-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 48px; padding: 0 24px; border-radius: 999px;
+      font-size: 13px; font-weight: 800; text-decoration: none;
+      letter-spacing: .02em; transition: transform .2s, border-color .2s;
+    }
+    .journey-btn:hover { transform: translateY(-2px); }
+    .journey-btn.primary { color: #070b18; background: linear-gradient(135deg,var(--gold),var(--gold-light)); }
+    .journey-btn.secondary { color: var(--gold-light); border: 1px solid rgba(201,168,76,.45); background: rgba(201,168,76,.06); }
+    .hero-guidance { color: rgba(255,255,255,.55); font-size: 12px; }
+    .quick-start {
+      max-width: 900px; margin: -24px auto 48px; padding: 0 24px; position: relative; z-index: 3;
+    }
+    .quick-start-title { text-align: center; font-family: var(--heading); font-size: 25px; margin-bottom: 18px; }
+    .quick-start-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+    .quick-choice {
+      display: block; min-height: 142px; padding: 24px 20px; border-radius: 18px;
+      background: rgba(14,19,39,.96); border: 1px solid rgba(255,255,255,.09);
+      color: #fff; text-decoration: none; text-align: center; transition: .2s;
+    }
+    .quick-choice:hover { transform: translateY(-3px); border-color: rgba(201,168,76,.5); }
+    .quick-choice strong { display:block; color: var(--gold-light); font-family:var(--heading); font-size:19px; margin:8px 0; }
+    .quick-choice span { display:block; color:var(--muted); font-size:12px; line-height:1.5; }
+    .quick-icon { font-size: 24px; }
+    .plan-card.recommended-plan {
+      border-color: #f3cf6e; box-shadow: 0 0 0 3px rgba(201,168,76,.18), 0 20px 60px rgba(201,168,76,.18);
+    }
+    .recommendation-flag {
+      margin: -14px 0 18px; padding: 10px 12px; border-radius: 10px;
+      color: #070b18; background: linear-gradient(135deg,var(--gold),var(--gold-light));
+      font-size: 11px; font-weight: 900; text-align: center; letter-spacing: .05em;
+      text-transform: uppercase;
     }
 
     /* WHAT LAAP DOES */
@@ -528,6 +565,7 @@
       .features-grid { grid-template-columns: 1fr; }
       .path-step:not(:last-child)::after { display: none; }
       .agents-grid { grid-template-columns: 1fr 1fr; }
+      .quick-start-grid { grid-template-columns: 1fr; }
       .agent-grid-3 { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 600px) {
@@ -562,9 +600,35 @@
 <!-- HERO -->
 <section class="hero">
   <span class="hero-eyebrow">LaFaries Administrative Automation Platform</span>
-  <h1>Welcome — you're<br>in the right place.</h1>
-  <p>The LAAP Suite™ guides you step-by-step through business administration with clarity and real support. Choose a plan below and enter your LAAP Console where guidance continues.</p>
+  <h1>Stop running your business<br>from scattered systems.</h1>
+  <p>LAAP Suite™ gives small businesses, ministries, nonprofits, and entrepreneurs the structure of an administrative department—without leaving you to figure out what comes next.</p>
   <div class="hero-divider"></div>
+  <div class="hero-actions">
+    <a class="journey-btn primary" href="/assessment/">Take the Free Business Systems Assessment</a>
+    <a class="journey-btn secondary" href="#agent-introductions">Watch LAAP Work</a>
+  </div>
+  <div class="hero-guidance">About 2 minutes · Immediate result · No technical experience required</div>
+</section>
+
+<section class="quick-start" aria-labelledby="quick-start-heading">
+  <h2 class="quick-start-title" id="quick-start-heading">What would you like to do?</h2>
+  <div class="quick-start-grid">
+    <a class="quick-choice" href="/assessment/">
+      <span class="quick-icon" aria-hidden="true">✓</span>
+      <strong>Help me choose</strong>
+      <span>Answer a few simple questions and receive one clear recommendation.</span>
+    </a>
+    <a class="quick-choice" href="#agent-introductions">
+      <span class="quick-icon" aria-hidden="true">▶</span>
+      <strong>Show me LAAP</strong>
+      <span>Meet the specialists and see how they can help.</span>
+    </a>
+    <a class="quick-choice" href="#pricing">
+      <span class="quick-icon" aria-hidden="true">→</span>
+      <strong>I know my plan</strong>
+      <span>Go directly to Builder, Growth, and Elite.</span>
+    </a>
+  </div>
 </section>
 
 <!-- WHAT LAAP DOES -->
@@ -633,25 +697,18 @@
 
 <!-- PATH -->
 <section class="path-section">
-  <p class="section-label">How It Works</p>
-  <h2 class="section-title" style="margin-bottom:48px;">Your path is simple</h2>
+  <p class="section-label">Your Guided LAAP Path</p>
+  <h2 class="section-title" style="margin-bottom:12px;">You never have to figure out what comes next</h2>
+  <p class="section-sub" style="margin-bottom:48px;">Begin with your needs—not a price chart. LAAP identifies the right level of support and guides you from assessment through implementation.</p>
   <div class="path-steps">
-    <div class="path-step">
-      <div class="step-num">1</div>
-      <h3>Tell us about your business</h3>
-    </div>
-    <div class="path-step">
-      <div class="step-num">2</div>
-      <h3>Enter your Console</h3>
-    </div>
-    <div class="path-step">
-      <div class="step-num">3</div>
-      <h3>Complete setup with guidance</h3>
-    </div>
-    <div class="path-step">
-      <div class="step-num">4</div>
-      <h3>Stay organized and supported</h3>
-    </div>
+    <div class="path-step"><div class="step-num">1</div><h3>Take the free assessment</h3></div>
+    <div class="path-step"><div class="step-num">2</div><h3>Receive your personalized result</h3></div>
+    <div class="path-step"><div class="step-num">3</div><h3>See your recommended LAAP plan</h3></div>
+    <div class="path-step"><div class="step-num">4</div><h3>Complete guided setup</h3></div>
+  </div>
+  <div class="hero-actions" style="margin-top:42px;margin-bottom:0;">
+    <a class="journey-btn primary" href="/assessment/">Start My Assessment</a>
+    <a class="journey-btn secondary" href="https://lafariesmortimerllc.com/contact">Request a Consultation</a>
   </div>
 </section>
 
@@ -786,22 +843,22 @@
           <div class="agent-grid-3">
             <a href="https://lafariesai-7jesmycn.manus.space/agent/1" target="_blank" class="agent-card elite-agent">
               <div class="agent-avatar" style="background:linear-gradient(135deg,#4a90d9,#2c5f9e)">F</div>
-              <div class="agent-info"><div class="agent-name">Francis</div><div class="agent-role">Support</div></div>
+              <div class="agent-info"><div class="agent-name">Francis</div><div class="agent-role">Formation &amp; Compliance</div></div>
               <div class="agent-status-dot green-dot"></div>
             </a>
             <a href="https://lafariesai-7jesmycn.manus.space/agent/2" target="_blank" class="agent-card elite-agent">
               <div class="agent-avatar" style="background:linear-gradient(135deg,#d4854a,#9e4f2c)">A</div>
-              <div class="agent-info"><div class="agent-name">Aria</div><div class="agent-role">Sales</div></div>
+              <div class="agent-info"><div class="agent-name">Aria</div><div class="agent-role">Administration &amp; Workflows</div></div>
               <div class="agent-status-dot green-dot"></div>
             </a>
             <a href="https://lafariesai-7jesmycn.manus.space/agent/3" target="_blank" class="agent-card elite-agent">
               <div class="agent-avatar" style="background:linear-gradient(135deg,#5a9e6f,#2c7a45)">G</div>
-              <div class="agent-info"><div class="agent-name">Grace</div><div class="agent-role">Scheduling</div></div>
+              <div class="agent-info"><div class="agent-name">Grace</div><div class="agent-role">Ministry &amp; Nonprofit Support</div></div>
               <div class="agent-status-dot green-dot"></div>
             </a>
             <a href="https://lafariesai-7jesmycn.manus.space/agent/4" target="_blank" class="agent-card elite-agent">
               <div class="agent-avatar" style="background:linear-gradient(135deg,#9e6fd4,#5c2c9e)">R</div>
-              <div class="agent-info"><div class="agent-name">Rex</div><div class="agent-role">Operations</div></div>
+              <div class="agent-info"><div class="agent-name">Rex</div><div class="agent-role">Research &amp; Strategic Intelligence</div></div>
               <div class="agent-status-dot green-dot"></div>
             </a>
             <a href="https://lafariesai-7jesmycn.manus.space/agent/5" target="_blank" class="agent-card elite-agent gold-agent">
@@ -834,7 +891,7 @@
 </section>
 
 <!-- MEET YOUR AGENTS -->
-<section class="agents-section">
+<section class="agents-section" id="agent-introductions">
   <p class="section-label">Your AI Team</p>
   <h2 class="section-title" style="margin-bottom:12px;">Meet your LAAP specialists</h2>
   <p class="section-sub" style="margin-bottom:56px;">Six focused specialists provide guided administrative support across formation, workflows, ministry and nonprofit operations, research, documentation, and succession planning.</p>
@@ -903,12 +960,15 @@
 <section class="pricing-section" id="pricing">
   <p class="section-label">Choose Your Plan</p>
   <h2 class="section-title" style="margin-bottom:12px;">Simple, transparent pricing</h2>
-  <p class="section-sub" style="margin-bottom:64px;">Every plan includes full LAAP Console access. Upgrade or cancel anytime.</p>
+  <p class="section-sub" style="margin-bottom:32px;">Your assessment recommends the plan that matches your present needs. Growth is the best fit for many organizations that need active, guided support.</p>
+  <div class="hero-actions" style="margin-bottom:64px;">
+    <a class="journey-btn secondary" href="/assessment/">Not sure? Take the free assessment</a>
+  </div>
 
   <div class="pricing-grid">
 
     <!-- BUILDER -->
-    <div class="plan-card">
+    <div class="plan-card" data-plan="builder">
       <p class="plan-tier">Tier I</p>
       <h3 class="plan-name">LAAP Builder</h3>
       <p class="plan-tagline">Essential formation and compliance tools for new businesses getting started right.</p>
@@ -927,7 +987,7 @@
     </div>
 
     <!-- GROWTH - FEATURED -->
-    <div class="plan-card featured">
+    <div class="plan-card featured" data-plan="growth">
       <span class="plan-badge">Most Popular</span>
       <p class="plan-tier">Tier II</p>
       <h3 class="plan-name">LAAP Growth</h3>
@@ -948,7 +1008,7 @@
     </div>
 
     <!-- ELITE -->
-    <div class="plan-card">
+    <div class="plan-card" data-plan="elite">
       <p class="plan-tier">Tier III</p>
       <h3 class="plan-name">LAAP Elite</h3>
       <p class="plan-tagline">Full-service automation and dedicated expert support for established businesses.</p>
@@ -1017,6 +1077,15 @@
   }
 
   window.addEventListener('load', function() {
+    const recommendation = new URLSearchParams(window.location.search).get('recommend');
+    const recommendedCard = recommendation && document.querySelector('[data-plan="' + recommendation + '"]');
+    if (recommendedCard) {
+      recommendedCard.classList.add('recommended-plan');
+      const flag = document.createElement('div');
+      flag.className = 'recommendation-flag';
+      flag.textContent = 'Recommended from your assessment';
+      recommendedCard.insertBefore(flag, recommendedCard.firstChild);
+    }
     initButton('paypal-builder', 'P-8FP51663WY2299235NGGRYOQ', 'status-builder', 'Builder');
     initButton('paypal-growth',  'P-8LY060363C748960GNGZOIUQ', 'status-growth',  'Growth');
     initButton('paypal-elite',   'P-4HY83171XK551225MNGZOLBA', 'status-elite',   'Elite');
