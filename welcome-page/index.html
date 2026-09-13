@@ -231,6 +231,7 @@
       border-radius: 24px;
       padding: 40px 32px;
       position: relative;
+      scroll-margin-top: 96px;
       transition: transform .3s, box-shadow .3s;
     }
     .plan-card:hover {
@@ -569,11 +570,20 @@
       .agent-grid-3 { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 600px) {
-      .nav { padding: 12px 20px; }
+      .nav { padding: 10px 14px; gap: 10px; }
+      .brand { gap: 8px; min-width: 0; }
+      .brand img { width: 38px; height: 38px; }
+      .brand-text strong { font-size: 0; white-space: nowrap; }
+      .brand-text strong::after { content: "LAAP Suite™"; font-size: 14px; }
+      .brand-text span { display: none; }
+      .header-nav { display: flex; align-items: center; gap: 2px; }
+      .header-nav a { padding: 6px 8px; font-size: 11px; }
+      .btn-help { padding: 8px 11px; font-size: 11px; }
       .hero { padding: 70px 20px 60px; }
       .pricing-section { padding: 70px 20px; }
       .agents-grid { grid-template-columns: 1fr; }
       .agent-grid-2, .agent-grid-3 { grid-template-columns: 1fr; }
+      .plan-card { scroll-margin-top: 76px; }
     }
   </style>
 </head>
@@ -751,7 +761,7 @@
   <div class="pricing-grid">
 
     <!-- BUILDER -->
-    <div class="plan-card" data-plan="builder">
+    <div class="plan-card" data-plan="builder" id="plan-builder">
       <p class="plan-tier">Tier I</p>
       <h3 class="plan-name">LAAP Builder</h3>
       <p class="plan-tagline">Essential formation and compliance tools for new businesses getting started right.</p>
@@ -770,7 +780,7 @@
     </div>
 
     <!-- GROWTH - FEATURED -->
-    <div class="plan-card featured" data-plan="growth">
+    <div class="plan-card featured" data-plan="growth" id="plan-growth">
       <span class="plan-badge">Most Popular</span>
       <p class="plan-tier">Tier II</p>
       <h3 class="plan-name">LAAP Growth</h3>
@@ -791,7 +801,7 @@
     </div>
 
     <!-- ELITE -->
-    <div class="plan-card" data-plan="elite">
+    <div class="plan-card" data-plan="elite" id="plan-elite">
       <p class="plan-tier">Tier III</p>
       <h3 class="plan-name">LAAP Elite</h3>
       <p class="plan-tagline">Full-service automation and dedicated expert support for established businesses.</p>
@@ -863,11 +873,21 @@
     const recommendation = new URLSearchParams(window.location.search).get('recommend');
     const recommendedCard = recommendation && document.querySelector('[data-plan="' + recommendation + '"]');
     if (recommendedCard) {
+      const pricingSection = document.getElementById('pricing');
+      const pricingGrid = recommendedCard.parentElement;
+      const pricingTitle = pricingSection.querySelector('.section-title');
+      const pricingDescription = pricingSection.querySelector('.section-sub');
       recommendedCard.classList.add('recommended-plan');
+      pricingGrid.prepend(recommendedCard);
+      pricingTitle.textContent = 'Your recommended LAAP plan';
+      pricingDescription.textContent = 'Based on your assessment, this plan matches your current support needs. It has been placed first so there is no confusion.';
       const flag = document.createElement('div');
       flag.className = 'recommendation-flag';
-      flag.textContent = 'Recommended from your assessment';
+      flag.textContent = 'Your assessment recommendation';
       recommendedCard.insertBefore(flag, recommendedCard.firstChild);
+      requestAnimationFrame(function() {
+        recommendedCard.scrollIntoView({ block: 'start' });
+      });
     }
     initButton('paypal-builder', 'P-8FP51663WY2299235NGGRYOQ', 'status-builder', 'Builder');
     initButton('paypal-growth',  'P-8LY060363C748960GNGZOIUQ', 'status-growth',  'Growth');
